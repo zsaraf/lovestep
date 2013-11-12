@@ -23,5 +23,9 @@
 	return [window frame].size; //no change
 }
 
+- (BOOL)control:(NSControl *)control textShouldBeginEditing:(NSText *)fieldEditor {
+    NSLog(@"Text changing...");
+    return YES;
+}
 
 @end
