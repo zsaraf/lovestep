@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GCDAsyncSocket.h"
 
-@interface SocketUtil : NSObject
+@interface SocketUtil : NSObject<GCDAsyncSocketDelegate>
 
 @end

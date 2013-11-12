@@ -33,6 +33,26 @@ static SocketUtil *myInstance;
 -(void)createConnection
 {
     self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    NSError *error;
+    if (![self.socket connectToHost:@"localhost" onPort:80 error:&error]) {
+        NSLog(@"something fucked up");
+    }
+}
+
+-(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
+{
+    NSLog(@"did connect to host");
+    [sock readDataToLength:1000 withTimeout:10 tag:1];
+}
+
+-(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    NSLog(@"%@", data);
+}
+
+-(void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err
+{
+    NSLog(@"did disconnect");
 }
 
 @end
