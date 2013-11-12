@@ -657,9 +657,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0a-dk-xo5">
-                        <rect key="frame" x="133" y="120" width="215" height="33"/>
+                        <rect key="frame" x="59" y="120" width="362" height="33"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Enter your username" id="aNV-fT-7uG">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Enter your username" id="aNV-fT-7uG" customClass="RSVerticallyCenteredTextFieldCell">
                             <font key="font" size="17" name="HelveticaNeue"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -688,6 +688,8 @@
                 </subviews>
             </view>
             <connections>
+                <outlet property="continueButton" destination="Le4-h6-c8b" id="RZr-FJ-vm5"/>
+                <outlet property="promptField" destination="x0a-dk-xo5" id="mt3-qE-04M"/>
                 <outlet property="usernameField" destination="YIj-5v-IIf" id="mqc-FL-k4c"/>
             </connections>
         </window>
