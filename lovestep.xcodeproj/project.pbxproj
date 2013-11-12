@@ -18,6 +18,8 @@
 		926A965F1831F6610029BDA4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A963E1831F6610029BDA4 /* Cocoa.framework */; };
 		926A96671831F6610029BDA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 926A96651831F6610029BDA4 /* InfoPlist.strings */; };
 		926A96691831F6610029BDA4 /* lovestepTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A96681831F6610029BDA4 /* lovestepTests.m */; };
+		AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7037561831F8D0005C7730 /* LoginWindow.m */; };
+		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,10 @@
 		926A96641831F6610029BDA4 /* lovestepTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "lovestepTests-Info.plist"; sourceTree = "<group>"; };
 		926A96661831F6610029BDA4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		926A96681831F6610029BDA4 /* lovestepTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lovestepTests.m; sourceTree = "<group>"; };
+		AF7037551831F8D0005C7730 /* LoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindow.h; sourceTree = "<group>"; };
+		AF7037561831F8D0005C7730 /* LoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindow.m; sourceTree = "<group>"; };
+		AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
+		AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +121,12 @@
 		926A96441831F6610029BDA4 /* lovestep */ = {
 			isa = PBXGroup;
 			children = (
+				AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */,
+				AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */,
 				926A96501831F6610029BDA4 /* AppDelegate.h */,
 				926A96511831F6610029BDA4 /* AppDelegate.m */,
+				AF7037551831F8D0005C7730 /* LoginWindow.h */,
+				AF7037561831F8D0005C7730 /* LoginWindow.m */,
 				926A96531831F6610029BDA4 /* MainMenu.xib */,
 				926A96561831F6610029BDA4 /* Images.xcassets */,
 				926A96451831F6610029BDA4 /* Supporting Files */,
@@ -253,6 +263,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
+				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,
+				AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */,
 				926A964B1831F6610029BDA4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +399,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lovestep/lovestep-Prefix.pch";
 				INFOPLIST_FILE = "lovestep/lovestep-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -400,6 +413,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lovestep/lovestep-Prefix.pch";
 				INFOPLIST_FILE = "lovestep/lovestep-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,6 +435,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "lovestepTests/lovestepTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -439,6 +454,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lovestep/lovestep-Prefix.pch";
 				INFOPLIST_FILE = "lovestepTests/lovestepTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -464,6 +480,7 @@
 				926A966E1831F6610029BDA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		926A966F1831F6610029BDA4 /* Build configuration list for PBXNativeTarget "lovestepTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +489,7 @@
 				926A96711831F6610029BDA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
