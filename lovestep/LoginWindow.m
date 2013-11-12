@@ -24,11 +24,17 @@
 @synthesize continueButton = _continueButton;
 @synthesize hasFirstUsername = _hasFirstUsername;
 
+/*
+ * So that the user can't resize the login window
+ */
 - (NSSize)windowWillResize:(NSWindow *) window toSize:(NSSize)newSize
 {
 	return [window frame].size; //no change
 }
 
+/*
+ * Called when the user hits enter in the text field
+ */
 - (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor {
     if ([[self.usernameField stringValue] isEqualToString:@""] || !self.usernameField) {
         [self.usernameField setStringValue:@""];
@@ -39,13 +45,16 @@
     return YES;
 }
 
+/*
+ * Saves the username of the user or the partner
+ */
 - (void)saveUsername {
     if (!self.hasFirstUsername) {
         [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"username"];
         [self.continueButton setTitle:@"Finish"];
         [self.usernameField setStringValue:@""];
         self.hasFirstUsername = YES;
-        [self setupForPartner];
+        [self.promptField setStringValue:@"Enter your partner's username:"];
     } else {
         [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"partnerUsername"];
         
@@ -53,14 +62,12 @@
     }
 }
 
+/*
+ * When the login button is pressed
+ */
 - (IBAction)buttonPressed:(NSButton *)sender
 {
     [self saveUsername];
-}
-
-- (void)setupForPartner {
-    [self.promptField setStringValue:@"Enter your partner's username:"];
-    
 }
 
 @end
