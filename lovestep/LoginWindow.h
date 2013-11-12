@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface LoginWindow : NSWindow
+@interface LoginWindow : NSWindow <NSControlTextEditingDelegate>
 
 @end
