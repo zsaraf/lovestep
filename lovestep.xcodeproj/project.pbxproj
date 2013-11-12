@@ -94,10 +94,7 @@
 		926A96321831F6610029BDA4 = {
 			isa = PBXGroup;
 			children = (
-				926A967D1831FFAD0029BDA4 /* GCDAsyncSocket.h */,
-				926A967E1831FFAD0029BDA4 /* GCDAsyncSocket.m */,
-				926A967F1831FFAD0029BDA4 /* GCDAsyncUdpSocket.h */,
-				926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */,
+				926A9685183200B40029BDA4 /* GCDAsyncSocket */,
 				926A96441831F6610029BDA4 /* lovestep */,
 				926A96621831F6610029BDA4 /* lovestepTests */,
 				926A963D1831F6610029BDA4 /* Frameworks */,
@@ -181,6 +178,17 @@
 				926A96651831F6610029BDA4 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		926A9685183200B40029BDA4 /* GCDAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				926A967D1831FFAD0029BDA4 /* GCDAsyncSocket.h */,
+				926A967E1831FFAD0029BDA4 /* GCDAsyncSocket.m */,
+				926A967F1831FFAD0029BDA4 /* GCDAsyncUdpSocket.h */,
+				926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */,
+			);
+			name = GCDAsyncSocket;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
