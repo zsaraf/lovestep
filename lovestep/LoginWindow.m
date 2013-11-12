@@ -7,6 +7,7 @@
 //
 
 #import "LoginWindow.h"
+#import "SocketUtil.h"
 
 @interface LoginWindow()
 
@@ -49,7 +50,7 @@
     } else {
         [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"partnerUsername"];
         
-        // CONNECT THE SOCKET BITCH
+        [[SocketUtil instance] createConnection];
     }
 }
 

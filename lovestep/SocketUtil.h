@@ -11,4 +11,7 @@
 
 @interface SocketUtil : NSObject<GCDAsyncSocketDelegate>
 
++(SocketUtil *)instance;
+-(void)createConnection;
+
 @end
