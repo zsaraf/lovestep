@@ -34,7 +34,8 @@ static SocketUtil *myInstance;
 {
     self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     NSError *error;
-    if (![self.socket connectToHost:@"localhost" onPort:80 error:&error]) {
+    //128.12.253.4
+    if (![self.socket connectToHost:@"10.31.78.119" onPort:80 error:&error]) {
         NSLog(@"something fucked up");
     }
 }

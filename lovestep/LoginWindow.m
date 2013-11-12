@@ -58,7 +58,7 @@
         [self.promptField setStringValue:@"Enter your partner's username:"];
     } else {
         [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"partnerUsername"];
-        
+        NSLog(@"being called");
         [[SocketUtil instance] createConnection];
     }
 }
