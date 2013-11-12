@@ -38,11 +38,10 @@
  */
 - (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor {
     if ([[self.usernameField stringValue] isEqualToString:@""] || !self.usernameField) {
-        [self.usernameField setStringValue:@""];
+        [self.usernameField setStringValue:@"Don't leave this shit empty"];
+    } else {
+        [self saveUsername];
     }
-    
-    [self saveUsername];
-    
     return YES;
 }
 
