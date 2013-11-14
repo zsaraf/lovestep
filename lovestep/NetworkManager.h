@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NetworkManager : NSObject
+@protocol NetworkManagerDelegate
+
+-(void)networkManagerDidFindNetworkService:(BOOL)found;
+
+@end
+
+@interface NetworkManager : NSObject <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
+
+-(void)publishNetwork;
+-(void)searchForNetwork;
++(NetworkManager *)instance;
+
+
+@property (nonatomic, weak) id<NetworkManagerDelegate> delegate;
 
 @end
