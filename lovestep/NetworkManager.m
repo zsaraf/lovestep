@@ -79,31 +79,58 @@ static NetworkManager *myInstance;
     self.netServiceBrowser = [[NSNetServiceBrowser alloc] init];
 	
 	[self.netServiceBrowser setDelegate:self];
-	[self.netServiceBrowser searchForServicesOfType:@"_lovestep._tcp." inDomain:@""];
+	[self.netServiceBrowser searchForServicesOfType:@"_lovestep._tcp." inDomain:@"local."];
+    [self.netServiceBrowser scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:@"Cool"];
+    
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(didTimeOut:) userInfo:Nil repeats:NO];
+}
+
+-(IBAction)didTimeOut:(NSTimer *)sender
+{
+    [self.netServiceBrowser stop];
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)sender
            didFindService:(NSNetService *)netService
                moreComing:(BOOL)moreServicesComing
 {
+    NSLog(@"method is called");
 	// Connect to the first service we find
 	if (self.serverService == nil)
 	{
+        NSLog(@"kfejfke");
 		self.serverService = netService;
 		
 		[self.serverService setDelegate:self];
-		[self.serverService resolveWithTimeout:5.0];
+		[self.serverService resolveWithTimeout:3.0];
 	}
 }
 
 -(void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindDomain:(NSString *)domainString moreComing:(BOOL)moreComing
 {
     NSLog(@"huh?");
+    NSLog(@"%@", domainString);
+}
+
+-(void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveDomain:(NSString *)domainString moreComing:(BOOL)moreComing
+{
+    NSLog(@"did remove domain");
 }
 
 -(void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser
 {
+    [self.delegate networkManagerDidFindNetworkService:NO];
     NSLog(@"did stop search");
+}
+
+-(void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
+{
+    NSLog(@"will begin searching");
+}
+
+-(void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didNotSearch:(NSDictionary *)errorDict
+{
+    NSLog(@"didnotsearch");
 }
 
 -(void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict
