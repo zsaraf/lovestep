@@ -22,6 +22,7 @@
 		926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A967E1831FFAD0029BDA4 /* GCDAsyncSocket.m */; };
 		926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */; };
 		926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A96831831FFBF0029BDA4 /* Security.framework */; };
+		92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E33FF418349CE5002CB131 /* NetworkManager.m */; };
 		AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7037561831F8D0005C7730 /* LoginWindow.m */; };
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		926A967F1831FFAD0029BDA4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = CocoaAsyncSocket/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = CocoaAsyncSocket/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		926A96831831FFBF0029BDA4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		92E33FF318349CE5002CB131 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		92E33FF418349CE5002CB131 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		AF7037551831F8D0005C7730 /* LoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindow.h; sourceTree = "<group>"; };
 		AF7037561831F8D0005C7730 /* LoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindow.m; sourceTree = "<group>"; };
 		AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				926A96511831F6610029BDA4 /* AppDelegate.m */,
 				926A967A1831FE580029BDA4 /* SocketUtil.h */,
 				926A967B1831FE580029BDA4 /* SocketUtil.m */,
+				92E33FF318349CE5002CB131 /* NetworkManager.h */,
+				92E33FF418349CE5002CB131 /* NetworkManager.m */,
 				AF7037551831F8D0005C7730 /* LoginWindow.h */,
 				AF7037561831F8D0005C7730 /* LoginWindow.m */,
 				926A96531831F6610029BDA4 /* MainMenu.xib */,
@@ -289,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
 				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,

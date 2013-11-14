@@ -57,8 +57,16 @@
         [self.promptField setStringValue:@"Enter your partner's username:"];
     } else {
         [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"partnerUsername"];
-        NSLog(@"being called");
-        [[SocketUtil instance] createConnection];
+        //[[SocketUtil instance] createConnection];
+        [NetworkManager instance].delegate = self;
+        [[NetworkManager instance] searchForNetwork];
+    }
+}
+
+-(void)networkManagerDidFindNetworkService:(BOOL)found
+{
+    if (!found) {
+        [[NetworkManager instance] publishNetwork];
     }
 }
 
