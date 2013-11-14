@@ -668,7 +668,7 @@
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIj-5v-IIf">
                         <rect key="frame" x="136" y="75" width="209" height="37"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" title="franzwarning" drawsBackground="YES" id="bVx-Nq-9BQ" customClass="RSVerticallyCenteredTextFieldCell">
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" drawsBackground="YES" id="bVx-Nq-9BQ" customClass="RSVerticallyCenteredTextFieldCell">
                             <font key="font" size="17" name="HelveticaNeue"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
