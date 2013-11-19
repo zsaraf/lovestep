@@ -99,6 +99,7 @@ static NetworkManager *myInstance;
 	// Connect to the first service we find
 	if (self.serverService == nil)
 	{
+        NSLog(@"FOUND SERVICE %@", netService);
         self.didFindNetwork = YES;
 		self.serverService = netService;
 		
@@ -121,7 +122,7 @@ static NetworkManager *myInstance;
 -(void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser
 {
     [self.delegate networkManagerDidFindNetworkService:self.didFindNetwork];
-    NSLog(@"did stop search");
+    NSLog(@"did stop search, found a published network %@", self.didFindNetwork ? @"YES" : @"NO");
 }
 
 -(void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)aNetServiceBrowser
@@ -161,7 +162,7 @@ static NetworkManager *myInstance;
 
 -(void)netServiceDidStop:(NSNetService *)sender
 {
-    NSLog(@"kdnekjdne");
+    
 }
 
 -(void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
