@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSArray *connectedSockets;
 @property (nonatomic, strong) NSNetServiceBrowser *netServiceBrowser;
 @property (nonatomic, strong) NSNetService *serverService;
+@property (nonatomic, assign) BOOL didFindNetwork;
 
 @end
 
@@ -60,7 +61,7 @@ static NetworkManager *myInstance;
 		// Create and publish the bonjour service.
 		// Obviously you will be using your own custom service type.
 		
-		self.netService = [[NSNetService alloc] initWithDomain:@"local."
+		self.netService = [[NSNetService alloc] initWithDomain:@""
 		                                             type:@"_lovestep._tcp."
 		                                             name:@""
 		                                             port:port];
@@ -79,7 +80,7 @@ static NetworkManager *myInstance;
     self.netServiceBrowser = [[NSNetServiceBrowser alloc] init];
 	
 	[self.netServiceBrowser setDelegate:self];
-	[self.netServiceBrowser searchForServicesOfType:@"_lovestep._tcp." inDomain:@"local."];
+	[self.netServiceBrowser searchForServicesOfType:@"_lovestep._tcp." inDomain:@""];
     [self.netServiceBrowser scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:@"Cool"];
     
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(didTimeOut:) userInfo:Nil repeats:NO];
@@ -98,7 +99,7 @@ static NetworkManager *myInstance;
 	// Connect to the first service we find
 	if (self.serverService == nil)
 	{
-        NSLog(@"kfejfke");
+        self.didFindNetwork = YES;
 		self.serverService = netService;
 		
 		[self.serverService setDelegate:self];
@@ -119,7 +120,7 @@ static NetworkManager *myInstance;
 
 -(void)netServiceBrowserDidStopSearch:(NSNetServiceBrowser *)aNetServiceBrowser
 {
-    [self.delegate networkManagerDidFindNetworkService:NO];
+    [self.delegate networkManagerDidFindNetworkService:self.didFindNetwork];
     NSLog(@"did stop search");
 }
 
@@ -145,6 +146,7 @@ static NetworkManager *myInstance;
 
 -(void)netServiceWillPublish:(NSNetService *)sender
 {
+    NSLog(@"%@ %@ %@", sender, self.netService, self.serverService);
     NSLog(@"will publish");
 }
 
