@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -650,50 +650,43 @@
         <window title="lovestep" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" customClass="LoginWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="173"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <view key="contentView" wantsLayer="YES" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="173"/>
-                <autoresizingMask key="autoresizingMask"/>
+            <rect key="contentRect" x="335" y="390" width="585" height="310"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <view key="contentView" wantsLayer="YES" id="372" customClass="LoginView">
+                <rect key="frame" x="0.0" y="0.0" width="585" height="310"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0a-dk-xo5">
-                        <rect key="frame" x="59" y="120" width="362" height="33"/>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rc2-MO-KY4">
+                        <rect key="frame" x="136" y="68" width="312" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Enter your username" id="aNV-fT-7uG" customClass="RSVerticallyCenteredTextFieldCell">
-                            <font key="font" size="17" name="HelveticaNeue"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" drawsBackground="YES" id="zo7-Ez-1jh" customClass="RSVerticallyCenteredTextFieldCell">
+                            <font key="font" size="24" name="Menlo-Regular"/>
+                            <color key="textColor" red="0.20784315466880798" green="0.81176477670669556" blue="0.46274513006210327" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                        </textFieldCell>
+                        <connections>
+                            <outlet property="delegate" destination="371" id="e1U-Lx-WUi"/>
+                        </connections>
+                    </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HFB-C0-CXU">
+                        <rect key="frame" x="46" y="161" width="492" height="129"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="lovestepLogo" id="5OA-pE-2Ev"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ule-vY-QT1">
+                        <rect key="frame" x="32" y="115" width="521" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="enter your nickname:" id="qeS-ZL-YKn">
+                            <font key="font" size="24" name="Helvetica"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YIj-5v-IIf">
-                        <rect key="frame" x="136" y="75" width="209" height="37"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" drawsBackground="YES" id="bVx-Nq-9BQ" customClass="RSVerticallyCenteredTextFieldCell">
-                            <font key="font" size="17" name="HelveticaNeue"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <outlet property="delegate" destination="371" id="qvC-NE-gj9"/>
-                        </connections>
-                    </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Le4-h6-c8b">
-                        <rect key="frame" x="185" y="26" width="111" height="25"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="squareTextured" title="Next" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Yxb-Xb-UVa">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="buttonPressed:" target="371" id="Mnk-KJ-F6b"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <connections>
-                <outlet property="continueButton" destination="Le4-h6-c8b" id="RZr-FJ-vm5"/>
-                <outlet property="promptField" destination="x0a-dk-xo5" id="mt3-qE-04M"/>
-                <outlet property="usernameField" destination="YIj-5v-IIf" id="mqc-FL-k4c"/>
+                <outlet property="promptField" destination="ule-vY-QT1" id="roG-vG-LEK"/>
+                <outlet property="usernameField" destination="Rc2-MO-KY4" id="HZP-jR-GdL"/>
             </connections>
         </window>
         <customObject id="494" customClass="AppDelegate">
@@ -703,4 +696,7 @@
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
     </objects>
+    <resources>
+        <image name="lovestepLogo" width="500" height="125"/>
+    </resources>
 </document>

@@ -43,6 +43,7 @@
 	mIsEditingOrSelecting = YES;	
 	[super selectWithFrame:aRect inView:controlView editor:textObj delegate:anObject start:selStart length:selLength];
 	mIsEditingOrSelecting = NO;
+    [self setFocusRingType:NSFocusRingTypeNone];
 }
 
 - (void)editWithFrame:(NSRect)aRect inView:(NSView *)controlView editor:(NSText *)textObj delegate:(id)anObject event:(NSEvent *)theEvent

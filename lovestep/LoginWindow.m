@@ -7,13 +7,11 @@
 //
 
 #import "LoginWindow.h"
-#import "SocketUtil.h"
 
 @interface LoginWindow()
 
 @property (nonatomic, weak) IBOutlet NSTextField *usernameField;
 @property (nonatomic, weak) IBOutlet NSTextField *promptField;
-@property (nonatomic, weak) IBOutlet NSButton *continueButton;
 @property (nonatomic) BOOL hasFirstUsername;
 
 @end
@@ -22,7 +20,6 @@
 
 @synthesize usernameField = _usernameField;
 @synthesize promptField = _promptField;
-@synthesize continueButton = _continueButton;
 @synthesize hasFirstUsername = _hasFirstUsername;
 
 /*
@@ -30,13 +27,15 @@
  */
 - (NSSize)windowWillResize:(NSWindow *) window toSize:(NSSize)newSize
 {
+    NSLog(@"Called");
 	return [window frame].size; //no change
 }
 
 /*
  * Called when the user hits enter in the text field
  */
-- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor {
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+{
     if ([[self.usernameField stringValue] isEqualToString:@""] || !self.usernameField) {
         [self.usernameField setStringValue:@"Don't leave this shit empty"];
     } else {
@@ -48,25 +47,42 @@
 /*
  * Saves the username of the user or the partner
  */
-- (void)saveUsername {
+- (void)saveUsername
+{
     if (!self.hasFirstUsername) {
         [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"username"];
-        [self.continueButton setTitle:@"Finish"];
         [self.usernameField setStringValue:@""];
         self.hasFirstUsername = YES;
         [self.promptField setStringValue:@"Enter your partner's username:"];
     } else {
         [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"partnerUsername"];
-        //[[SocketUtil instance] createConnection];
         [NetworkManager instance].delegate = self;
         [[NetworkManager instance] searchForNetwork];
+        [self setSearchingUI];
     }
 }
 
+/*
+ * Searching for connection update in UI
+ */
+- (void)setSearchingUI
+{
+    [self.usernameField setHidden:YES];
+    [self.promptField setStringValue:@"Searching for connection..."];
+}
+
+/*
+ * Delegate method from the network manager
+ */
 -(void)networkManagerDidFindNetworkService:(BOOL)found
 {
     if (!found) {
         [[NetworkManager instance] publishNetwork];
+        [self.promptField setStringValue:@"Hosting connection - waiting for others..."];
+    } else {
+        
+        // We have the two services connected -- set them up
+        
     }
 }
 
