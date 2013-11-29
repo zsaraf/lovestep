@@ -647,17 +647,22 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="lovestep" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" customClass="LoginWindow">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="585" height="310"/>
+        <customObject id="494" customClass="AppDelegate">
+            <connections>
+                <outlet property="window" destination="371" id="532"/>
+            </connections>
+        </customObject>
+        <customObject id="420" customClass="NSFontManager"/>
+        <window title="login" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" customClass="LoginWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <rect key="contentRect" x="926" y="461" width="585" height="272"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
             <view key="contentView" wantsLayer="YES" id="372" customClass="LoginView">
-                <rect key="frame" x="0.0" y="0.0" width="585" height="310"/>
+                <rect key="frame" x="0.0" y="0.0" width="585" height="272"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rc2-MO-KY4">
-                        <rect key="frame" x="136" y="68" width="312" height="39"/>
+                        <rect key="frame" x="136" y="30" width="312" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" drawsBackground="YES" id="zo7-Ez-1jh" customClass="RSVerticallyCenteredTextFieldCell">
                             <font key="font" size="24" name="Menlo-Regular"/>
@@ -669,12 +674,12 @@
                         </connections>
                     </textField>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HFB-C0-CXU">
-                        <rect key="frame" x="46" y="161" width="492" height="129"/>
+                        <rect key="frame" x="46" y="123" width="492" height="129"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="lovestepLogo" id="5OA-pE-2Ev"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ule-vY-QT1">
-                        <rect key="frame" x="32" y="115" width="521" height="38"/>
+                        <rect key="frame" x="32" y="77" width="521" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="enter your nickname:" id="qeS-ZL-YKn">
                             <font key="font" size="24" name="Helvetica"/>
@@ -689,12 +694,6 @@
                 <outlet property="usernameField" destination="Rc2-MO-KY4" id="HZP-jR-GdL"/>
             </connections>
         </window>
-        <customObject id="494" customClass="AppDelegate">
-            <connections>
-                <outlet property="window" destination="371" id="532"/>
-            </connections>
-        </customObject>
-        <customObject id="420" customClass="NSFontManager"/>
     </objects>
     <resources>
         <image name="lovestepLogo" width="500" height="125"/>

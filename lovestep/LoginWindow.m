@@ -18,26 +18,14 @@
 
 @implementation LoginWindow
 
-@synthesize usernameField = _usernameField;
-@synthesize promptField = _promptField;
-@synthesize hasFirstUsername = _hasFirstUsername;
-
-/*
- * So that the user can't resize the login window
- */
-- (NSSize)windowWillResize:(NSWindow *) window toSize:(NSSize)newSize
-{
-    NSLog(@"Called");
-	return [window frame].size; //no change
-}
-
 /*
  * Called when the user hits enter in the text field
  */
 - (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
 {
+    NSLog(@"Called");
     if ([[self.usernameField stringValue] isEqualToString:@""] || !self.usernameField) {
-        [self.usernameField setStringValue:@"Don't leave this shit empty"];
+        [self.usernameField setStringValue:@"user1"];
     } else {
         [self saveUsername];
     }
@@ -82,16 +70,34 @@
     } else {
         
         // We have the two services connected -- set them up
-        
     }
-}
+    
+    NSWindowController *window = [[NSWindowController alloc] initWithWindowNibName:@"MainWindow"];
+    [window.window makeKeyAndOrderFront:nil];
 
-/*
- * When the login button is pressed
- */
-- (IBAction)buttonPressed:(NSButton *)sender
-{
-    [self saveUsername];
+    [self close];
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
