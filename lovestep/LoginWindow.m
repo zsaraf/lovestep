@@ -23,7 +23,6 @@
  */
 - (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
 {
-    NSLog(@"Called");
     if ([[self.usernameField stringValue] isEqualToString:@""] || !self.usernameField) {
         [self.usernameField setStringValue:@"user1"];
     } else {

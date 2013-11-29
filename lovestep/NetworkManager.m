@@ -83,7 +83,7 @@ static NetworkManager *myInstance;
 	[self.netServiceBrowser searchForServicesOfType:@"_lovestep._tcp." inDomain:@""];
     [self.netServiceBrowser scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:@"Cool"];
     
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(didTimeOut:) userInfo:Nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(didTimeOut:) userInfo:Nil repeats:NO];
 }
 
 -(IBAction)didTimeOut:(NSTimer *)sender
@@ -104,7 +104,7 @@ static NetworkManager *myInstance;
 		self.serverService = netService;
 		
 		[self.serverService setDelegate:self];
-		[self.serverService resolveWithTimeout:2.0];
+		[self.serverService resolveWithTimeout:3.0];
         [sender stop];
 	}
 }

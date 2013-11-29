@@ -695,14 +695,66 @@
                 <outlet property="usernameField" destination="Rc2-MO-KY4" id="HZP-jR-GdL"/>
             </connections>
         </window>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="ZLK-t5-wcF" customClass="MainWindow">
+        <window title="lovestep" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="ZLK-t5-wcF" customClass="MainWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="803" y="520" width="1000" height="800"/>
+            <rect key="contentRect" x="803" y="520" width="1280" height="800"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <value key="minSize" type="size" width="1280" height="800"/>
+            <value key="maxSize" type="size" width="1280" height="800"/>
             <view key="contentView" id="kwY-xz-IhL">
-                <rect key="frame" x="0.0" y="0.0" width="1000" height="800"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="1280" height="800"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hdw-Br-gHM">
+                        <rect key="frame" x="414" y="715" width="452" height="65"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="Izj-ob-5Nl"/>
+                            <constraint firstAttribute="width" constant="452" id="WTE-wk-uk4"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="lovestepLogo" id="m88-7c-HK9"/>
+                    </imageView>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXM-OI-Wlc" customClass="SequencerView">
+                        <rect key="frame" x="20" y="20" width="604" height="687"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <clipView key="contentView" id="xLa-rE-546">
+                            <rect key="frame" x="1" y="1" width="587" height="670"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view translatesAutoresizingMaskIntoConstraints="NO" id="GD6-pM-Zgm">
+                                    <rect key="frame" x="0.0" y="0.0" width="587" height="670"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="GD6-pM-Zgm" secondAttribute="trailing" id="0tS-rN-vEQ"/>
+                                <constraint firstItem="GD6-pM-Zgm" firstAttribute="top" secondItem="xLa-rE-546" secondAttribute="top" id="FfM-TA-Ltn"/>
+                                <constraint firstAttribute="bottom" secondItem="GD6-pM-Zgm" secondAttribute="bottom" id="NI3-J8-Ra8"/>
+                                <constraint firstItem="GD6-pM-Zgm" firstAttribute="leading" secondItem="xLa-rE-546" secondAttribute="leading" id="mEg-Fx-5OQ"/>
+                            </constraints>
+                        </clipView>
+                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="PBN-RW-XeT">
+                            <rect key="frame" x="1" y="671" width="587" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fZS-ZC-XeB">
+                            <rect key="frame" x="588" y="1" width="15" height="670"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YXM-OI-Wlc" firstAttribute="leading" secondItem="kwY-xz-IhL" secondAttribute="leading" constant="20" symbolic="YES" id="Bdp-5i-cHp"/>
+                    <constraint firstItem="hdw-Br-gHM" firstAttribute="centerX" secondItem="kwY-xz-IhL" secondAttribute="centerX" id="G7h-2X-Fhf"/>
+                    <constraint firstItem="hdw-Br-gHM" firstAttribute="top" secondItem="kwY-xz-IhL" secondAttribute="top" constant="20" symbolic="YES" id="RaS-LZ-QjV"/>
+                    <constraint firstItem="YXM-OI-Wlc" firstAttribute="top" secondItem="hdw-Br-gHM" secondAttribute="bottom" constant="8" symbolic="YES" id="Ze5-za-MVq"/>
+                    <constraint firstAttribute="bottom" secondItem="YXM-OI-Wlc" secondAttribute="bottom" constant="20" symbolic="YES" id="uYw-Ac-wrz"/>
+                    <constraint firstAttribute="trailing" secondItem="YXM-OI-Wlc" secondAttribute="trailing" constant="656" id="ziP-BB-MTI"/>
+                </constraints>
             </view>
+            <connections>
+                <outlet property="sequencerView" destination="YXM-OI-Wlc" id="Fq5-XQ-jQ0"/>
+            </connections>
         </window>
     </objects>
     <resources>

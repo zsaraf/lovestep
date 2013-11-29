@@ -22,6 +22,8 @@
 		926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */; };
 		926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A96831831FFBF0029BDA4 /* Security.framework */; };
 		92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E33FF418349CE5002CB131 /* NetworkManager.m */; };
+		AF64584818492C7C00E62669 /* SequencerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64584718492C7C00E62669 /* SequencerView.m */; };
+		AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF64584918493AD600E62669 /* QuartzCore.framework */; };
 		AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7037561831F8D0005C7730 /* LoginWindow.m */; };
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 		AF9122FB183C34160066AAB0 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FA183C34160066AAB0 /* LoginView.m */; };
@@ -65,6 +67,9 @@
 		926A96831831FFBF0029BDA4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		92E33FF318349CE5002CB131 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		92E33FF418349CE5002CB131 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		AF64584618492C7C00E62669 /* SequencerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerView.h; sourceTree = "<group>"; };
+		AF64584718492C7C00E62669 /* SequencerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequencerView.m; sourceTree = "<group>"; };
+		AF64584918493AD600E62669 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AF7037551831F8D0005C7730 /* LoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindow.h; sourceTree = "<group>"; };
 		AF7037561831F8D0005C7730 /* LoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindow.m; sourceTree = "<group>"; };
 		AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */,
 				926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */,
 				926A963F1831F6610029BDA4 /* Cocoa.framework in Frameworks */,
 			);
@@ -120,6 +126,7 @@
 		926A963D1831F6610029BDA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF64584918493AD600E62669 /* QuartzCore.framework */,
 				926A96831831FFBF0029BDA4 /* Security.framework */,
 				926A963E1831F6610029BDA4 /* Cocoa.framework */,
 				926A965D1831F6610029BDA4 /* XCTest.framework */,
@@ -229,6 +236,8 @@
 			children = (
 				AF9122F9183C34160066AAB0 /* LoginView.h */,
 				AF9122FA183C34160066AAB0 /* LoginView.m */,
+				AF64584618492C7C00E62669 /* SequencerView.h */,
+				AF64584718492C7C00E62669 /* SequencerView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -335,6 +344,7 @@
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
 				AF9122FE183C759D0066AAB0 /* MainWindow.m in Sources */,
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
+				AF64584818492C7C00E62669 /* SequencerView.m in Sources */,
 				AF9122FB183C34160066AAB0 /* LoginView.m in Sources */,
 				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,
 				AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */,

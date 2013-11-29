@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SequencerView.h"
 
 @interface MainWindow : NSWindow
 
