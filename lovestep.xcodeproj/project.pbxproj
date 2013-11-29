@@ -26,7 +26,6 @@
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 		AF9122FB183C34160066AAB0 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FA183C34160066AAB0 /* LoginView.m */; };
 		AF9122FE183C759D0066AAB0 /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FD183C759D0066AAB0 /* MainWindow.m */; };
-		AF912300183C7B750066AAB0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF9122FF183C7B750066AAB0 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 		AF9122FA183C34160066AAB0 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		AF9122FC183C759D0066AAB0 /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
 		AF9122FD183C759D0066AAB0 /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
-		AF9122FF183C7B750066AAB0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +146,6 @@
 				AF9122F6183C33DA0066AAB0 /* External */,
 				AF9122F5183C33D10066AAB0 /* Singletons */,
 				926A96531831F6610029BDA4 /* MainMenu.xib */,
-				AF9122FF183C7B750066AAB0 /* MainWindow.xib */,
 				926A96561831F6610029BDA4 /* Images.xcassets */,
 				926A96451831F6610029BDA4 /* Supporting Files */,
 			);
@@ -313,7 +310,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				926A96491831F6610029BDA4 /* InfoPlist.strings in Resources */,
-				AF912300183C7B750066AAB0 /* MainWindow.xib in Resources */,
 				926A96571831F6610029BDA4 /* Images.xcassets in Resources */,
 				926A964F1831F6610029BDA4 /* Credits.rtf in Resources */,
 				926A96551831F6610029BDA4 /* MainMenu.xib in Resources */,

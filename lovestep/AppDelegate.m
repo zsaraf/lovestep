@@ -13,6 +13,14 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    [self.loginWindow makeKeyAndOrderFront:nil];
+    [self.mainWindow orderOut:self];
+}
+
+- (void)didLogIn
+{
+    [self.loginWindow orderOut:self];
+    [self.mainWindow makeKeyAndOrderFront:nil];
 }
 
 @end

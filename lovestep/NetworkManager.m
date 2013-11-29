@@ -104,7 +104,7 @@ static NetworkManager *myInstance;
 		self.serverService = netService;
 		
 		[self.serverService setDelegate:self];
-		[self.serverService resolveWithTimeout:3.0];
+		[self.serverService resolveWithTimeout:2.0];
         [sender stop];
 	}
 }

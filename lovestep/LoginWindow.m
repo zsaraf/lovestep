@@ -72,10 +72,7 @@
         // We have the two services connected -- set them up
     }
     
-    NSWindowController *window = [[NSWindowController alloc] initWithWindowNibName:@"MainWindow"];
-    [window.window makeKeyAndOrderFront:nil];
-
-    [self close];
+    [(AppDelegate *)[[NSApplication sharedApplication] delegate] didLogIn];
 }
 
 @end

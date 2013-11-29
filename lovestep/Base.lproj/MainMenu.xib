@@ -649,7 +649,8 @@
         </menu>
         <customObject id="494" customClass="AppDelegate">
             <connections>
-                <outlet property="window" destination="371" id="532"/>
+                <outlet property="loginWindow" destination="371" id="V0k-mI-c2b"/>
+                <outlet property="mainWindow" destination="ZLK-t5-wcF" id="7Hk-3Z-mTe"/>
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
@@ -693,6 +694,15 @@
                 <outlet property="promptField" destination="ule-vY-QT1" id="roG-vG-LEK"/>
                 <outlet property="usernameField" destination="Rc2-MO-KY4" id="HZP-jR-GdL"/>
             </connections>
+        </window>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="ZLK-t5-wcF" customClass="MainWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="803" y="520" width="1000" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <view key="contentView" id="kwY-xz-IhL">
+                <rect key="frame" x="0.0" y="0.0" width="1000" height="800"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </view>
         </window>
     </objects>
     <resources>

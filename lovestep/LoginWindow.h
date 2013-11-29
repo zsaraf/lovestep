@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "NetworkManager.h"
+#import "MainWindow.h"
+#import "AppDelegate.h"
 
 @interface LoginWindow : NSWindow <NSControlTextEditingDelegate, NetworkManagerDelegate>
 
