@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -656,8 +656,8 @@
         <customObject id="420" customClass="NSFontManager"/>
         <window title="login" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" customClass="LoginWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="926" y="461" width="585" height="272"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <rect key="contentRect" x="855" y="461" width="585" height="272"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" wantsLayer="YES" id="372" customClass="LoginView">
                 <rect key="frame" x="0.0" y="0.0" width="585" height="272"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -697,8 +697,8 @@
         </window>
         <window title="lovestep" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="ZLK-t5-wcF" customClass="MainWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="803" y="520" width="1280" height="800"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <rect key="contentRect" x="160" y="78" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="1280" height="800"/>
             <value key="maxSize" type="size" width="1280" height="800"/>
             <view key="contentView" id="kwY-xz-IhL">
@@ -718,11 +718,11 @@
                         <rect key="frame" x="20" y="20" width="604" height="687"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="xLa-rE-546">
-                            <rect key="frame" x="1" y="1" width="587" height="670"/>
+                            <rect key="frame" x="1" y="1" width="602" height="685"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <view translatesAutoresizingMaskIntoConstraints="NO" id="GD6-pM-Zgm">
-                                    <rect key="frame" x="0.0" y="0.0" width="587" height="670"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="602" height="685"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                             </subviews>
@@ -733,12 +733,12 @@
                                 <constraint firstItem="GD6-pM-Zgm" firstAttribute="leading" secondItem="xLa-rE-546" secondAttribute="leading" id="mEg-Fx-5OQ"/>
                             </constraints>
                         </clipView>
-                        <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="PBN-RW-XeT">
-                            <rect key="frame" x="1" y="671" width="587" height="15"/>
+                        <scroller key="horizontalScroller" verticalHuggingPriority="750" id="PBN-RW-XeT">
+                            <rect key="frame" x="1" y="670" width="602" height="16"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fZS-ZC-XeB">
-                            <rect key="frame" x="588" y="1" width="15" height="670"/>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" id="fZS-ZC-XeB">
+                            <rect key="frame" x="587" y="1" width="16" height="685"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
