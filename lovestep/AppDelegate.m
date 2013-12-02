@@ -15,6 +15,8 @@
     // Insert code here to initialize your application
     [self.loginWindow makeKeyAndOrderFront:nil];
     [self.mainWindow orderOut:self];
+    
+    [self didLogIn];
 }
 
 - (void)didLogIn

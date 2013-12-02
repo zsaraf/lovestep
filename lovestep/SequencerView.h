@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <QuartzCore/QuartzCore.h>
+#import "MidiButton.h"
 
 @interface SequencerView : NSScrollView
 

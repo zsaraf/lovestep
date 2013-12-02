@@ -28,6 +28,7 @@
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 		AF9122FB183C34160066AAB0 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FA183C34160066AAB0 /* LoginView.m */; };
 		AF9122FE183C759D0066AAB0 /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FD183C759D0066AAB0 /* MainWindow.m */; };
+		AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD4D616184BFFC700F2AFEF /* MidiButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		AF9122FA183C34160066AAB0 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		AF9122FC183C759D0066AAB0 /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
 		AF9122FD183C759D0066AAB0 /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
+		AFD4D615184BFFC700F2AFEF /* MidiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiButton.h; sourceTree = "<group>"; };
+		AFD4D616184BFFC700F2AFEF /* MidiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +151,8 @@
 		926A96441831F6610029BDA4 /* lovestep */ = {
 			isa = PBXGroup;
 			children = (
+				AFD4D615184BFFC700F2AFEF /* MidiButton.h */,
+				AFD4D616184BFFC700F2AFEF /* MidiButton.m */,
 				AF9122F8183C34070066AAB0 /* Views */,
 				AF9122F7183C33F40066AAB0 /* Windows */,
 				AF9122F6183C33DA0066AAB0 /* External */,
@@ -345,6 +350,7 @@
 				AF9122FE183C759D0066AAB0 /* MainWindow.m in Sources */,
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
 				AF64584818492C7C00E62669 /* SequencerView.m in Sources */,
+				AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */,
 				AF9122FB183C34160066AAB0 /* LoginView.m in Sources */,
 				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,
 				AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */,
