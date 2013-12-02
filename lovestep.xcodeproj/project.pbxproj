@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92596355184C2DD4002FD516 /* MainWindowController.mm */; };
 		926A963F1831F6610029BDA4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A963E1831F6610029BDA4 /* Cocoa.framework */; };
 		926A96491831F6610029BDA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 926A96471831F6610029BDA4 /* InfoPlist.strings */; };
 		926A964B1831F6610029BDA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A964A1831F6610029BDA4 /* main.m */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92596354184C2DD4002FD516 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		92596355184C2DD4002FD516 /* MainWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainWindowController.mm; sourceTree = "<group>"; };
 		926A963B1831F6610029BDA4 /* lovestep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lovestep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926A963E1831F6610029BDA4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		926A96411831F6610029BDA4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -294,6 +297,8 @@
 				AF9122F9183C34160066AAB0 /* LoginView.h */,
 				AF9122FA183C34160066AAB0 /* LoginView.m */,
 				AF64584618492C7C00E62669 /* SequencerView.h */,
+				92596354184C2DD4002FD516 /* MainWindowController.h */,
+				92596355184C2DD4002FD516 /* MainWindowController.mm */,
 				AF64584718492C7C00E62669 /* SequencerView.m */,
 			);
 			name = Views;
@@ -399,6 +404,7 @@
 			files = (
 				AF84011C184C2818000D98EB /* RingBuffer.mm in Sources */,
 				AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */,
+				92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */,
 				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
 				AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */,

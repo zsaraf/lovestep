@@ -20,6 +20,7 @@
 - (void)didLogIn
 {
     [self.loginWindow orderOut:self];
+    self.wc = [[MainWindowController alloc] initWithWindow:self.mainWindow];
     [self.mainWindow makeKeyAndOrderFront:nil];
 }
 

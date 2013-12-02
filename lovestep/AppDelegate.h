@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MainWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *loginWindow;
 @property (nonatomic, weak) IBOutlet NSWindow *mainWindow;
+@property (nonatomic, strong) MainWindowController *wc;
 
 - (void)didLogIn;
 
