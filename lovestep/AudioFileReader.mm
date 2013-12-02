@@ -72,7 +72,7 @@
     free(self.holdingBuffer);
     
     delete ringBuffer;
-    
+    [super dealloc];
 }
 
 

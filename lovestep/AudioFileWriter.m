@@ -59,7 +59,7 @@ static pthread_mutex_t outputAudioFileLock;
     
     free(self.outputBuffer);
     free(self.holdingBuffer);
-    
+    [super dealloc];
 }
 
 - (id)initWithAudioFileURL:(NSURL *)urlToAudioFile samplingRate:(float)thisSamplingRate numChannels:(UInt32)thisNumChannels

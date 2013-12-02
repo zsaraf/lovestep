@@ -39,7 +39,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	
+
+
 static void CheckError(OSStatus error, const char *operation)
 {
 	if (error == noErr) return;
