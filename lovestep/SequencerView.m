@@ -10,7 +10,14 @@
 
 @interface SequencerView ()
 
+typedef struct Resolution {
+    int nominator;
+    int denominator;
+} Resolution;
+
 @property (nonatomic, strong) NSView *docView;
+@property (nonatomic) int length;
+@property (nonatomic) Resolution resolution;
 
 @end
 
@@ -21,6 +28,7 @@
 #define KEY_WIDTTH 75
 #define BLACK_KEY 0
 #define WHITE_KEY 1
+#define DEFAULT_LENGTH 32
 
 static const int keyPattern[12] = {
     WHITE_KEY,
@@ -63,6 +71,7 @@ static NSString *keyNames[12] = {
         // Initialization code here.
         // Draw the sequencer here
         [self drawKeys];
+        [self drawGrid];
     }
     return self;
 }
@@ -94,6 +103,16 @@ static NSString *keyNames[12] = {
     }
     
     [self setDocumentView:self.docView];
+}
+
+/*
+ * Draws the grid
+ */
+- (void)drawGrid
+{
+    for (int i = 0; i < NUM_KEYS; i++) {
+        
+    }
 }
 
 @end

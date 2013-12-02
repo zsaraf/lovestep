@@ -297,9 +297,9 @@
 				AF9122F9183C34160066AAB0 /* LoginView.h */,
 				AF9122FA183C34160066AAB0 /* LoginView.m */,
 				AF64584618492C7C00E62669 /* SequencerView.h */,
+				AF64584718492C7C00E62669 /* SequencerView.m */,
 				92596354184C2DD4002FD516 /* MainWindowController.h */,
 				92596355184C2DD4002FD516 /* MainWindowController.mm */,
-				AF64584718492C7C00E62669 /* SequencerView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";

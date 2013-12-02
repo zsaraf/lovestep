@@ -20,7 +20,4 @@
 
 @implementation MainWindow
 
-const Float64 kGraphSampleRate = 44100.0;
-
-
 @end

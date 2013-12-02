@@ -17,13 +17,18 @@
         self.isWhiteKey = isWhite;
         self.keyName = keyName;
         
+        [self setButtonType:NSMomentaryChangeButton];
+        
         if (self.isWhiteKey) {
             // Make it a white key
             [self setImage:[NSImage imageNamed:@"whiteKey"]];
+            [self setAlternateImage:[NSImage imageNamed:@"whiteKeyPressed"]];
             
         } else {
             // Make it a black key
             [self setImage:[NSImage imageNamed:@"blackKey"]];
+            [self setAlternateImage:[NSImage imageNamed:@"blackKeyPressed"]];
+            
         }
         [self setBordered:NO];
         
