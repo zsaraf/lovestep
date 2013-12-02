@@ -28,8 +28,8 @@
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 		AF84010E184C26F8000D98EB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF84010D184C26F8000D98EB /* Accelerate.framework */; };
 		AF840110184C2710000D98EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF84010F184C2710000D98EB /* AVFoundation.framework */; };
-		AF840119184C2818000D98EB /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF840112184C2818000D98EB /* AudioFileReader.mm */; };
-		AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF840114184C2818000D98EB /* AudioFileWriter.m */; };
+		AF840119184C2818000D98EB /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF840112184C2818000D98EB /* AudioFileReader.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF840114184C2818000D98EB /* AudioFileWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF84011B184C2818000D98EB /* Novocaine.m in Sources */ = {isa = PBXBuildFile; fileRef = AF840116184C2818000D98EB /* Novocaine.m */; };
 		AF84011C184C2818000D98EB /* RingBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF840118184C2818000D98EB /* RingBuffer.mm */; };
 		AF8C4997184C1A19006976EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C4996184C1A19006976EE /* AudioToolbox.framework */; };
