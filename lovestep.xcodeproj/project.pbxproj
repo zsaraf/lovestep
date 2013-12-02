@@ -28,12 +28,12 @@
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 		AF84010E184C26F8000D98EB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF84010D184C26F8000D98EB /* Accelerate.framework */; };
 		AF840110184C2710000D98EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF84010F184C2710000D98EB /* AVFoundation.framework */; };
+		AF840119184C2818000D98EB /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF840112184C2818000D98EB /* AudioFileReader.mm */; };
+		AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF840114184C2818000D98EB /* AudioFileWriter.m */; };
+		AF84011B184C2818000D98EB /* Novocaine.m in Sources */ = {isa = PBXBuildFile; fileRef = AF840116184C2818000D98EB /* Novocaine.m */; };
+		AF84011C184C2818000D98EB /* RingBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF840118184C2818000D98EB /* RingBuffer.mm */; };
 		AF8C4997184C1A19006976EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C4996184C1A19006976EE /* AudioToolbox.framework */; };
 		AF8C49A2184C1E3C006976EE /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C49A1184C1E3C006976EE /* AudioUnit.framework */; };
-		AF8C49AC184C24E1006976EE /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF8C49A5184C24E1006976EE /* AudioFileReader.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AF8C49AD184C24E1006976EE /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8C49A7184C24E1006976EE /* AudioFileWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AF8C49AE184C24E1006976EE /* Novocaine.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8C49A9184C24E1006976EE /* Novocaine.m */; };
-		AF8C49AF184C24E1006976EE /* RingBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF8C49AB184C24E1006976EE /* RingBuffer.mm */; };
 		AF8C49B0184C267D006976EE /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D618184C103B00F2AFEF /* CoreAudio.framework */; };
 		AF9122FB183C34160066AAB0 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FA183C34160066AAB0 /* LoginView.m */; };
 		AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FD183C759D0066AAB0 /* MainWindow.mm */; };
@@ -86,16 +86,16 @@
 		AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
 		AF84010D184C26F8000D98EB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AF84010F184C2710000D98EB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AF840111184C2818000D98EB /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileReader.h; sourceTree = "<group>"; };
+		AF840112184C2818000D98EB /* AudioFileReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFileReader.mm; sourceTree = "<group>"; };
+		AF840113184C2818000D98EB /* AudioFileWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileWriter.h; sourceTree = "<group>"; };
+		AF840114184C2818000D98EB /* AudioFileWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioFileWriter.m; sourceTree = "<group>"; };
+		AF840115184C2818000D98EB /* Novocaine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Novocaine.h; sourceTree = "<group>"; };
+		AF840116184C2818000D98EB /* Novocaine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Novocaine.m; sourceTree = "<group>"; };
+		AF840117184C2818000D98EB /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
+		AF840118184C2818000D98EB /* RingBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RingBuffer.mm; sourceTree = "<group>"; };
 		AF8C4996184C1A19006976EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AF8C49A1184C1E3C006976EE /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
-		AF8C49A4184C24E1006976EE /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileReader.h; sourceTree = "<group>"; };
-		AF8C49A5184C24E1006976EE /* AudioFileReader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioFileReader.mm; sourceTree = "<group>"; };
-		AF8C49A6184C24E1006976EE /* AudioFileWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileWriter.h; sourceTree = "<group>"; };
-		AF8C49A7184C24E1006976EE /* AudioFileWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioFileWriter.m; sourceTree = "<group>"; };
-		AF8C49A8184C24E1006976EE /* Novocaine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Novocaine.h; sourceTree = "<group>"; };
-		AF8C49A9184C24E1006976EE /* Novocaine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Novocaine.m; sourceTree = "<group>"; };
-		AF8C49AA184C24E1006976EE /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
-		AF8C49AB184C24E1006976EE /* RingBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RingBuffer.mm; sourceTree = "<group>"; };
 		AF9122F9183C34160066AAB0 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		AF9122FA183C34160066AAB0 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		AF9122FC183C759D0066AAB0 /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
@@ -241,19 +241,19 @@
 			name = GCDAsyncSocket;
 			sourceTree = "<group>";
 		};
-		AF8C49A3184C24E1006976EE /* Novocaine */ = {
+		AF84011D184C281E000D98EB /* Novocaine */ = {
 			isa = PBXGroup;
 			children = (
-				AF8C49A4184C24E1006976EE /* AudioFileReader.h */,
-				AF8C49A5184C24E1006976EE /* AudioFileReader.mm */,
-				AF8C49A6184C24E1006976EE /* AudioFileWriter.h */,
-				AF8C49A7184C24E1006976EE /* AudioFileWriter.m */,
-				AF8C49A8184C24E1006976EE /* Novocaine.h */,
-				AF8C49A9184C24E1006976EE /* Novocaine.m */,
-				AF8C49AA184C24E1006976EE /* RingBuffer.h */,
-				AF8C49AB184C24E1006976EE /* RingBuffer.mm */,
+				AF840111184C2818000D98EB /* AudioFileReader.h */,
+				AF840112184C2818000D98EB /* AudioFileReader.mm */,
+				AF840113184C2818000D98EB /* AudioFileWriter.h */,
+				AF840114184C2818000D98EB /* AudioFileWriter.m */,
+				AF840115184C2818000D98EB /* Novocaine.h */,
+				AF840116184C2818000D98EB /* Novocaine.m */,
+				AF840117184C2818000D98EB /* RingBuffer.h */,
+				AF840118184C2818000D98EB /* RingBuffer.mm */,
 			);
-			path = Novocaine;
+			name = Novocaine;
 			sourceTree = "<group>";
 		};
 		AF9122F5183C33D10066AAB0 /* Singletons */ = {
@@ -268,7 +268,7 @@
 		AF9122F6183C33DA0066AAB0 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				AF8C49A3184C24E1006976EE /* Novocaine */,
+				AF84011D184C281E000D98EB /* Novocaine */,
 				AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */,
 				AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */,
 			);
@@ -397,18 +397,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF8C49AF184C24E1006976EE /* RingBuffer.mm in Sources */,
-				AF8C49AD184C24E1006976EE /* AudioFileWriter.m in Sources */,
+				AF84011C184C2818000D98EB /* RingBuffer.mm in Sources */,
+				AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */,
 				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
 				AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */,
-				AF8C49AC184C24E1006976EE /* AudioFileReader.mm in Sources */,
+				AF840119184C2818000D98EB /* AudioFileReader.mm in Sources */,
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
 				AF64584818492C7C00E62669 /* SequencerView.m in Sources */,
 				AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */,
 				AF9122FB183C34160066AAB0 /* LoginView.m in Sources */,
 				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,
-				AF8C49AE184C24E1006976EE /* Novocaine.m in Sources */,
+				AF84011B184C2818000D98EB /* Novocaine.m in Sources */,
 				AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */,
 				926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */,
 				926A964B1831F6610029BDA4 /* main.m in Sources */,
