@@ -33,6 +33,7 @@
 		AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF840114184C2818000D98EB /* AudioFileWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AF84011B184C2818000D98EB /* Novocaine.m in Sources */ = {isa = PBXBuildFile; fileRef = AF840116184C2818000D98EB /* Novocaine.m */; };
 		AF84011C184C2818000D98EB /* RingBuffer.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF840118184C2818000D98EB /* RingBuffer.mm */; };
+		AF840120184C56A8000D98EB /* GridButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AF84011F184C56A8000D98EB /* GridButton.m */; };
 		AF8C4997184C1A19006976EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C4996184C1A19006976EE /* AudioToolbox.framework */; };
 		AF8C49A2184C1E3C006976EE /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C49A1184C1E3C006976EE /* AudioUnit.framework */; };
 		AF8C49B0184C267D006976EE /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D618184C103B00F2AFEF /* CoreAudio.framework */; };
@@ -97,6 +98,8 @@
 		AF840116184C2818000D98EB /* Novocaine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Novocaine.m; sourceTree = "<group>"; };
 		AF840117184C2818000D98EB /* RingBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingBuffer.h; sourceTree = "<group>"; };
 		AF840118184C2818000D98EB /* RingBuffer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RingBuffer.mm; sourceTree = "<group>"; };
+		AF84011E184C56A8000D98EB /* GridButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridButton.h; sourceTree = "<group>"; };
+		AF84011F184C56A8000D98EB /* GridButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridButton.m; sourceTree = "<group>"; };
 		AF8C4996184C1A19006976EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		AF8C49A1184C1E3C006976EE /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		AF9122F9183C34160066AAB0 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 			children = (
 				AFD4D615184BFFC700F2AFEF /* MidiButton.h */,
 				AFD4D616184BFFC700F2AFEF /* MidiButton.m */,
+				AF84011E184C56A8000D98EB /* GridButton.h */,
+				AF84011F184C56A8000D98EB /* GridButton.m */,
 				AF9122F9183C34160066AAB0 /* LoginView.h */,
 				AF9122FA183C34160066AAB0 /* LoginView.m */,
 				AF64584618492C7C00E62669 /* SequencerView.h */,
@@ -406,6 +411,7 @@
 				AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */,
 				92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */,
 				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
+				AF840120184C56A8000D98EB /* GridButton.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
 				AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */,
 				AF840119184C2818000D98EB /* AudioFileReader.mm in Sources */,

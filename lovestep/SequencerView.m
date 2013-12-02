@@ -7,6 +7,10 @@
 //
 
 #import "SequencerView.h"
+#import "MidiButton.h"
+#import "GridButton.h"
+
+#import <QuartzCore/QuartzCore.h>
 
 @interface SequencerView ()
 
@@ -18,16 +22,20 @@ typedef struct Resolution {
 @property (nonatomic, strong) NSView *docView;
 @property (nonatomic) int length;
 @property (nonatomic) Resolution resolution;
+@property (nonatomic, strong) NSMutableArray *midiButtons;
 
 @end
 
 @implementation SequencerView
 
-#define KEY_HEIGHT 50
 #define NUM_KEYS 48
+
+#define KEY_HEIGHT 50
 #define KEY_WIDTTH 75
+
 #define BLACK_KEY 0
 #define WHITE_KEY 1
+
 #define DEFAULT_LENGTH 32
 
 static const int keyPattern[12] = {
@@ -64,7 +72,9 @@ static NSString *keyNames[12] = {
 {
     if (self = [super initWithCoder:aDecoder]) {
         // Setup the document view
-        self.docView = [[NSView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, self.frame.size.width, KEY_HEIGHT * NUM_KEYS))];
+        self.docView = [[NSView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, (DEFAULT_LENGTH * KEY_HEIGHT) + KEY_WIDTTH, KEY_HEIGHT * NUM_KEYS))];
+        
+        self.midiButtons = [[NSMutableArray alloc] init];
         
         [self setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
     
@@ -99,6 +109,8 @@ static NSString *keyNames[12] = {
         [newKey setTitle:[NSString stringWithFormat:@"%@%d", keyName, (i/12) + 1]];
     
         [self.docView addSubview:newKey];
+        [self.midiButtons addObject:newKey];
+        
         currentY += KEY_HEIGHT;
     }
     
@@ -110,8 +122,22 @@ static NSString *keyNames[12] = {
  */
 - (void)drawGrid
 {
+    float currentY = 0.0f;
+    
     for (int i = 0; i < NUM_KEYS; i++) {
         
+        float currentX = KEY_WIDTTH;
+        
+        for (int j = 0; j < DEFAULT_LENGTH; j++) {
+            MidiButton *currentKey = [self.midiButtons objectAtIndex:i];
+            GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey];
+            [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, KEY_HEIGHT, KEY_HEIGHT))];
+            
+            [self.docView addSubview:newButton];
+            
+            currentX += KEY_HEIGHT;
+        }
+        currentY += KEY_HEIGHT;
     }
 }
 
