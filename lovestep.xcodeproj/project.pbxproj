@@ -27,8 +27,12 @@
 		AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7037561831F8D0005C7730 /* LoginWindow.m */; };
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 		AF9122FB183C34160066AAB0 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FA183C34160066AAB0 /* LoginView.m */; };
-		AF9122FE183C759D0066AAB0 /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FD183C759D0066AAB0 /* MainWindow.m */; };
+		AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FD183C759D0066AAB0 /* MainWindow.mm */; };
 		AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD4D616184BFFC700F2AFEF /* MidiButton.m */; };
+		AFD4D619184C103B00F2AFEF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D618184C103B00F2AFEF /* CoreAudio.framework */; };
+		AFD4D61B184C104000F2AFEF /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D61A184C104000F2AFEF /* CoreAudioKit.framework */; };
+		AFD4D61D184C104600F2AFEF /* libpthread.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D61C184C104600F2AFEF /* libpthread.dylib */; };
+		AFD4D621184C111200F2AFEF /* RtAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD4D61E184C111200F2AFEF /* RtAudio.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,9 +82,15 @@
 		AF9122F9183C34160066AAB0 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		AF9122FA183C34160066AAB0 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		AF9122FC183C759D0066AAB0 /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
-		AF9122FD183C759D0066AAB0 /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
+		AF9122FD183C759D0066AAB0 /* MainWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainWindow.mm; sourceTree = "<group>"; };
 		AFD4D615184BFFC700F2AFEF /* MidiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiButton.h; sourceTree = "<group>"; };
 		AFD4D616184BFFC700F2AFEF /* MidiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiButton.m; sourceTree = "<group>"; };
+		AFD4D618184C103B00F2AFEF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		AFD4D61A184C104000F2AFEF /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		AFD4D61C184C104600F2AFEF /* libpthread.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpthread.dylib; path = usr/lib/libpthread.dylib; sourceTree = SDKROOT; };
+		AFD4D61E184C111200F2AFEF /* RtAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RtAudio.cpp; sourceTree = "<group>"; };
+		AFD4D61F184C111200F2AFEF /* RtAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtAudio.h; sourceTree = "<group>"; };
+		AFD4D620184C111200F2AFEF /* RtError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtError.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD4D61D184C104600F2AFEF /* libpthread.dylib in Frameworks */,
+				AFD4D61B184C104000F2AFEF /* CoreAudioKit.framework in Frameworks */,
+				AFD4D619184C103B00F2AFEF /* CoreAudio.framework in Frameworks */,
 				AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */,
 				926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */,
 				926A963F1831F6610029BDA4 /* Cocoa.framework in Frameworks */,
@@ -129,6 +142,9 @@
 		926A963D1831F6610029BDA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFD4D61C184C104600F2AFEF /* libpthread.dylib */,
+				AFD4D61A184C104000F2AFEF /* CoreAudioKit.framework */,
+				AFD4D618184C103B00F2AFEF /* CoreAudio.framework */,
 				AF64584918493AD600E62669 /* QuartzCore.framework */,
 				926A96831831FFBF0029BDA4 /* Security.framework */,
 				926A963E1831F6610029BDA4 /* Cocoa.framework */,
@@ -217,6 +233,9 @@
 		AF9122F6183C33DA0066AAB0 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				AFD4D61E184C111200F2AFEF /* RtAudio.cpp */,
+				AFD4D61F184C111200F2AFEF /* RtAudio.h */,
+				AFD4D620184C111200F2AFEF /* RtError.h */,
 				AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */,
 				AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */,
 			);
@@ -229,7 +248,7 @@
 				AF7037551831F8D0005C7730 /* LoginWindow.h */,
 				AF7037561831F8D0005C7730 /* LoginWindow.m */,
 				AF9122FC183C759D0066AAB0 /* MainWindow.h */,
-				AF9122FD183C759D0066AAB0 /* MainWindow.m */,
+				AF9122FD183C759D0066AAB0 /* MainWindow.mm */,
 			);
 			name = Windows;
 			sourceTree = "<group>";
@@ -347,8 +366,9 @@
 			files = (
 				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
-				AF9122FE183C759D0066AAB0 /* MainWindow.m in Sources */,
+				AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */,
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
+				AFD4D621184C111200F2AFEF /* RtAudio.cpp in Sources */,
 				AF64584818492C7C00E62669 /* SequencerView.m in Sources */,
 				AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */,
 				AF9122FB183C34160066AAB0 /* LoginView.m in Sources */,
