@@ -8,9 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "SequencerView.h"
-#import "RtAudio.h"
-
 @interface MainWindow : NSWindow
 
 @end

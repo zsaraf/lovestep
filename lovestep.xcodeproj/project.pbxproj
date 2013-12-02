@@ -26,13 +26,13 @@
 		AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF64584918493AD600E62669 /* QuartzCore.framework */; };
 		AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7037561831F8D0005C7730 /* LoginWindow.m */; };
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
+		AF8C4997184C1A19006976EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C4996184C1A19006976EE /* AudioToolbox.framework */; };
+		AF8C499D184C1BF0006976EE /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF8C499B184C1BF0006976EE /* CAStreamBasicDescription.cpp */; };
+		AF8C49A0184C1DB3006976EE /* CADebugPrintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF8C499E184C1DB3006976EE /* CADebugPrintf.cpp */; };
+		AF8C49A2184C1E3C006976EE /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C49A1184C1E3C006976EE /* AudioUnit.framework */; };
 		AF9122FB183C34160066AAB0 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FA183C34160066AAB0 /* LoginView.m */; };
 		AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FD183C759D0066AAB0 /* MainWindow.mm */; };
 		AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD4D616184BFFC700F2AFEF /* MidiButton.m */; };
-		AFD4D619184C103B00F2AFEF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D618184C103B00F2AFEF /* CoreAudio.framework */; };
-		AFD4D61B184C104000F2AFEF /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D61A184C104000F2AFEF /* CoreAudioKit.framework */; };
-		AFD4D61D184C104600F2AFEF /* libpthread.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D61C184C104600F2AFEF /* libpthread.dylib */; };
-		AFD4D621184C111200F2AFEF /* RtAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFD4D61E184C111200F2AFEF /* RtAudio.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +79,15 @@
 		AF7037561831F8D0005C7730 /* LoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindow.m; sourceTree = "<group>"; };
 		AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
 		AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSVerticallyCenteredTextFieldCell.m; sourceTree = "<group>"; };
+		AF8C4996184C1A19006976EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AF8C4998184C1BF0006976EE /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		AF8C4999184C1BF0006976EE /* CAException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAException.h; sourceTree = "<group>"; };
+		AF8C499A184C1BF0006976EE /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		AF8C499B184C1BF0006976EE /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		AF8C499C184C1BF0006976EE /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		AF8C499E184C1DB3006976EE /* CADebugPrintf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CADebugPrintf.cpp; sourceTree = "<group>"; };
+		AF8C499F184C1DB3006976EE /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		AF8C49A1184C1E3C006976EE /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		AF9122F9183C34160066AAB0 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		AF9122FA183C34160066AAB0 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		AF9122FC183C759D0066AAB0 /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
@@ -88,9 +97,6 @@
 		AFD4D618184C103B00F2AFEF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		AFD4D61A184C104000F2AFEF /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		AFD4D61C184C104600F2AFEF /* libpthread.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpthread.dylib; path = usr/lib/libpthread.dylib; sourceTree = SDKROOT; };
-		AFD4D61E184C111200F2AFEF /* RtAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RtAudio.cpp; sourceTree = "<group>"; };
-		AFD4D61F184C111200F2AFEF /* RtAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtAudio.h; sourceTree = "<group>"; };
-		AFD4D620184C111200F2AFEF /* RtError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtError.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +104,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD4D61D184C104600F2AFEF /* libpthread.dylib in Frameworks */,
-				AFD4D61B184C104000F2AFEF /* CoreAudioKit.framework in Frameworks */,
-				AFD4D619184C103B00F2AFEF /* CoreAudio.framework in Frameworks */,
+				AF8C49A2184C1E3C006976EE /* AudioUnit.framework in Frameworks */,
+				AF8C4997184C1A19006976EE /* AudioToolbox.framework in Frameworks */,
 				AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */,
 				926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */,
 				926A963F1831F6610029BDA4 /* Cocoa.framework in Frameworks */,
@@ -142,6 +147,8 @@
 		926A963D1831F6610029BDA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF8C49A1184C1E3C006976EE /* AudioUnit.framework */,
+				AF8C4996184C1A19006976EE /* AudioToolbox.framework */,
 				AFD4D61C184C104600F2AFEF /* libpthread.dylib */,
 				AFD4D61A184C104000F2AFEF /* CoreAudioKit.framework */,
 				AFD4D618184C103B00F2AFEF /* CoreAudio.framework */,
@@ -233,9 +240,13 @@
 		AF9122F6183C33DA0066AAB0 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				AFD4D61E184C111200F2AFEF /* RtAudio.cpp */,
-				AFD4D61F184C111200F2AFEF /* RtAudio.h */,
-				AFD4D620184C111200F2AFEF /* RtError.h */,
+				AF8C499E184C1DB3006976EE /* CADebugPrintf.cpp */,
+				AF8C499F184C1DB3006976EE /* CADebugPrintf.h */,
+				AF8C4998184C1BF0006976EE /* CADebugMacros.h */,
+				AF8C4999184C1BF0006976EE /* CAException.h */,
+				AF8C499A184C1BF0006976EE /* CAMath.h */,
+				AF8C499B184C1BF0006976EE /* CAStreamBasicDescription.cpp */,
+				AF8C499C184C1BF0006976EE /* CAStreamBasicDescription.h */,
 				AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */,
 				AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */,
 			);
@@ -368,12 +379,13 @@
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
 				AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */,
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
-				AFD4D621184C111200F2AFEF /* RtAudio.cpp in Sources */,
 				AF64584818492C7C00E62669 /* SequencerView.m in Sources */,
 				AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */,
 				AF9122FB183C34160066AAB0 /* LoginView.m in Sources */,
 				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,
+				AF8C499D184C1BF0006976EE /* CAStreamBasicDescription.cpp in Sources */,
 				AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */,
+				AF8C49A0184C1DB3006976EE /* CADebugPrintf.cpp in Sources */,
 				926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */,
 				926A964B1831F6610029BDA4 /* main.m in Sources */,
 			);
