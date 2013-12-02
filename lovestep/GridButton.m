@@ -29,10 +29,18 @@
         // Set whether or not it is bordered
         [self setBordered:NO];
         
+        // Set when the grid button is pressed
+        [self setTarget:self];
+        [self setAction:@selector(gridButtonPressed)];
         
     }
     
     return self;
+}
+
+- (void)gridButtonPressed
+{
+    self.isOn = YES;
 }
 
 @end

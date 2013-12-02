@@ -28,7 +28,7 @@ typedef struct Resolution {
 
 @implementation SequencerView
 
-#define NUM_KEYS 48
+#define NUM_KEYS 14
 
 #define KEY_HEIGHT 50
 #define KEY_WIDTTH 75
