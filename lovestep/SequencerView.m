@@ -39,7 +39,6 @@ static const int keyPattern[12] = {
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    NSLog(@"initWithCoder called in SequencerView...");
     if (self = [super initWithCoder:aDecoder]) {
         // Setup the document view
         self.docView = [[NSView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, self.frame.size.width, KEY_HEIGHT * NUM_KEYS))];
@@ -63,10 +62,8 @@ static const int keyPattern[12] = {
 /*
  * Draws all the midi keys
  */
-- (void)drawKeys2
+- (void)drawKeys
 {
-    NSLog(@"Drawing keys...");
-    
     float currentY = 0.0f;
     
     for (int i = 0; i < NUM_KEYS; i++) {
