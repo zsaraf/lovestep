@@ -11,7 +11,8 @@
 @interface MidiButton : NSButton
 
 @property (nonatomic) BOOL isWhiteKey;
+@property (nonatomic) NSString *keyName;
 
-- (id)initKeyWithWhiteColor:(BOOL)isWhite;
+- (id)initKeyWithName:(NSString *)keyName WhiteColor:(BOOL)isWhite;
 
 @end

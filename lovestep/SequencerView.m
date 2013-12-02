@@ -17,7 +17,7 @@
 @implementation SequencerView
 
 #define KEY_HEIGHT 50
-#define NUM_KEYS 52
+#define NUM_KEYS 48
 #define KEY_WIDTTH 75
 #define BLACK_KEY 0
 #define WHITE_KEY 1
@@ -35,6 +35,21 @@ static const int keyPattern[12] = {
     WHITE_KEY,
     BLACK_KEY,
     WHITE_KEY,
+};
+
+static NSString *keyNames[12] = {
+    @"C",
+    @"C#",
+    @"D",
+    @"D#",
+    @"E",
+    @"F",
+    @"F#",
+    @"G",
+    @"G#",
+    @"A",
+    @"A#",
+    @"B"
 };
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -68,14 +83,12 @@ static const int keyPattern[12] = {
     
     for (int i = 0; i < NUM_KEYS; i++) {
         BOOL isWhiteKey = keyPattern[i%12];
-        if (i%12 == 12) {
-            if (isWhiteKey) NSLog(@"isWhiteKey");
-            else NSLog(@"isBlackKey");
-        }
+        NSString *keyName = keyNames[i%12];
         
-        MidiButton *newKey = [[MidiButton alloc] initKeyWithWhiteColor:isWhiteKey];
+        MidiButton *newKey = [[MidiButton alloc] initKeyWithName:keyName WhiteColor:isWhiteKey];
         [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, KEY_HEIGHT))];
-
+        [newKey setTitle:[NSString stringWithFormat:@"%@%d", keyName, (i/12) + 1]];
+    
         [self.docView addSubview:newKey];
         currentY += KEY_HEIGHT;
     }

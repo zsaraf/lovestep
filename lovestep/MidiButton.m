@@ -10,11 +10,12 @@
 
 @implementation MidiButton
 
-- (id)initKeyWithWhiteColor:(BOOL)isWhite
+- (id)initKeyWithName:(NSString *)keyName WhiteColor:(BOOL)isWhite
 {
     self = [super init];
     if (self) {
         self.isWhiteKey = isWhite;
+        self.keyName = keyName;
         
         if (self.isWhiteKey) {
             // Make it a white key
@@ -23,7 +24,6 @@
         } else {
             // Make it a black key
             [self setImage:[NSImage imageNamed:@"blackKey"]];
-
         }
         [self setBordered:NO];
         

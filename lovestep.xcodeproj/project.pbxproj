@@ -151,8 +151,6 @@
 		926A96441831F6610029BDA4 /* lovestep */ = {
 			isa = PBXGroup;
 			children = (
-				AFD4D615184BFFC700F2AFEF /* MidiButton.h */,
-				AFD4D616184BFFC700F2AFEF /* MidiButton.m */,
 				AF9122F8183C34070066AAB0 /* Views */,
 				AF9122F7183C33F40066AAB0 /* Windows */,
 				AF9122F6183C33DA0066AAB0 /* External */,
@@ -239,6 +237,8 @@
 		AF9122F8183C34070066AAB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AFD4D615184BFFC700F2AFEF /* MidiButton.h */,
+				AFD4D616184BFFC700F2AFEF /* MidiButton.m */,
 				AF9122F9183C34160066AAB0 /* LoginView.h */,
 				AF9122FA183C34160066AAB0 /* LoginView.m */,
 				AF64584618492C7C00E62669 /* SequencerView.h */,
