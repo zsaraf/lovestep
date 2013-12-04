@@ -8,6 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol NoteChangeDelegate
+
+-(void)noteDidChangeToNoteNumber:(NSInteger)noteNumber;
+
+@end
+
 @interface MainWindowController : NSWindowController
+
+@property (nonatomic, weak) id<NoteChangeDelegate> noteChangeDelegate;
 
 @end

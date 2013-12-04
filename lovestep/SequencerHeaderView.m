@@ -17,4 +17,9 @@
     [super drawRect:dirtyRect];
 }
 
+-(void)awakeFromNib
+{
+    [super awakeFromNib];
+}
+
 @end

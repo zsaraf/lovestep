@@ -114,4 +114,9 @@ typedef struct Resolution {
     }
 }
 
+-(void)noteDidChangeToNoteNumber:(NSInteger)noteNumber
+{
+    
+}
+
 @end

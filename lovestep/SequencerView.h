@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MainWindowController.h"
 
-@interface SequencerView : NSView
+@interface SequencerView : NSView <NoteChangeDelegate>
 
 @property (nonatomic, strong) NSMutableArray *grid;
 

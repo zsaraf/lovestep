@@ -56,9 +56,10 @@
     self.counter =0;
     
     self.currentInstrument = [[SineWave alloc] initWithSamplingRate:self.audioManager.samplingRate];
-
+    
     BeatBrain *bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:.25 numNotes:32];
     //self.mWindow.sequencerView.grid
+    self.noteChangeDelegate = self.mWindow.sequencerView;
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
          memset(data, 0, numFrames * numChannels * sizeof(float));
@@ -67,11 +68,15 @@
          
          CGFloat currentNoteLength;// = MIN(noteLength - note.frameInNote, numFrames);
          CGFloat nextNoteLength;
+         NSInteger gButtonIndex;
          if (noteLength - note.frameInNote < numFrames) {
              currentNoteLength = noteLength - note.frameInNote;
              nextNoteLength = numFrames - currentNoteLength;
+             gButtonIndex = (note.note >= bb.numNotes - 1) ? 0 : note.note + 1;
+             [wself.noteChangeDelegate noteDidChangeToNoteNumber:gButtonIndex];
          } else {
              currentNoteLength = numFrames;
+             if (note.frameInNote == 0) [wself.noteChangeDelegate noteDidChangeToNoteNumber:note.note];
          }
          wself.counter += numFrames;
          for (int i = 0; i < wself.mWindow.sequencerView.grid.count; i++) {
@@ -85,7 +90,6 @@
              }
              
              if (nextNoteLength > 0) {
-                 NSInteger gButtonIndex = (note.note >= bb.numNotes) ? 0 : note.note + 1;
                  GridButton *nextGridButton = (GridButton *)[arr objectAtIndex:gButtonIndex];
                  if (nextGridButton.isOn) {
                      for (int j = 0; j < nextNoteLength; j++) {
@@ -93,6 +97,11 @@
                          data[index] += [wself.currentInstrument valueForFrameIndex:j atFrequency:nextGridButton.midiButton.frequency];
                      }
                  }
+             }
+         }
+         for (int i = 0; i < numFrames; i++) {
+             for (int j = 1; j < numChannels; j++) {
+                 data[i * numChannels + j] = data[i * numChannels];
              }
          }
          
