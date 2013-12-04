@@ -21,6 +21,9 @@
 // Whether or ont the button is on
 @property (nonatomic) BOOL isOn;
 
+// Whether or not the button is disabled
+@property (nonatomic) BOOL isDisabled;
+
 // The view that contains the button
 @property (nonatomic, strong) SequencerView *sequencerView;
 
@@ -35,5 +38,8 @@
 
 // Add a disable state for the grid
 - (void)setDisabledState;
+
+// Set enabled state for the grid
+- (void)setEnabledState;
 
 @end

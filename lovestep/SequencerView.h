@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSMutableArray *grid;
 @property (nonatomic, weak) IBOutlet SequencerHeaderView *sequenceHeaderView;
 
+- (void)lengthDidChange:(NSInteger)newLength;
+
 @end

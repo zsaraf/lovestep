@@ -7,6 +7,7 @@
 //
 
 #import "SequencerHeaderView.h"
+#import "SequencerView.h"
 
 @interface SequencerHeaderView ()
 
@@ -48,6 +49,7 @@ void (^handleMouseDrag)(NSEvent *);
                     (self.currentResolutionIndex >= self.resolutionValues.count) self.currentResolutionIndex = self.resolutionValues.count - 1;
                 [self.resolutionField setStringValue:[NSString stringWithFormat:@"1/%d", [[self.resolutionValues objectAtIndex:self.currentResolutionIndex] intValue]]];
                 [self.delegate sequenceResolutionDidChangeToResolution:1/[[self.resolutionValues objectAtIndex:self.currentResolutionIndex] floatValue]];
+                
                 self.previousLocationChange = newPoint;
             }
         };
@@ -64,6 +66,10 @@ void (^handleMouseDrag)(NSEvent *);
                     (self.currentLengthValue > 32) self.currentLengthValue = 32;
                 [self.lengthField setStringValue:[NSString stringWithFormat:@"%ld", self.currentLengthValue]];
                 [self.delegate sequenceResolutionDidChangeToLength:self.currentLengthValue];
+                
+                // Update the sequencerview as well
+                [(SequencerView *)self.superview lengthDidChange:self.currentLengthValue];
+                
                 self.previousLocationChange = newPoint;
             }
         };

@@ -11,6 +11,7 @@
 @interface GridButton ()
 
 @property (nonatomic, strong) NSImageView *imageView;
+@property (nonatomic, strong) NSImageView *overlayImageView;
 
 @end
 
@@ -26,7 +27,8 @@
         // Setup all the vars
         self.position = position;
         self.midiButton = midiButton;
-        self.isOn = false;
+        self.isOn = NO;
+        self.isDisabled = NO;
         self.sequencerView = (SequencerView *)fromView;
         
     }
@@ -44,6 +46,12 @@
     // Setup the image view
     self.imageView = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, frameRect.size.width, frameRect.size.height)];
     [self addSubview:self.imageView];
+    
+    // Setup the overlay image view
+    self.overlayImageView = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, frameRect.size.width, frameRect.size.height)];
+    [self addSubview:self.overlayImageView];
+    
+    [self.overlayImageView setImage:nil];
     
     // Set the grid to be in the off state
     [self setOffState];
@@ -68,31 +76,23 @@
 }
 
 /*
- * Sets the grid cell in the highlighted state
+ * A grayish state to let the user know it is disabled
  */
-- (void)setHighlightedState
+- (void)setDisabledState
 {
-    [self.imageView setImage:[NSImage imageNamed:@"gridButtonHighlighted"]];
-}
-
-/*
- * Returns the grid cell to the previous state
- */
-- (void)setUnHighlightedState
-{
-    if (self.isOn) {
-        [self.imageView setImage:[NSImage imageNamed:@"gridButtonPressed"]];
-    } else {
-        [self.imageView.cell setImage:[NSImage imageNamed:@"gridButton"]];
-    }
+    self.isDisabled = YES;
+    [self.overlayImageView setImage:[NSImage imageNamed:@"gridButtonDisabled"]];
+    [self.overlayImageView setAlphaValue:0.5f];
 }
 
 /*
  * A grayish state to let the user know it is disabled
  */
-- (void)setDisabledState
+- (void)setEnabledState
 {
-    
+    self.isDisabled = NO;
+    [self.overlayImageView setImage:nil];
+
 }
 
 @end

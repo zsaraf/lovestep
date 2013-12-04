@@ -228,4 +228,27 @@ typedef struct Resolution {
     [self highlightColumn:noteNumber];
 }
 
+/*
+ * Length did cahnge to number
+ */
+- (void)lengthDidChange:(NSInteger)newLength
+{
+    for (int i = 0; i < [self.grid count]; i++) {
+        
+        for (NSInteger j = 0; j < newLength; j++) {
+            
+            // Get the gb
+            GridButton *gb = [[self.grid objectAtIndex:i] objectAtIndex:j];
+            [gb setEnabledState];
+            
+        }
+        
+        for (NSInteger j = newLength; j < DEFAULT_LENGTH; j++) {
+            // Get the gb
+            GridButton *gb = [[self.grid objectAtIndex:i] objectAtIndex:j];
+            [gb setDisabledState];
+        }
+    }
+}
+
 @end
