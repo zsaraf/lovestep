@@ -8,8 +8,17 @@
 
 #import "GridButton.h"
 
+@interface GridButton ()
+
+@property (nonatomic, strong) NSImageView *imageView;
+
+@end
+
 @implementation GridButton
 
+/*
+ * Custom init to set the vars
+ */
 - (id)initInPosition:(int)position withMidiButton:(MidiButton *)midiButton fromView:(NSView *)fromView
 {
     if (self = [super init]) {
@@ -20,34 +29,42 @@
         self.isOn = false;
         self.sequencerView = (SequencerView *)fromView;
         
-        // Set the button type
-        [self setButtonType:NSToggleButton];
-        
-        // Set the image
-        [self.cell setImage:[NSImage imageNamed:@"gridButton"]];
-        [self.cell setAlternateImage:[NSImage imageNamed:@"gridButtonPressed"]];
-        [self.cell setImageDimsWhenDisabled:YES];
-        [self.cell setHighlightsBy:NSNullCellType];
-        
-        // Set whether or not it is bordered
-        [self setBordered:NO];
-        
-        // Set when the grid button is pressed
-        [self setTarget:self];
-        [self setAction:@selector(gridButtonPressed)];
-        [self sendActionOn:NSLeftMouseDownMask];
     }
     
     return self;
 }
 
-- (void)gridButtonPressed
+/*
+ * Override set frame so we can place the image view
+ */
+- (void)setFrame:(NSRect)frameRect
 {
-    if (self.isOn) {
-        self.isOn = NO;
-    } else {
-        self.isOn = YES;
-    }
+    [super setFrame:frameRect];
+    
+    // Setup the image view
+    self.imageView = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, frameRect.size.width, frameRect.size.height)];
+    [self addSubview:self.imageView];
+    
+    // Set the grid to be in the off state
+    [self setOffState];
+}
+
+/*
+ * Sets the grid button in the off state
+ */
+- (void)setOffState
+{
+    [self.imageView.cell setImage:[NSImage imageNamed:@"gridButton"]];
+    self.isOn = NO;
+}
+
+/*
+ * Sets the grid button in the on state
+ */
+- (void)setOnState
+{
+    [self.imageView setImage:[NSImage imageNamed:@"gridButtonPressed"]];
+    self.isOn = YES;
 }
 
 @end

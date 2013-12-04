@@ -10,7 +10,7 @@
 #import "MidiButton.h"
 #import "SequencerView.h"
 
-@interface GridButton : NSButton
+@interface GridButton : NSView
 
 // The midi button which the grid is associated with
 @property (nonatomic, strong) MidiButton *midiButton;
@@ -26,5 +26,11 @@
 
 // Init method for grid button
 - (id)initInPosition:(int)position withMidiButton:(MidiButton *)midiButton fromView:(NSView *)fromView;
+
+// Set the grid in the off state
+- (void)setOffState;
+
+// Set the grid in the on state
+- (void)setOnState;
 
 @end

@@ -26,6 +26,9 @@ typedef struct Resolution {
 @property (nonatomic) Resolution resolution;
 @property (nonatomic, strong) NSMutableArray *midiButtons;
 
+@property (nonatomic) BOOL addGrid;
+@property (nonatomic) BOOL subtractGrid;
+
 @end
 
 @implementation SequencerView
@@ -112,6 +115,75 @@ typedef struct Resolution {
         
         currentY += yInc;
     }
+}
+
+- (int)rowForTouch:(NSPoint)touch
+{
+    
+    return touch.y/CELL_LENGTH;
+}
+
+- (int)colForTouch:(NSPoint)touch
+{
+    return (touch.x - KEY_WIDTTH)/ CELL_LENGTH;
+}
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+    // Get the row/col from the spot
+    NSPoint locInWindow = [theEvent locationInWindow];
+    NSPoint loc = [self convertPoint:locInWindow fromView:nil];
+    
+    int row = [self rowForTouch:loc];
+    int col = [self colForTouch:loc];
+    
+    // Get the grid button at the row and col
+    GridButton *gb = [[self.grid objectAtIndex:row] objectAtIndex:col];
+    
+    // Do the appropriate thing to it
+    if (gb.isOn) {
+        [gb setOffState];
+        self.subtractGrid = YES;
+    } else {
+        [gb setOnState];
+        self.addGrid = YES;
+    }
+    
+    NSLog(@"[%d, %d]", col, row);
+    
+}
+
+- (void)mouseDragged:(NSEvent *)theEvent
+{
+    
+    if (self.subtractGrid || self.addGrid) {
+        
+        // Get the row/col from the spot
+        NSPoint locInWindow = [theEvent locationInWindow];
+        NSPoint loc = [self convertPoint:locInWindow fromView:nil];
+        
+        int row = [self rowForTouch:loc];
+        int col = [self colForTouch:loc];
+        
+        // Get the grid button at the row and col
+        GridButton *gb = [[self.grid objectAtIndex:row] objectAtIndex:col];
+        
+        if (self.subtractGrid) {
+            [gb setOffState];
+        } else {
+            [gb setOnState];
+        }
+    }
+    
+    NSLog(@"mouseDragged...");
+}
+
+- (void)mouseUp:(NSEvent *)theEvent
+{
+    self.subtractGrid = NO;
+    self.addGrid = NO;
+    NSLog(@"mouseUp...");
+
 }
 
 @end
