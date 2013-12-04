@@ -31,7 +31,6 @@ void (^handleMouseDrag)(NSEvent *);
 
 -(void)mouseDown:(NSEvent *)theEvent
 {
-    NSLog(@"mouse down mothafuckas");
     NSPoint point = [self.superview convertPoint:[theEvent locationInWindow] fromView:nil];
             NSView *v = [self hitTest:point];
     
@@ -73,6 +72,8 @@ void (^handleMouseDrag)(NSEvent *);
                 self.previousLocationChange = newPoint;
             }
         };
+    } else {
+        handleMouseDrag = nil;
     }
 }
 
