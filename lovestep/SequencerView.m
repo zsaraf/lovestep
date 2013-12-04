@@ -95,17 +95,20 @@ static NSString *keyNames[12] = {
 {
     float currentY = 0.0f;
     float yInc = CELL_LENGTH;
+    NSInteger currentFreq = 100.0f;
 
     for (int i = 0; i < NUM_KEYS; i++) {
         BOOL isWhiteKey = keyPattern[i%12];
         NSString *keyName = keyNames[i%12];
         
-        MidiButton *newKey = [[MidiButton alloc] initKeyWithName:keyName WhiteColor:isWhiteKey];
+        MidiButton *newKey = [[MidiButton alloc] initKeyWithName:keyName WhiteColor:isWhiteKey frequency:currentFreq];
         [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, CELL_LENGTH))];
         [newKey setTitle:[NSString stringWithFormat:@"%@%d", keyName, (i/12) + 1]];
     
         [self addSubview:newKey];
         [self.midiButtons addObject:newKey];
+        
+        currentFreq += 25;
         
         currentY += yInc;
     }
