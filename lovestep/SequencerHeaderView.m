@@ -17,6 +17,28 @@
     [super drawRect:dirtyRect];
 }
 
+-(void)mouseDown:(NSEvent *)theEvent
+{
+    NSLog(@"mouse down mothafuckas");
+    NSPoint point = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+    
+    NSPoint resolutionPoint = [self.resolutionField convertPoint:point fromView:self];
+    NSLog(@"%f %f", resolutionPoint.x, resolutionPoint.y);
+    
+    NSPoint lengthPoint = [self.lengthField convertPoint:point fromView:self];
+    NSLog(@"%f %f", lengthPoint.x, lengthPoint.y);
+}
+
+-(void)mouseDragged:(NSEvent *)theEvent
+{
+    
+}
+
+-(void)mouseUp:(NSEvent *)theEvent
+{
+    
+}
+
 -(void)awakeFromNib
 {
     [super awakeFromNib];

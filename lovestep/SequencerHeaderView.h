@@ -11,5 +11,7 @@
 @interface SequencerHeaderView : NSView
 
 @property (nonatomic, weak) IBOutlet NSTextField *nameField;
+@property (nonatomic, weak) IBOutlet NSTextField *resolutionField;
+@property (nonatomic, weak) IBOutlet NSTextField *lengthField;
 
 @end
