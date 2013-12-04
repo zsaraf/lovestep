@@ -24,6 +24,8 @@
 		926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A96831831FFBF0029BDA4 /* Security.framework */; };
 		92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E33FF418349CE5002CB131 /* NetworkManager.m */; };
 		92E45F06184EE0CB0023E2EA /* Instrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F05184EE0CB0023E2EA /* Instrument.m */; };
+		92E45F09184EED020023E2EA /* BeatBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F08184EED020023E2EA /* BeatBrain.m */; };
+		92E45F0C184EF54B0023E2EA /* SineWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F0B184EF54B0023E2EA /* SineWave.m */; };
 		AF64584818492C7C00E62669 /* SequencerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64584718492C7C00E62669 /* SequencerView.m */; };
 		AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF64584918493AD600E62669 /* QuartzCore.framework */; };
 		AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7037561831F8D0005C7730 /* LoginWindow.m */; };
@@ -84,6 +86,10 @@
 		92E33FF418349CE5002CB131 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		92E45F04184EE0CB0023E2EA /* Instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Instrument.h; sourceTree = "<group>"; };
 		92E45F05184EE0CB0023E2EA /* Instrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Instrument.m; sourceTree = "<group>"; };
+		92E45F07184EED020023E2EA /* BeatBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeatBrain.h; sourceTree = "<group>"; };
+		92E45F08184EED020023E2EA /* BeatBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeatBrain.m; sourceTree = "<group>"; };
+		92E45F0A184EF54B0023E2EA /* SineWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SineWave.h; sourceTree = "<group>"; };
+		92E45F0B184EF54B0023E2EA /* SineWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SineWave.m; sourceTree = "<group>"; };
 		AF64584618492C7C00E62669 /* SequencerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerView.h; sourceTree = "<group>"; };
 		AF64584718492C7C00E62669 /* SequencerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequencerView.m; sourceTree = "<group>"; };
 		AF64584918493AD600E62669 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -147,6 +153,10 @@
 		926A96321831F6610029BDA4 = {
 			isa = PBXGroup;
 			children = (
+				92E45F0A184EF54B0023E2EA /* SineWave.h */,
+				92E45F0B184EF54B0023E2EA /* SineWave.m */,
+				92E45F07184EED020023E2EA /* BeatBrain.h */,
+				92E45F08184EED020023E2EA /* BeatBrain.m */,
 				92E45F04184EE0CB0023E2EA /* Instrument.h */,
 				92E45F05184EE0CB0023E2EA /* Instrument.m */,
 				926A9685183200B40029BDA4 /* GCDAsyncSocket */,
@@ -419,6 +429,7 @@
 				92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */,
 				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
 				AF840120184C56A8000D98EB /* GridButton.m in Sources */,
+				92E45F0C184EF54B0023E2EA /* SineWave.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
 				AF840119184C2818000D98EB /* AudioFileReader.mm in Sources */,
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
@@ -430,6 +441,7 @@
 				AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */,
 				926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */,
 				926A964B1831F6610029BDA4 /* main.m in Sources */,
+				92E45F09184EED020023E2EA /* BeatBrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

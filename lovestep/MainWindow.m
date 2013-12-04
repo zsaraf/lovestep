@@ -7,11 +7,8 @@
 //
 
 #import "MainWindow.h"
-#import "SequencerView.h"
 
 @interface MainWindow ()
-
-@property (nonatomic, weak) IBOutlet SequencerView *sequencerView;
 
 @end
 

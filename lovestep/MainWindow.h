@@ -7,7 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SequencerView.h"
 
 @interface MainWindow : NSWindow
+
+@property (nonatomic, weak) IBOutlet SequencerView *sequencerView;
 
 @end

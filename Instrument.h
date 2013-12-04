@@ -13,4 +13,6 @@
 -(id)initWithSamplingRate:(CGFloat)samplingRate;
 -(CGFloat)valueForFrameIndex:(NSInteger)frameIndex  atFrequency:(NSInteger)frequency;
 
+@property (nonatomic) CGFloat samplingRate;
+
 @end

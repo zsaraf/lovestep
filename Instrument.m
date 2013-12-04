@@ -10,7 +10,7 @@
 
 @interface Instrument ()
 
-@property (nonatomic) CGFloat samplingRate;
+
 
 @end
 

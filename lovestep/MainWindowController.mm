@@ -12,6 +12,8 @@
 #import "AudioFileReader.h"
 #import "AudioFileWriter.h"
 #import "MainWindow.h"
+#import "BeatBrain.h"
+#import "SineWave.h"
 
 @interface MainWindowController()
 
@@ -21,6 +23,7 @@
 @property (nonatomic, strong) AudioFileWriter *fileWriter;
 @property (nonatomic, assign) RingBuffer *ringBuffer;
 @property (nonatomic) NSInteger counter;
+@property (nonatomic, strong) Instrument *currentInstrument;
 
 @end
 
@@ -51,18 +54,24 @@
     NSLog(@"%f", self.audioManager.samplingRate);
     self.counter =0;
     
-//    self.mWindow
+    self.currentInstrument = [[SineWave alloc] initWithSamplingRate:self.audioManager.samplingRate];
+    
+    NSLog(@"%@", self.mWindow.sequencerView);
+    BeatBrain *bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:2. numNotes:32];
     
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
          memset(data, 0, numFrames * numChannels * sizeof(float));
          
+//         BeatBrainNote note = [bb noteForFrame:wself.counter];
+//         NSLog(@"%ld %ld", (long)note.note, (long)note.frameInNote);
          // fill
          for( int i = 0; i < numFrames; i++ )
          {
+            BeatBrainNote note = [bb noteForFrame:wself.counter];
              // generate signal
-             data[i*numChannels] = ::sin( 2 * M_PI * 880 * wself.counter / wself.audioManager.samplingRate);
-             
+             //data[i*numChannels] = ::sin( 2 * M_PI * 880 * wself.counter / wself.audioManager.samplingRate);
+             data[i*numChannels] = [wself.currentInstrument valueForFrameIndex:note.frameInNote atFrequency:440];
              // copy into other channels
              for( int j = 1; j < numChannels; j++ )
                  data[i*numChannels+j] = data[i*numChannels];
@@ -71,7 +80,7 @@
          }
     }];
     
-//    [self.audioManager play];
+    [self.audioManager play];
     
 }
 @end
