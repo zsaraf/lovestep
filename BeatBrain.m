@@ -32,4 +32,9 @@
     return note;
 }
 
+-(NSInteger)numFramesPerNote
+{
+    return self.noteLength * 1./self.bpm * 60 * self.sampleRate;
+}
+
 @end

@@ -56,37 +56,46 @@
     self.counter =0;
     
     self.currentInstrument = [[SineWave alloc] initWithSamplingRate:self.audioManager.samplingRate];
-    
-    NSLog(@"%@", self.mWindow.sequencerView);
+
     BeatBrain *bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:.25 numNotes:32];
     //self.mWindow.sequencerView.grid
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
          memset(data, 0, numFrames * numChannels * sizeof(float));
+         BeatBrainNote note = [bb noteForFrame:wself.counter];
+         NSInteger noteLength = [bb numFramesPerNote];
          
-//         BeatBrainNote note = [bb noteForFrame:wself.counter];
-//         NSLog(@"%ld %ld", (long)note.note, (long)note.frameInNote);
-         // fill
-         for( int i = 0; i < numFrames; i++ )
-         {
-            wself.counter++;
-            BeatBrainNote note = [bb noteForFrame:wself.counter];
-             //NSLog(@"%d", note.note);
-//             for (int j = 0; j < wself.mWindow.sequencerView.grid.count; j++) {
-//                 // generate signal
-//                 //data[i*numChannels] = ::sin( 2 * M_PI * 880 * wself.counter / wself.audioManager.samplingRate);
-//                 NSMutableArray *arr = [wself.mWindow.sequencerView.grid objectAtIndex:j];
-//                 GridButton *gridButton = (GridButton *)([arr objectAtIndex:note.note]);
-//                 if (gridButton.isOn) {
-//                 
-//                     data[i*numChannels] += [wself.currentInstrument valueForFrameIndex:note.frameInNote atFrequency:gridButton.midiButton.frequency];
-//                     // increment sample number
-//                 }
-//             }
-             data[i*numChannels] += [wself.currentInstrument valueForFrameIndex:note.frameInNote atFrequency:440];
-             for( int j = 1; j < numChannels; j++ )
-                 data[i*numChannels+j] = data[i*numChannels];
+         CGFloat currentNoteLength;// = MIN(noteLength - note.frameInNote, numFrames);
+         CGFloat nextNoteLength;
+         if (noteLength - note.frameInNote < numFrames) {
+             currentNoteLength = noteLength - note.frameInNote;
+             nextNoteLength = numFrames - currentNoteLength;
+         } else {
+             currentNoteLength = numFrames;
          }
+         wself.counter += numFrames;
+         for (int i = 0; i < wself.mWindow.sequencerView.grid.count; i++) {
+             NSMutableArray *arr = [wself.mWindow.sequencerView.grid objectAtIndex:i];
+             GridButton *gridButton = (GridButton *)[arr objectAtIndex:note.note];
+             if (gridButton.isOn) {
+                 
+                 for (int j = 0; j < currentNoteLength; j++) {
+                     data[j *numChannels] += [wself.currentInstrument valueForFrameIndex:note.frameInNote + j atFrequency:gridButton.midiButton.frequency];
+                 }
+             }
+             
+             if (nextNoteLength > 0) {
+                 NSInteger gButtonIndex = (note.note >= bb.numNotes) ? 0 : note.note + 1;
+                 GridButton *nextGridButton = (GridButton *)[arr objectAtIndex:gButtonIndex];
+                 if (nextGridButton.isOn) {
+                     for (int j = 0; j < nextNoteLength; j++) {
+                         NSInteger index = ((int)currentNoteLength + j) * numChannels;
+                         data[index] += [wself.currentInstrument valueForFrameIndex:j atFrequency:nextGridButton.midiButton.frequency];
+                     }
+                 }
+             }
+         }
+         
     }];
     
     [self.audioManager play];

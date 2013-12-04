@@ -17,6 +17,7 @@ typedef struct {
 
 -(id)initWithBPM:(NSInteger)bpm sampleRate:(NSInteger)sampleRate noteLength:(CGFloat)noteLength numNotes:(NSInteger)numNotes;
 -(BeatBrainNote)noteForFrame:(NSInteger)frame;
+-(NSInteger)numFramesPerNote;
 
 @property (nonatomic) NSInteger bpm;
 @property (nonatomic) NSInteger sampleRate;

@@ -12,6 +12,7 @@
 
 -(id)initWithSamplingRate:(CGFloat)samplingRate;
 -(CGFloat)valueForFrameIndex:(NSInteger)frameIndex  atFrequency:(NSInteger)frequency;
+-(void)fillDataArrayBeginningAtFrameIndex:(NSInteger)frameIndex atFrequency:(NSInteger)frequency length:(NSInteger)length;
 
 @property (nonatomic) CGFloat samplingRate;
 
