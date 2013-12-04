@@ -76,11 +76,6 @@ void (^handleMouseDrag)(NSEvent *);
     handleMouseDrag(theEvent);
 }
 
--(void)mouseUp:(NSEvent *)theEvent
-{
-    
-}
-
 -(void)awakeFromNib
 {
     [super awakeFromNib];

@@ -64,8 +64,8 @@
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
          memset(data, 0, numFrames * numChannels * sizeof(float));
-         BeatBrainNote note = [self.bb noteForFrame:wself.counter];
-         NSInteger noteLength = [self.bb numFramesPerNote];
+         BeatBrainNote note = [wself.bb noteForFrame:wself.counter];
+         NSInteger noteLength = [wself.bb numFramesPerNote];
          
          CGFloat currentNoteLength;// = MIN(noteLength - note.frameInNote, numFrames);
          CGFloat nextNoteLength;
@@ -73,7 +73,7 @@
          if (noteLength - note.frameInNote < numFrames) {
              currentNoteLength = noteLength - note.frameInNote;
              nextNoteLength = numFrames - currentNoteLength;
-             gButtonIndex = (note.note >= self.bb.numNotes - 1) ? 0 : note.note + 1;
+             gButtonIndex = (note.note >= wself.bb.numNotes - 1) ? 0 : note.note + 1;
              [wself.noteChangeDelegate noteDidChangeToNoteNumber:gButtonIndex];
          } else {
              currentNoteLength = numFrames;
