@@ -87,4 +87,12 @@
     }
 }
 
+/*
+ * A grayish state to let the user know it is disabled
+ */
+- (void)setDisabledState
+{
+    
+}
+
 @end
