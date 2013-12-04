@@ -79,7 +79,7 @@ void (^handleMouseDrag)(NSEvent *);
 
 -(void)mouseDragged:(NSEvent *)theEvent
 {
-    handleMouseDrag(theEvent);
+    if (handleMouseDrag) handleMouseDrag(theEvent);
 }
 
 -(void)awakeFromNib
