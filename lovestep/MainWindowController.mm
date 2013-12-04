@@ -58,7 +58,7 @@
     self.currentInstrument = [[SineWave alloc] initWithSamplingRate:self.audioManager.samplingRate];
     
     NSLog(@"%@", self.mWindow.sequencerView);
-    BeatBrain *bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:2. numNotes:32];
+    BeatBrain *bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:.25 numNotes:32];
     //self.mWindow.sequencerView.grid
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
@@ -70,18 +70,20 @@
          for( int i = 0; i < numFrames; i++ )
          {
             BeatBrainNote note = [bb noteForFrame:wself.counter];
-             //for (int i = 0; i < ((NSMutableArray *)[wself.mWindow.sequencerView.grid objectAtIndex:0]).count; i++) {
+             for (int j = 0; j < wself.mWindow.sequencerView.grid.count; j++) {
                  // generate signal
                  //data[i*numChannels] = ::sin( 2 * M_PI * 880 * wself.counter / wself.audioManager.samplingRate);
-                 //NSMutableArray *arr =
+                 NSMutableArray *arr = [wself.mWindow.sequencerView.grid objectAtIndex:j];
+                 GridButton *gridButton = (GridButton *)([arr objectAtIndex:note.note]);
+                 if (gridButton.isOn) {
                  
-                 data[i*numChannels] = [wself.currentInstrument valueForFrameIndex:note.frameInNote atFrequency:440];
-                 // copy into other channels
-                 for( int j = 1; j < numChannels; j++ )
-                     data[i*numChannels+j] = data[i*numChannels];
-                 // increment sample number
-                 wself.counter++;
-             //}
+                     data[i*numChannels] = [wself.currentInstrument valueForFrameIndex:note.frameInNote atFrequency:gridButton.midiButton.frequency];
+                     // increment sample number
+                 }
+             }
+             for( int j = 1; j < numChannels; j++ )
+                 data[i*numChannels+j] = data[i*numChannels];
+             wself.counter++;
          }
     }];
     
