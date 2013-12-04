@@ -12,7 +12,7 @@
 
 - (void)drawRect:(NSRect)dirtyRect {
     // set any NSColor for filling, say white:
-    [[NSColor whiteColor] setFill];
+    [[NSColor colorWithCalibratedRed:.8f green:.8f blue:.8f alpha:1.0f] setFill];
     NSRectFill(dirtyRect);
     [super drawRect:dirtyRect];
 }

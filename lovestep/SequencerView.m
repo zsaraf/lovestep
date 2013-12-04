@@ -25,7 +25,7 @@ typedef struct Resolution {
 @property (nonatomic) int length;
 @property (nonatomic) Resolution resolution;
 @property (nonatomic, strong) NSMutableArray *midiButtons;
-
+@property (nonatomic, strong) NSMutableArray *grid;
 
 @end
 
@@ -79,6 +79,7 @@ static NSString *keyNames[12] = {
     if (self) {
         
         self.midiButtons = [[NSMutableArray alloc] init];
+        self.grid = [[NSMutableArray alloc] init];
         
         // Initialization code here.
         // Draw the sequencer here
@@ -126,19 +127,22 @@ static NSString *keyNames[12] = {
         
         float currentX = KEY_WIDTTH;
         
+        NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity:DEFAULT_LENGTH];
+        
         for (int j = 0; j < DEFAULT_LENGTH; j++) {
             MidiButton *currentKey = [self.midiButtons objectAtIndex:i];
-            GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey];
+            GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey fromView:self];
             [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, CELL_LENGTH, CELL_LENGTH))];
             
             [currentKey.gridButtons addObject:newButton];
+            [newArray addObject:newButton];
             
             [self addSubview:newButton];
             
             currentX += xInc;
         }
         
-        NSLog(@"Current X: %f", currentX);
+        [self.grid addObject:newArray];
         
         currentY += yInc;
     }

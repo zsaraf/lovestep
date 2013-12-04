@@ -10,7 +10,7 @@
 
 @implementation GridButton
 
-- (id)initInPosition:(int)position withMidiButton:(MidiButton *)midiButton
+- (id)initInPosition:(int)position withMidiButton:(MidiButton *)midiButton fromView:(NSView *)fromView
 {
     if (self = [super init]) {
         
@@ -18,13 +18,16 @@
         self.position = position;
         self.midiButton = midiButton;
         self.isOn = false;
+        self.sequencerView = (SequencerView *)fromView;
         
         // Set the button type
         [self setButtonType:NSToggleButton];
         
         // Set the image
-        [self setImage:[NSImage imageNamed:@"gridButton"]];
-        [self setAlternateImage:[NSImage imageNamed:@"gridButtonPressed"]];
+        [self.cell setImage:[NSImage imageNamed:@"gridButton"]];
+        [self.cell setAlternateImage:[NSImage imageNamed:@"gridButtonPressed"]];
+        [self.cell setImageDimsWhenDisabled:YES];
+        [self.cell setHighlightsBy:NSNullCellType];
         
         // Set whether or not it is bordered
         [self setBordered:NO];
@@ -32,7 +35,7 @@
         // Set when the grid button is pressed
         [self setTarget:self];
         [self setAction:@selector(gridButtonPressed)];
-        
+        [self sendActionOn:NSLeftMouseDownMask];
     }
     
     return self;

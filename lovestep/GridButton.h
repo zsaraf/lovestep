@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MidiButton.h"
+#import "SequencerView.h"
 
 @interface GridButton : NSButton
 
@@ -20,7 +21,10 @@
 // Whether or ont the button is on
 @property (nonatomic) BOOL isOn;
 
+// The view that contains the button
+@property (nonatomic, strong) SequencerView *sequencerView;
+
 // Init method for grid button
-- (id)initInPosition:(int)position withMidiButton:(MidiButton *)midiButton;
+- (id)initInPosition:(int)position withMidiButton:(MidiButton *)midiButton fromView:(NSView *)fromView;
 
 @end
