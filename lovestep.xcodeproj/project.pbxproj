@@ -42,6 +42,7 @@
 		AF8C49B0184C267D006976EE /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D618184C103B00F2AFEF /* CoreAudio.framework */; };
 		AF9122FB183C34160066AAB0 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FA183C34160066AAB0 /* LoginView.m */; };
 		AFB1EC0E184EE95B00F6841F /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EC0D184EE95B00F6841F /* MainWindow.m */; };
+		AFB1EC14184EEAEA00F6841F /* SequencerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EC13184EEAEA00F6841F /* SequencerHeaderView.m */; };
 		AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD4D616184BFFC700F2AFEF /* MidiButton.m */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,8 @@
 		AF9122FA183C34160066AAB0 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		AF9122FC183C759D0066AAB0 /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
 		AFB1EC0D184EE95B00F6841F /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
+		AFB1EC12184EEAEA00F6841F /* SequencerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerHeaderView.h; sourceTree = "<group>"; };
+		AFB1EC13184EEAEA00F6841F /* SequencerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequencerHeaderView.m; sourceTree = "<group>"; };
 		AFD4D615184BFFC700F2AFEF /* MidiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiButton.h; sourceTree = "<group>"; };
 		AFD4D616184BFFC700F2AFEF /* MidiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiButton.m; sourceTree = "<group>"; };
 		AFD4D618184C103B00F2AFEF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -320,6 +323,8 @@
 				AF64584718492C7C00E62669 /* SequencerView.m */,
 				92596354184C2DD4002FD516 /* MainWindowController.h */,
 				92596355184C2DD4002FD516 /* MainWindowController.mm */,
+				AFB1EC12184EEAEA00F6841F /* SequencerHeaderView.h */,
+				AFB1EC13184EEAEA00F6841F /* SequencerHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				AF64584818492C7C00E62669 /* SequencerView.m in Sources */,
 				AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */,
 				AF9122FB183C34160066AAB0 /* LoginView.m in Sources */,
+				AFB1EC14184EEAEA00F6841F /* SequencerHeaderView.m in Sources */,
 				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,
 				AF84011B184C2818000D98EB /* Novocaine.m in Sources */,
 				AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */,

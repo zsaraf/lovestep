@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "gridButtonOn.png"
+      "filename" : "gridButtonPressed.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "gridButtonOn@2x.png"
+      "filename" : "gridButtonPressed@2x.png"
     }
   ],
   "info" : {

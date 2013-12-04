@@ -7,6 +7,7 @@
 //
 
 #import "SequencerView.h"
+#import "SequencerHeaderView.h"
 #import "MidiButton.h"
 #import "GridButton.h"
 
@@ -19,9 +20,12 @@ typedef struct Resolution {
     int denominator;
 } Resolution;
 
+@property (nonatomic, weak) IBOutlet SequencerHeaderView *sequenceHeaderView;
+
 @property (nonatomic) int length;
 @property (nonatomic) Resolution resolution;
 @property (nonatomic, strong) NSMutableArray *midiButtons;
+
 
 @end
 
@@ -29,8 +33,9 @@ typedef struct Resolution {
 
 #define NUM_KEYS 25
 
-#define KEY_HEIGHT 50
-#define KEY_WIDTTH 75
+#define KEY_WIDTTH 50
+#define CELL_LENGTH 25
+#define HEADER_HEIGHT 62
 
 #define BLACK_KEY 0
 #define WHITE_KEY 1
@@ -79,7 +84,6 @@ static NSString *keyNames[12] = {
         // Draw the sequencer here
         [self drawKeys];
         [self drawGrid];
-        
     }
     return self;
 }
@@ -90,15 +94,14 @@ static NSString *keyNames[12] = {
 - (void)drawKeys
 {
     float currentY = 0.0f;
-    float yInc = self.frame.size.height / NUM_KEYS;
-    float keyHeight = yInc;
-    
+    float yInc = CELL_LENGTH;
+
     for (int i = 0; i < NUM_KEYS; i++) {
         BOOL isWhiteKey = keyPattern[i%12];
         NSString *keyName = keyNames[i%12];
         
         MidiButton *newKey = [[MidiButton alloc] initKeyWithName:keyName WhiteColor:isWhiteKey];
-        [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, keyHeight))];
+        [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, CELL_LENGTH))];
         [newKey setTitle:[NSString stringWithFormat:@"%@%d", keyName, (i/12) + 1]];
     
         [self addSubview:newKey];
@@ -106,6 +109,7 @@ static NSString *keyNames[12] = {
         
         currentY += yInc;
     }
+
 }
 
 /*
@@ -115,11 +119,8 @@ static NSString *keyNames[12] = {
 {
     float currentY = 0.0f;
     
-    float yInc = self.frame.size.height / NUM_KEYS;
-    float xInc = (self.frame.size.width  - KEY_WIDTTH) / DEFAULT_LENGTH;
-    
-    float cellHeight = yInc;
-    float cellWidth = xInc;
+    float yInc = CELL_LENGTH;
+    float xInc = CELL_LENGTH;
     
     for (int i = 0; i < NUM_KEYS; i++) {
         
@@ -128,7 +129,7 @@ static NSString *keyNames[12] = {
         for (int j = 0; j < DEFAULT_LENGTH; j++) {
             MidiButton *currentKey = [self.midiButtons objectAtIndex:i];
             GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey];
-            [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, cellWidth, cellHeight))];
+            [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, CELL_LENGTH, CELL_LENGTH))];
             
             [currentKey.gridButtons addObject:newButton];
             
@@ -136,6 +137,8 @@ static NSString *keyNames[12] = {
             
             currentX += xInc;
         }
+        
+        NSLog(@"Current X: %f", currentX);
         
         currentY += yInc;
     }

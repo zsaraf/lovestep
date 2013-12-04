@@ -24,7 +24,7 @@
         
         // Set the image
         [self setImage:[NSImage imageNamed:@"gridButton"]];
-        [self setAlternateImage:[NSImage imageNamed:@"gridButtonOn"]];
+        [self setAlternateImage:[NSImage imageNamed:@"gridButtonPressed"]];
         
         // Set whether or not it is bordered
         [self setBordered:NO];
