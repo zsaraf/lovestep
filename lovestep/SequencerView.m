@@ -36,40 +36,7 @@ typedef struct Resolution {
 #define CELL_LENGTH 25
 #define HEADER_HEIGHT 62
 
-#define BLACK_KEY 0
-#define WHITE_KEY 1
-
 #define DEFAULT_LENGTH 32
-
-static const int keyPattern[12] = {
-    WHITE_KEY,
-    BLACK_KEY,
-    WHITE_KEY,
-    BLACK_KEY,
-    WHITE_KEY,
-    WHITE_KEY,
-    BLACK_KEY,
-    WHITE_KEY,
-    BLACK_KEY,
-    WHITE_KEY,
-    BLACK_KEY,
-    WHITE_KEY,
-};
-
-static NSString *keyNames[12] = {
-    @"C",
-    @"C#",
-    @"D",
-    @"D#",
-    @"E",
-    @"F",
-    @"F#",
-    @"G",
-    @"G#",
-    @"A",
-    @"A#",
-    @"B"
-};
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -95,20 +62,17 @@ static NSString *keyNames[12] = {
 {
     float currentY = 0.0f;
     float yInc = CELL_LENGTH;
-    NSInteger currentFreq = 440.0f;
+    int currentKeyNumber = BASE_KEY;
 
     for (int i = 0; i < NUM_KEYS; i++) {
-        BOOL isWhiteKey = keyPattern[i%12];
-        NSString *keyName = keyNames[i%12];
         
-        MidiButton *newKey = [[MidiButton alloc] initKeyWithName:keyName WhiteColor:isWhiteKey frequency:currentFreq];
+        MidiButton *newKey = [[MidiButton alloc] initWithKeyNumber:currentKeyNumber];
         [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, CELL_LENGTH))];
-        [newKey setTitle:[NSString stringWithFormat:@"%@%d", keyName, (i/12) + 1]];
     
         [self addSubview:newKey];
         [self.midiButtons addObject:newKey];
         
-        currentFreq += 25;
+        currentKeyNumber++;
         
         currentY += yInc;
     }

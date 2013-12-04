@@ -10,13 +10,46 @@
 
 @implementation MidiButton
 
-- (id)initKeyWithName:(NSString *)keyName WhiteColor:(BOOL)isWhite frequency:(NSInteger)frequency
+#define BLACK_KEY 0
+#define WHITE_KEY 1
+
+static const int keyPattern[12] = {
+    WHITE_KEY,
+    BLACK_KEY,
+    WHITE_KEY,
+    BLACK_KEY,
+    WHITE_KEY,
+    WHITE_KEY,
+    BLACK_KEY,
+    WHITE_KEY,
+    BLACK_KEY,
+    WHITE_KEY,
+    BLACK_KEY,
+    WHITE_KEY,
+};
+
+static NSString *keyNames[12] = {
+    @"C",
+    @"C#",
+    @"D",
+    @"D#",
+    @"E",
+    @"F",
+    @"F#",
+    @"G",
+    @"G#",
+    @"A",
+    @"A#",
+    @"B"
+};
+
+- (id)initWithKeyNumber:(NSInteger)keyNumber
 {
-    self = [super init];
-    if (self) {
-        self.frequency = frequency;
-        self.isWhiteKey = isWhite;
-        self.keyName = keyName;
+    if (self = [super init]) {
+        self.keyNumber = keyNumber;
+        self.frequency = [self getFrequencyForKeyNumber:self.keyNumber];
+        self.isWhiteKey = keyPattern[(keyNumber - BASE_KEY) % 12];
+        self.keyName = keyNames[(keyNumber - BASE_KEY) % 12];
         
         [self setButtonType:NSMomentaryChangeButton];
         
@@ -31,13 +64,23 @@
             [self setAlternateImage:[NSImage imageNamed:@"blackKeyPressed"]];
             
         }
+        
+        // Don't border the button
         [self setBordered:NO];
+        
+        // Set the title of the button
+        [self setTitle:[NSString stringWithFormat:@"%@%ld", self.keyName, ((self.keyNumber - 40)/12) + 4]];
         
         // initialize the grid array
         self.gridButtons = [[NSMutableArray alloc] init];
-        
     }
+    
     return self;
+}
+
+- (float)getFrequencyForKeyNumber:(NSInteger)keyNumber
+{
+    return powf(powf(2, (1./12)), keyNumber - 49) * 440;
 }
 
 @end

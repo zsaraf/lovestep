@@ -8,13 +8,16 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define BASE_KEY 40
+
 @interface MidiButton : NSButton
 
 @property (nonatomic) BOOL isWhiteKey;
 @property (nonatomic) NSString *keyName;
 @property (nonatomic, strong) NSMutableArray *gridButtons;
-@property (nonatomic) NSInteger frequency;
+@property (nonatomic) float frequency;
+@property (nonatomic) NSInteger keyNumber;
 
-- (id)initKeyWithName:(NSString *)keyName WhiteColor:(BOOL)isWhite frequency:(NSInteger)frequency;
+- (id)initWithKeyNumber:(NSInteger)keyNumber;
 
 @end

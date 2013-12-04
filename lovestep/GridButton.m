@@ -43,7 +43,11 @@
 
 - (void)gridButtonPressed
 {
-    self.isOn = YES;
+    if (self.isOn) {
+        self.isOn = NO;
+    } else {
+        self.isOn = YES;
+    }
 }
 
 @end
