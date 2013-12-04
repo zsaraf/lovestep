@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SequencerHeaderView.h"
 
 @protocol NoteChangeDelegate
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface MainWindowController : NSWindowController
+@interface MainWindowController : NSWindowController <SequencerHeaderViewDelegate>
 
 @property (nonatomic, weak) id<NoteChangeDelegate> noteChangeDelegate;
 

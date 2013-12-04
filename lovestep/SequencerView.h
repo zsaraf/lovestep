@@ -12,5 +12,6 @@
 @interface SequencerView : NSView <NoteChangeDelegate>
 
 @property (nonatomic, strong) NSMutableArray *grid;
+@property (nonatomic, weak) IBOutlet SequencerHeaderView *sequenceHeaderView;
 
 @end

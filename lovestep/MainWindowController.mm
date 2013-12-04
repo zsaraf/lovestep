@@ -25,6 +25,7 @@
 @property (nonatomic, assign) RingBuffer *ringBuffer;
 @property (nonatomic) NSInteger counter;
 @property (nonatomic, strong) Instrument *currentInstrument;
+@property (nonatomic, strong) BeatBrain *bb;
 
 @end
 
@@ -57,14 +58,14 @@
     
     self.currentInstrument = [[SineWave alloc] initWithSamplingRate:self.audioManager.samplingRate];
     
-    BeatBrain *bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:.25 numNotes:32];
-    //self.mWindow.sequencerView.grid
+    self.bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:.25 numNotes:32];
     self.noteChangeDelegate = self.mWindow.sequencerView;
+    self.mWindow.sequencerView.sequenceHeaderView.delegate = self;
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
          memset(data, 0, numFrames * numChannels * sizeof(float));
-         BeatBrainNote note = [bb noteForFrame:wself.counter];
-         NSInteger noteLength = [bb numFramesPerNote];
+         BeatBrainNote note = [self.bb noteForFrame:wself.counter];
+         NSInteger noteLength = [self.bb numFramesPerNote];
          
          CGFloat currentNoteLength;// = MIN(noteLength - note.frameInNote, numFrames);
          CGFloat nextNoteLength;
@@ -72,7 +73,7 @@
          if (noteLength - note.frameInNote < numFrames) {
              currentNoteLength = noteLength - note.frameInNote;
              nextNoteLength = numFrames - currentNoteLength;
-             gButtonIndex = (note.note >= bb.numNotes - 1) ? 0 : note.note + 1;
+             gButtonIndex = (note.note >= self.bb.numNotes - 1) ? 0 : note.note + 1;
              [wself.noteChangeDelegate noteDidChangeToNoteNumber:gButtonIndex];
          } else {
              currentNoteLength = numFrames;
@@ -108,6 +109,16 @@
     }];
     
     [self.audioManager play];
-    
 }
+
+-(void)sequenceResolutionDidChangeToResolution:(CGFloat)resolution
+{
+    [self.bb setNoteLength:resolution];
+}
+
+-(void)sequenceResolutionDidChangeToLength:(NSInteger)length
+{
+    [self.bb setNumNotes:length];
+}
+
 @end
