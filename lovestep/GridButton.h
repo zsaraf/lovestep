@@ -33,4 +33,7 @@
 // Set the grid in the on state
 - (void)setOnState;
 
+// Add a disable state for the grid
+- (void)setDisabledState;
+
 @end
