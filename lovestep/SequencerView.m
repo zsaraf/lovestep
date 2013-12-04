@@ -67,14 +67,13 @@ static NSString *keyNames[12] = {
     @"B"
 };
 
-- (id)initWithFrame:(NSRect)frame {
+- (id)initWithFrame:(NSRect)frame
+{
     
     self = [super initWithFrame:frame];
     if (self) {
         
         self.midiButtons = [[NSMutableArray alloc] init];
-        
-        [self setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
         
         // Initialization code here.
         // Draw the sequencer here
@@ -83,14 +82,6 @@ static NSString *keyNames[12] = {
         
     }
     return self;
-}
-
-
-- (void)drawRect:(NSRect)dirtyRect
-{
-	[super drawRect:dirtyRect];
-	
-    // Drawing code here.
 }
 
 /*

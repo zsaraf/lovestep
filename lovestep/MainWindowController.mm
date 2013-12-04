@@ -69,22 +69,9 @@
              // increment sample number
              wself.counter++;
          }
-         
-//         int mod = wself.counter *numFrames % (int)wself.audioManager.samplingRate;
-//         if (mod < numFrames) {
-//             for (int i = 0; i < numChannels; i++) data[mod *numChannels + i] = 1;
-//             NSLog(@"In");
-//         }
-//         for (int i = 0; i < numFrames; i++) {
-//             data[i * numChannels] = rand() % (32768 * 2) - 32768;
-//             
-//             for (int j = 1; j < numChannels; j++) data[i * numChannels + j] = data[i * numChannels];
-//         }
-         
-         //[wself.fileReader retrieveFreshAudio:data numFrames:numFrames numChannels:numChannels];
-     }];
+    }];
     
-    [self.audioManager play];
+//    [self.audioManager play];
     
 }
 @end
