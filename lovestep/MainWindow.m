@@ -8,13 +8,10 @@
 
 #import "MainWindow.h"
 #import "SequencerView.h"
-#import "Novocaine.h"
-#import "RingBuffer.h"
-#import "AudioFileReader.h"
-#import "AudioFileWriter.h"
 
 @interface MainWindow ()
 
+@property (nonatomic, weak) IBOutlet SequencerView *sequencerView;
 
 @end
 

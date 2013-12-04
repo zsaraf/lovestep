@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SequencerView : NSScrollView
+@interface SequencerView : NSView
 
 @end

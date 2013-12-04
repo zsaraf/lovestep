@@ -19,7 +19,6 @@ typedef struct Resolution {
     int denominator;
 } Resolution;
 
-@property (nonatomic, strong) NSView *docView;
 @property (nonatomic) int length;
 @property (nonatomic) Resolution resolution;
 @property (nonatomic, strong) NSMutableArray *midiButtons;
@@ -28,7 +27,7 @@ typedef struct Resolution {
 
 @implementation SequencerView
 
-#define NUM_KEYS 14
+#define NUM_KEYS 25
 
 #define KEY_HEIGHT 50
 #define KEY_WIDTTH 75
@@ -68,23 +67,24 @@ static NSString *keyNames[12] = {
     @"B"
 };
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super initWithCoder:aDecoder]) {
-        // Setup the document view
-        self.docView = [[NSView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, (DEFAULT_LENGTH * KEY_HEIGHT) + KEY_WIDTTH, KEY_HEIGHT * NUM_KEYS))];
+- (id)initWithFrame:(NSRect)frame {
+    
+    self = [super initWithFrame:frame];
+    if (self) {
         
         self.midiButtons = [[NSMutableArray alloc] init];
         
         [self setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
-    
+        
         // Initialization code here.
         // Draw the sequencer here
         [self drawKeys];
         [self drawGrid];
+        
     }
     return self;
 }
+
 
 - (void)drawRect:(NSRect)dirtyRect
 {
@@ -99,22 +99,22 @@ static NSString *keyNames[12] = {
 - (void)drawKeys
 {
     float currentY = 0.0f;
+    float yInc = self.frame.size.height / NUM_KEYS;
+    float keyHeight = yInc;
     
     for (int i = 0; i < NUM_KEYS; i++) {
         BOOL isWhiteKey = keyPattern[i%12];
         NSString *keyName = keyNames[i%12];
         
         MidiButton *newKey = [[MidiButton alloc] initKeyWithName:keyName WhiteColor:isWhiteKey];
-        [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, KEY_HEIGHT))];
+        [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, keyHeight))];
         [newKey setTitle:[NSString stringWithFormat:@"%@%d", keyName, (i/12) + 1]];
     
-        [self.docView addSubview:newKey];
+        [self addSubview:newKey];
         [self.midiButtons addObject:newKey];
         
-        currentY += KEY_HEIGHT;
+        currentY += yInc;
     }
-    
-    [self setDocumentView:self.docView];
 }
 
 /*
@@ -124,6 +124,12 @@ static NSString *keyNames[12] = {
 {
     float currentY = 0.0f;
     
+    float yInc = self.frame.size.height / NUM_KEYS;
+    float xInc = (self.frame.size.width  - KEY_WIDTTH) / DEFAULT_LENGTH;
+    
+    float cellHeight = yInc;
+    float cellWidth = xInc;
+    
     for (int i = 0; i < NUM_KEYS; i++) {
         
         float currentX = KEY_WIDTTH;
@@ -131,15 +137,16 @@ static NSString *keyNames[12] = {
         for (int j = 0; j < DEFAULT_LENGTH; j++) {
             MidiButton *currentKey = [self.midiButtons objectAtIndex:i];
             GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey];
-            [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, KEY_HEIGHT, KEY_HEIGHT))];
+            [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, cellWidth, cellHeight))];
             
             [currentKey.gridButtons addObject:newButton];
             
-            [self.docView addSubview:newButton];
+            [self addSubview:newButton];
             
-            currentX += KEY_HEIGHT;
+            currentX += xInc;
         }
-        currentY += KEY_HEIGHT;
+        
+        currentY += yInc;
     }
 }
 
