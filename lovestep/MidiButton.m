@@ -32,6 +32,9 @@
         }
         [self setBordered:NO];
         
+        // initialize the grid array
+        self.gridButtons = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }

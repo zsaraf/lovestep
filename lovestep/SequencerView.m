@@ -133,6 +133,8 @@ static NSString *keyNames[12] = {
             GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey];
             [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, KEY_HEIGHT, KEY_HEIGHT))];
             
+            [currentKey.gridButtons addObject:newButton];
+            
             [self.docView addSubview:newButton];
             
             currentX += KEY_HEIGHT;
