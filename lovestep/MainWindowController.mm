@@ -52,8 +52,7 @@
          
          [wself.fileReader retrieveFreshAudio:data numFrames:numFrames numChannels:numChannels];
          counter++;
-         if (counter % 80 == 0)
-             NSLog(@"Time: %f", wself.fileReader.currentTime);
+//         if (counter % 80 == 0) NSLog(@"Time: %f", wself.fileReader.currentTime);
      }];
     
     [self.audioManager play];

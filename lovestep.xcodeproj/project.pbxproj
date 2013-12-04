@@ -38,7 +38,7 @@
 		AF8C49A2184C1E3C006976EE /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8C49A1184C1E3C006976EE /* AudioUnit.framework */; };
 		AF8C49B0184C267D006976EE /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD4D618184C103B00F2AFEF /* CoreAudio.framework */; };
 		AF9122FB183C34160066AAB0 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FA183C34160066AAB0 /* LoginView.m */; };
-		AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FD183C759D0066AAB0 /* MainWindow.mm */; };
+		AF9122FE183C759D0066AAB0 /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9122FD183C759D0066AAB0 /* MainWindow.m */; };
 		AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD4D616184BFFC700F2AFEF /* MidiButton.m */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +105,7 @@
 		AF9122F9183C34160066AAB0 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		AF9122FA183C34160066AAB0 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		AF9122FC183C759D0066AAB0 /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
-		AF9122FD183C759D0066AAB0 /* MainWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainWindow.mm; sourceTree = "<group>"; };
+		AF9122FD183C759D0066AAB0 /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
 		AFD4D615184BFFC700F2AFEF /* MidiButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiButton.h; sourceTree = "<group>"; };
 		AFD4D616184BFFC700F2AFEF /* MidiButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiButton.m; sourceTree = "<group>"; };
 		AFD4D618184C103B00F2AFEF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -287,7 +287,7 @@
 				AF7037551831F8D0005C7730 /* LoginWindow.h */,
 				AF7037561831F8D0005C7730 /* LoginWindow.m */,
 				AF9122FC183C759D0066AAB0 /* MainWindow.h */,
-				AF9122FD183C759D0066AAB0 /* MainWindow.mm */,
+				AF9122FD183C759D0066AAB0 /* MainWindow.m */,
 			);
 			name = Windows;
 			sourceTree = "<group>";
@@ -413,7 +413,7 @@
 				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
 				AF840120184C56A8000D98EB /* GridButton.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
-				AF9122FE183C759D0066AAB0 /* MainWindow.mm in Sources */,
+				AF9122FE183C759D0066AAB0 /* MainWindow.m in Sources */,
 				AF840119184C2818000D98EB /* AudioFileReader.mm in Sources */,
 				926A96521831F6610029BDA4 /* AppDelegate.m in Sources */,
 				AF64584818492C7C00E62669 /* SequencerView.m in Sources */,
