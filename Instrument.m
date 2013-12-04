@@ -8,6 +8,25 @@
 
 #import "Instrument.h"
 
+@interface Instrument ()
+
+@property (nonatomic) CGFloat samplingRate;
+
+@end
+
 @implementation Instrument
+
+-(id)initWithSamplingRate:(CGFloat)samplingRate
+{
+    if (self = [super init]) {
+        self.samplingRate = samplingRate;
+    }
+    return self;
+}
+
+-(CGFloat)valueForFrameIndex:(NSInteger)frameIndex atFrequency:(NSInteger)frequency
+{
+    return 1.0;
+}
 
 @end

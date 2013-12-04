@@ -10,4 +10,7 @@
 
 @interface Instrument : NSObject
 
+-(id)initWithSamplingRate:(CGFloat)samplingRate;
+-(CGFloat)valueForFrameIndex:(NSInteger)frameIndex  atFrequency:(NSInteger)frequency;
+
 @end
