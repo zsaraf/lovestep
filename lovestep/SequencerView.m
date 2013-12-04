@@ -95,7 +95,7 @@ static NSString *keyNames[12] = {
 {
     float currentY = 0.0f;
     float yInc = CELL_LENGTH;
-    NSInteger currentFreq = 100.0f;
+    NSInteger currentFreq = 440.0f;
 
     for (int i = 0; i < NUM_KEYS; i++) {
         BOOL isWhiteKey = keyPattern[i%12];
