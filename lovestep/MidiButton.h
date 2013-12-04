@@ -13,7 +13,8 @@
 @property (nonatomic) BOOL isWhiteKey;
 @property (nonatomic) NSString *keyName;
 @property (nonatomic, strong) NSMutableArray *gridButtons;
+@property (nonatomic) NSInteger frequency;
 
-- (id)initKeyWithName:(NSString *)keyName WhiteColor:(BOOL)isWhite;
+- (id)initKeyWithName:(NSString *)keyName WhiteColor:(BOOL)isWhite frequency:(NSInteger)frequency;
 
 @end

@@ -14,6 +14,7 @@
 #import "MainWindow.h"
 #import "BeatBrain.h"
 #import "SineWave.h"
+#import "GridButton.h"
 
 @interface MainWindowController()
 
@@ -58,7 +59,7 @@
     
     NSLog(@"%@", self.mWindow.sequencerView);
     BeatBrain *bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:2. numNotes:32];
-    
+    //self.mWindow.sequencerView.grid
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
          memset(data, 0, numFrames * numChannels * sizeof(float));
@@ -69,14 +70,18 @@
          for( int i = 0; i < numFrames; i++ )
          {
             BeatBrainNote note = [bb noteForFrame:wself.counter];
-             // generate signal
-             //data[i*numChannels] = ::sin( 2 * M_PI * 880 * wself.counter / wself.audioManager.samplingRate);
-             data[i*numChannels] = [wself.currentInstrument valueForFrameIndex:note.frameInNote atFrequency:440];
-             // copy into other channels
-             for( int j = 1; j < numChannels; j++ )
-                 data[i*numChannels+j] = data[i*numChannels];
-             // increment sample number
-             wself.counter++;
+             //for (int i = 0; i < ((NSMutableArray *)[wself.mWindow.sequencerView.grid objectAtIndex:0]).count; i++) {
+                 // generate signal
+                 //data[i*numChannels] = ::sin( 2 * M_PI * 880 * wself.counter / wself.audioManager.samplingRate);
+                 //NSMutableArray *arr =
+                 
+                 data[i*numChannels] = [wself.currentInstrument valueForFrameIndex:note.frameInNote atFrequency:440];
+                 // copy into other channels
+                 for( int j = 1; j < numChannels; j++ )
+                     data[i*numChannels+j] = data[i*numChannels];
+                 // increment sample number
+                 wself.counter++;
+             //}
          }
     }];
     

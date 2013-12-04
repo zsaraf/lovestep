@@ -10,4 +10,6 @@
 
 @interface SequencerView : NSView
 
+@property (nonatomic, strong) NSMutableArray *grid;
+
 @end

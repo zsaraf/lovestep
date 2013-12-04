@@ -10,10 +10,11 @@
 
 @implementation MidiButton
 
-- (id)initKeyWithName:(NSString *)keyName WhiteColor:(BOOL)isWhite
+- (id)initKeyWithName:(NSString *)keyName WhiteColor:(BOOL)isWhite frequency:(NSInteger)frequency
 {
     self = [super init];
     if (self) {
+        self.frequency = frequency;
         self.isWhiteKey = isWhite;
         self.keyName = keyName;
         

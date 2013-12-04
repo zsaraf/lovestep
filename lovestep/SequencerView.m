@@ -25,7 +25,6 @@ typedef struct Resolution {
 @property (nonatomic) int length;
 @property (nonatomic) Resolution resolution;
 @property (nonatomic, strong) NSMutableArray *midiButtons;
-@property (nonatomic, strong) NSMutableArray *grid;
 
 @end
 
