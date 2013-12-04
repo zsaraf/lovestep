@@ -51,7 +51,7 @@
     NSLog(@"%f", self.audioManager.samplingRate);
     self.counter =0;
     
-    self.mWindow
+//    self.mWindow
     
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
