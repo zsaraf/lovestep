@@ -67,4 +67,24 @@
     self.isOn = YES;
 }
 
+/*
+ * Sets the grid cell in the highlighted state
+ */
+- (void)setHighlightedState
+{
+    [self.imageView setImage:[NSImage imageNamed:@"gridButtonHighlighted"]];
+}
+
+/*
+ * Returns the grid cell to the previous state
+ */
+- (void)setUnHighlightedState
+{
+    if (self.isOn) {
+        [self.imageView setImage:[NSImage imageNamed:@"gridButtonPressed"]];
+    } else {
+        [self.imageView.cell setImage:[NSImage imageNamed:@"gridButton"]];
+    }
+}
+
 @end

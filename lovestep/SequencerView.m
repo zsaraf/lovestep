@@ -10,6 +10,7 @@
 #import "SequencerHeaderView.h"
 #import "MidiButton.h"
 #import "GridButton.h"
+#import "TickerView.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -29,6 +30,8 @@ typedef struct Resolution {
 @property (nonatomic) BOOL addGrid;
 @property (nonatomic) BOOL subtractGrid;
 
+@property (nonatomic, strong) TickerView *ticker;
+
 @end
 
 @implementation SequencerView
@@ -41,6 +44,9 @@ typedef struct Resolution {
 
 #define DEFAULT_LENGTH 32
 
+/*
+ * Draws the keys and the grid and inits the frame
+ */
 - (id)initWithFrame:(NSRect)frame
 {
     
@@ -54,8 +60,22 @@ typedef struct Resolution {
         // Draw the sequencer here
         [self drawKeys];
         [self drawGrid];
+        [self setupTicker];
     }
     return self;
+}
+
+/*
+ * Sets up the ticker
+ */
+- (void)setupTicker
+{
+    self.ticker = [[TickerView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(KEY_WIDTTH, 0, CELL_LENGTH, self.frame.size.height - HEADER_HEIGHT))];
+    [self.ticker setAlphaValue:0.2f];
+    
+    // Set the background color just as a test
+    
+    [self addSubview:self.ticker];
 }
 
 /*
@@ -66,12 +86,12 @@ typedef struct Resolution {
     float currentY = 0.0f;
     float yInc = CELL_LENGTH;
     int currentKeyNumber = BASE_KEY;
-
+    
     for (int i = 0; i < NUM_KEYS; i++) {
         
         MidiButton *newKey = [[MidiButton alloc] initWithKeyNumber:currentKeyNumber];
         [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, CELL_LENGTH))];
-    
+        
         [self addSubview:newKey];
         [self.midiButtons addObject:newKey];
         
@@ -79,7 +99,7 @@ typedef struct Resolution {
         
         currentY += yInc;
     }
-
+    
 }
 
 /*
@@ -117,17 +137,26 @@ typedef struct Resolution {
     }
 }
 
+/*
+ * Finds the row for a given touch
+ */
 - (int)rowForTouch:(NSPoint)touch
 {
     
     return touch.y/CELL_LENGTH;
 }
 
+/*
+ * Finds the col for a given touch
+ */
 - (int)colForTouch:(NSPoint)touch
 {
     return (touch.x - KEY_WIDTTH)/ CELL_LENGTH;
 }
 
+/*
+ * Called when the mouse goes down
+ */
 - (void)mouseDown:(NSEvent *)theEvent
 {
     // Get the row/col from the spot
@@ -148,11 +177,11 @@ typedef struct Resolution {
         [gb setOnState];
         self.addGrid = YES;
     }
-    
-    NSLog(@"[%d, %d]", col, row);
-    
 }
 
+/*
+ * Called while the mouse is draggin
+ */
 - (void)mouseDragged:(NSEvent *)theEvent
 {
     
@@ -174,20 +203,31 @@ typedef struct Resolution {
             [gb setOnState];
         }
     }
-    
-    NSLog(@"mouseDragged...");
 }
 
+/*
+ * Called when the mouse is up
+ */
 - (void)mouseUp:(NSEvent *)theEvent
 {
     self.subtractGrid = NO;
     self.addGrid = NO;
-    NSLog(@"mouseUp...");
 }
 
--(void)noteDidChangeToNoteNumber:(NSInteger)noteNumber
+/*
+ * Highlights the column
+ */
+- (void)highlightColumn:(NSInteger)columnNumber
 {
-    
+    [self.ticker setFrame:NSRectFromCGRect(CGRectMake(KEY_WIDTTH + columnNumber * (CELL_LENGTH), self.ticker.frame.origin.y, self.ticker.frame.size.width, self.ticker.frame.size.height))];
+}
+
+/*
+ * Delegate method -- highlight all gridbuttons in the col
+ */
+- (void)noteDidChangeToNoteNumber:(NSInteger)noteNumber
+{
+    [self highlightColumn:noteNumber];
 }
 
 @end
