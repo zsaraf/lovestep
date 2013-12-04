@@ -11,9 +11,11 @@
 #import "RingBuffer.h"
 #import "AudioFileReader.h"
 #import "AudioFileWriter.h"
+#import "MainWindow.h"
 
 @interface MainWindowController()
 
+@property (nonatomic, weak) MainWindow *mWindow;
 @property (nonatomic, strong) Novocaine *audioManager;
 @property (nonatomic, strong) AudioFileReader *fileReader;
 @property (nonatomic, strong) AudioFileWriter *fileWriter;
@@ -33,6 +35,11 @@
     return self;
 }
 
+-(MainWindow *)mWindow
+{
+    return (MainWindow *)self.window;
+}
+
 -(void)setupNovocaine
 {
     [super windowDidLoad];
@@ -43,6 +50,9 @@
     __weak MainWindowController * wself = self;
     NSLog(@"%f", self.audioManager.samplingRate);
     self.counter =0;
+    
+    self.mWindow
+    
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
          memset(data, 0, numFrames * numChannels * sizeof(float));
