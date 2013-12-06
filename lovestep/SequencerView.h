@@ -11,9 +11,13 @@
 
 @interface SequencerView : NSView <NoteChangeDelegate>
 
+// Two dimensional grid of gridbuttons
 @property (nonatomic, strong) NSMutableArray *grid;
+
+// Controls the sequenceHeaderView
 @property (nonatomic, weak) IBOutlet SequencerHeaderView *sequenceHeaderView;
 
+// Called from the sequence header view when the length changes
 - (void)lengthDidChange:(NSInteger)newLength;
 
 @end

@@ -40,7 +40,7 @@ typedef struct Resolution {
 #define CELL_LENGTH 25
 #define HEADER_HEIGHT 62
 
-#define DEFAULT_LENGTH 32
+#define MAX_LENGTH 32
 
 /*
  * Draws the keys and the grid and inits the frame
@@ -114,9 +114,9 @@ typedef struct Resolution {
         
         float currentX = KEY_WIDTTH;
         
-        NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity:DEFAULT_LENGTH];
+        NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
         
-        for (int j = 0; j < DEFAULT_LENGTH; j++) {
+        for (int j = 0; j < MAX_LENGTH; j++) {
             MidiButton *currentKey = [self.midiButtons objectAtIndex:i];
             GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey fromView:self];
             [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, CELL_LENGTH, CELL_LENGTH))];
@@ -243,7 +243,7 @@ typedef struct Resolution {
             
         }
         
-        for (NSInteger j = newLength; j < DEFAULT_LENGTH; j++) {
+        for (NSInteger j = newLength; j < MAX_LENGTH; j++) {
             // Get the gb
             GridButton *gb = [[self.grid objectAtIndex:i] objectAtIndex:j];
             [gb setDisabledState];

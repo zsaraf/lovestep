@@ -10,8 +10,6 @@
 
 @implementation SineWave
 
-
-
 -(CGFloat)valueForFrameIndex:(NSInteger)frameIndex atFrequency:(NSInteger)frequency
 {
     return sin( 2 * M_PI * frequency * frameIndex / self.samplingRate);
