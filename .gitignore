@@ -23,3 +23,6 @@ DerivedData
 Pods
 *.xcuserstate
 *.xcuserstate
+
+# FluidSynth
+FluidSynth.framework/*
