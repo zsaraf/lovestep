@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9227C3D618517B7E00085E3D /* FluidSynth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9227C3D518517B7E00085E3D /* FluidSynth.framework */; };
+		9227C3F0185181D100085E3D /* FluidSynth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9227C3EF185181D100085E3D /* FluidSynth.framework */; };
 		92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92596355184C2DD4002FD516 /* MainWindowController.mm */; };
 		926A963F1831F6610029BDA4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A963E1831F6610029BDA4 /* Cocoa.framework */; };
 		926A96491831F6610029BDA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 926A96471831F6610029BDA4 /* InfoPlist.strings */; };
@@ -63,8 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9227C3D518517B7E00085E3D /* FluidSynth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FluidSynth.framework; sourceTree = "<group>"; };
 		9227C3EE18517F1300085E3D /* fluidsynth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fluidsynth.h; sourceTree = "<group>"; };
+		9227C3EF185181D100085E3D /* FluidSynth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FluidSynth.framework; sourceTree = "<group>"; };
 		92596354184C2DD4002FD516 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		92596355184C2DD4002FD516 /* MainWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainWindowController.mm; sourceTree = "<group>"; };
 		926A963B1831F6610029BDA4 /* lovestep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lovestep.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,8 +151,8 @@
 				AF840110184C2710000D98EB /* AVFoundation.framework in Frameworks */,
 				AF84010E184C26F8000D98EB /* Accelerate.framework in Frameworks */,
 				AF8C49B0184C267D006976EE /* CoreAudio.framework in Frameworks */,
-				9227C3D618517B7E00085E3D /* FluidSynth.framework in Frameworks */,
 				AF8C49A2184C1E3C006976EE /* AudioUnit.framework in Frameworks */,
+				9227C3F0185181D100085E3D /* FluidSynth.framework in Frameworks */,
 				AF8C4997184C1A19006976EE /* AudioToolbox.framework in Frameworks */,
 				AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */,
 				926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */,
@@ -203,7 +203,7 @@
 		926A963D1831F6610029BDA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9227C3D518517B7E00085E3D /* FluidSynth.framework */,
+				9227C3EF185181D100085E3D /* FluidSynth.framework */,
 				AF84010F184C2710000D98EB /* AVFoundation.framework */,
 				AF84010D184C26F8000D98EB /* Accelerate.framework */,
 				AF8C49A1184C1E3C006976EE /* AudioUnit.framework */,

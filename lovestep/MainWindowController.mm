@@ -15,7 +15,6 @@
 #import "SineWave.h"
 #import "GridButton.h"
 #import <FluidSynth/FluidSynth.h>
-#import "fluidsynth.h"
 
 @interface MainWindowController()
 
