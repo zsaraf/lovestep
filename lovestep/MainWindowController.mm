@@ -14,6 +14,8 @@
 #import "BeatBrain.h"
 #import "SineWave.h"
 #import "GridButton.h"
+#import <FluidSynth/FluidSynth.h>
+#import "fluidsynth.h"
 
 @interface MainWindowController()
 
@@ -46,6 +48,24 @@
 -(void)setupNovocaine
 {
     [super windowDidLoad];
+    
+    fluid_settings_t* settings = new_fluid_settings();
+    fluid_settings_setint(settings, "synth.polyphony", 128);
+    /* ... */
+    delete_fluid_settings(settings);
+    
+    fluid_synth_t* synth;
+    settings = new_fluid_settings();
+    
+    
+    
+    
+    synth = new_fluid_synth(settings);
+    
+    /* Do useful things here */
+    
+    delete_fluid_synth(synth);
+    delete_fluid_settings(settings);
     
     self.audioManager = [Novocaine audioManager];
     

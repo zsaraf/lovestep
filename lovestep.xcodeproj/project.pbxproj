@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9227C3D618517B7E00085E3D /* FluidSynth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9227C3D518517B7E00085E3D /* FluidSynth.framework */; };
 		92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 92596355184C2DD4002FD516 /* MainWindowController.mm */; };
 		926A963F1831F6610029BDA4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A963E1831F6610029BDA4 /* Cocoa.framework */; };
 		926A96491831F6610029BDA4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 926A96471831F6610029BDA4 /* InfoPlist.strings */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9227C3D518517B7E00085E3D /* FluidSynth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FluidSynth.framework; sourceTree = "<group>"; };
+		9227C3EE18517F1300085E3D /* fluidsynth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fluidsynth.h; sourceTree = "<group>"; };
 		92596354184C2DD4002FD516 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		92596355184C2DD4002FD516 /* MainWindowController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MainWindowController.mm; sourceTree = "<group>"; };
 		926A963B1831F6610029BDA4 /* lovestep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lovestep.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +151,7 @@
 				AF840110184C2710000D98EB /* AVFoundation.framework in Frameworks */,
 				AF84010E184C26F8000D98EB /* Accelerate.framework in Frameworks */,
 				AF8C49B0184C267D006976EE /* CoreAudio.framework in Frameworks */,
+				9227C3D618517B7E00085E3D /* FluidSynth.framework in Frameworks */,
 				AF8C49A2184C1E3C006976EE /* AudioUnit.framework in Frameworks */,
 				AF8C4997184C1A19006976EE /* AudioToolbox.framework in Frameworks */,
 				AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */,
@@ -168,6 +172,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9227C3D918517BE400085E3D /* Fluid Synth */ = {
+			isa = PBXGroup;
+			children = (
+				9227C3EE18517F1300085E3D /* fluidsynth.h */,
+			);
+			name = "Fluid Synth";
+			sourceTree = "<group>";
+		};
 		926A96321831F6610029BDA4 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +203,7 @@
 		926A963D1831F6610029BDA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9227C3D518517B7E00085E3D /* FluidSynth.framework */,
 				AF84010F184C2710000D98EB /* AVFoundation.framework */,
 				AF84010D184C26F8000D98EB /* Accelerate.framework */,
 				AF8C49A1184C1E3C006976EE /* AudioUnit.framework */,
@@ -281,6 +294,7 @@
 		92DBF4E2184F1D1C00C1E4B4 /* Instruments */ = {
 			isa = PBXGroup;
 			children = (
+				9227C3D918517BE400085E3D /* Fluid Synth */,
 				92E45F0A184EF54B0023E2EA /* SineWave.h */,
 				92E45F0B184EF54B0023E2EA /* SineWave.m */,
 				92E45F04184EE0CB0023E2EA /* Instrument.h */,
@@ -648,6 +662,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/zach/Developer/lovestep,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lovestep/lovestep-Prefix.pch";
 				INFOPLIST_FILE = "lovestep/lovestep-Info.plist";
@@ -662,6 +680,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/zach/Developer/lovestep,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "lovestep/lovestep-Prefix.pch";
 				INFOPLIST_FILE = "lovestep/lovestep-Info.plist";
