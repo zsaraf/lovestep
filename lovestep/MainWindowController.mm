@@ -8,7 +8,6 @@
 
 #import "MainWindowController.h"
 #import "Novocaine.h"
-#import "RingBuffer.h"
 #import "AudioFileReader.h"
 #import "AudioFileWriter.h"
 #import "MainWindow.h"
@@ -22,7 +21,6 @@
 @property (nonatomic, strong) Novocaine *audioManager;
 @property (nonatomic, strong) AudioFileReader *fileReader;
 @property (nonatomic, strong) AudioFileWriter *fileWriter;
-@property (nonatomic, assign) RingBuffer *ringBuffer;
 @property (nonatomic) NSInteger counter;
 @property (nonatomic, strong) Instrument *currentInstrument;
 @property (nonatomic, strong) BeatBrain *bb;
@@ -50,20 +48,22 @@
     [super windowDidLoad];
     
     self.audioManager = [Novocaine audioManager];
-    self.ringBuffer = new RingBuffer(32768, 2);
     
     __weak MainWindowController * wself = self;
-    NSLog(@"%f", self.audioManager.samplingRate);
-    self.counter =0;
+
+    self.counter = 0;
     
     self.currentInstrument = [[SineWave alloc] initWithSamplingRate:self.audioManager.samplingRate];
     
     self.bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:.25 numNotes:32];
     self.noteChangeDelegate = self.mWindow.sequencerView;
     self.mWindow.sequencerView.sequenceHeaderView.delegate = self;
+    
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
+         // Clear out the buffer
          memset(data, 0, numFrames * numChannels * sizeof(float));
+         
          BeatBrainNote note = [wself.bb noteForFrame:wself.counter];
          NSInteger noteLength = [wself.bb numFramesPerNote];
          

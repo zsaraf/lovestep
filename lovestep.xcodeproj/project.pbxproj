@@ -28,6 +28,10 @@
 		92E45F0C184EF54B0023E2EA /* SineWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F0B184EF54B0023E2EA /* SineWave.m */; };
 		AF64584818492C7C00E62669 /* SequencerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF64584718492C7C00E62669 /* SequencerView.m */; };
 		AF64584A18493AD600E62669 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF64584918493AD600E62669 /* QuartzCore.framework */; };
+		AF66EC661851584C002F899E /* LooperView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF66EC651851584C002F899E /* LooperView.m */; };
+		AF66EC6C18515902002F899E /* ActiveLoopsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF66EC6B18515902002F899E /* ActiveLoopsView.m */; };
+		AF66EC6F18515911002F899E /* InactiveLoopsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF66EC6E18515911002F899E /* InactiveLoopsView.m */; };
+		AF66EC7218515930002F899E /* LooperHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF66EC7118515930002F899E /* LooperHeaderView.m */; };
 		AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7037561831F8D0005C7730 /* LoginWindow.m */; };
 		AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF70375D1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m */; };
 		AF84010E184C26F8000D98EB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF84010D184C26F8000D98EB /* Accelerate.framework */; };
@@ -95,6 +99,14 @@
 		AF64584618492C7C00E62669 /* SequencerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerView.h; sourceTree = "<group>"; };
 		AF64584718492C7C00E62669 /* SequencerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequencerView.m; sourceTree = "<group>"; };
 		AF64584918493AD600E62669 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AF66EC641851584C002F899E /* LooperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LooperView.h; sourceTree = "<group>"; };
+		AF66EC651851584C002F899E /* LooperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LooperView.m; sourceTree = "<group>"; };
+		AF66EC6A18515902002F899E /* ActiveLoopsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveLoopsView.h; sourceTree = "<group>"; };
+		AF66EC6B18515902002F899E /* ActiveLoopsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveLoopsView.m; sourceTree = "<group>"; };
+		AF66EC6D18515911002F899E /* InactiveLoopsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InactiveLoopsView.h; sourceTree = "<group>"; };
+		AF66EC6E18515911002F899E /* InactiveLoopsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InactiveLoopsView.m; sourceTree = "<group>"; };
+		AF66EC7018515930002F899E /* LooperHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LooperHeaderView.h; sourceTree = "<group>"; };
+		AF66EC7118515930002F899E /* LooperHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LooperHeaderView.m; sourceTree = "<group>"; };
 		AF7037551831F8D0005C7730 /* LoginWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindow.h; sourceTree = "<group>"; };
 		AF7037561831F8D0005C7730 /* LoginWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindow.m; sourceTree = "<group>"; };
 		AF70375C1831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSVerticallyCenteredTextFieldCell.h; sourceTree = "<group>"; };
@@ -208,15 +220,17 @@
 		926A96441831F6610029BDA4 /* lovestep */ = {
 			isa = PBXGroup;
 			children = (
+				92596354184C2DD4002FD516 /* MainWindowController.h */,
+				92596355184C2DD4002FD516 /* MainWindowController.mm */,
+				926A96531831F6610029BDA4 /* MainMenu.xib */,
 				92DBF4E5184F1D4400C1E4B4 /* Utils */,
 				92DBF4E2184F1D1C00C1E4B4 /* Instruments */,
 				AF9122F8183C34070066AAB0 /* Views */,
 				AF9122F7183C33F40066AAB0 /* Windows */,
 				AF9122F6183C33DA0066AAB0 /* External */,
 				AF9122F5183C33D10066AAB0 /* Singletons */,
-				926A96531831F6610029BDA4 /* MainMenu.xib */,
-				926A96561831F6610029BDA4 /* Images.xcassets */,
 				926A96451831F6610029BDA4 /* Supporting Files */,
+				926A96561831F6610029BDA4 /* Images.xcassets */,
 			);
 			path = lovestep;
 			sourceTree = "<group>";
@@ -284,6 +298,47 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		AF66EC671851586E002F899E /* Sequencer */ = {
+			isa = PBXGroup;
+			children = (
+				AFC08986184F2FC60056162E /* TickerView.h */,
+				AFC08987184F2FC60056162E /* TickerView.m */,
+				AFD4D615184BFFC700F2AFEF /* MidiButton.h */,
+				AFD4D616184BFFC700F2AFEF /* MidiButton.m */,
+				AF84011E184C56A8000D98EB /* GridButton.h */,
+				AF84011F184C56A8000D98EB /* GridButton.m */,
+				AF64584618492C7C00E62669 /* SequencerView.h */,
+				AF64584718492C7C00E62669 /* SequencerView.m */,
+				AFB1EC12184EEAEA00F6841F /* SequencerHeaderView.h */,
+				AFB1EC13184EEAEA00F6841F /* SequencerHeaderView.m */,
+			);
+			name = Sequencer;
+			sourceTree = "<group>";
+		};
+		AF66EC681851587C002F899E /* Looper */ = {
+			isa = PBXGroup;
+			children = (
+				AF66EC641851584C002F899E /* LooperView.h */,
+				AF66EC651851584C002F899E /* LooperView.m */,
+				AF66EC6A18515902002F899E /* ActiveLoopsView.h */,
+				AF66EC6B18515902002F899E /* ActiveLoopsView.m */,
+				AF66EC6D18515911002F899E /* InactiveLoopsView.h */,
+				AF66EC6E18515911002F899E /* InactiveLoopsView.m */,
+				AF66EC7018515930002F899E /* LooperHeaderView.h */,
+				AF66EC7118515930002F899E /* LooperHeaderView.m */,
+			);
+			name = Looper;
+			sourceTree = "<group>";
+		};
+		AF66EC6918515897002F899E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AF9122F9183C34160066AAB0 /* LoginView.h */,
+				AF9122FA183C34160066AAB0 /* LoginView.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		AF84011D184C281E000D98EB /* Novocaine */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,20 +387,9 @@
 		AF9122F8183C34070066AAB0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AFD4D615184BFFC700F2AFEF /* MidiButton.h */,
-				AFD4D616184BFFC700F2AFEF /* MidiButton.m */,
-				AF84011E184C56A8000D98EB /* GridButton.h */,
-				AF84011F184C56A8000D98EB /* GridButton.m */,
-				AF9122F9183C34160066AAB0 /* LoginView.h */,
-				AF9122FA183C34160066AAB0 /* LoginView.m */,
-				AF64584618492C7C00E62669 /* SequencerView.h */,
-				AF64584718492C7C00E62669 /* SequencerView.m */,
-				92596354184C2DD4002FD516 /* MainWindowController.h */,
-				92596355184C2DD4002FD516 /* MainWindowController.mm */,
-				AFB1EC12184EEAEA00F6841F /* SequencerHeaderView.h */,
-				AFB1EC13184EEAEA00F6841F /* SequencerHeaderView.m */,
-				AFC08986184F2FC60056162E /* TickerView.h */,
-				AFC08987184F2FC60056162E /* TickerView.m */,
+				AF66EC6918515897002F899E /* Login */,
+				AF66EC681851587C002F899E /* Looper */,
+				AF66EC671851586E002F899E /* Sequencer */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -450,11 +494,13 @@
 			files = (
 				92E45F06184EE0CB0023E2EA /* Instrument.m in Sources */,
 				AF84011C184C2818000D98EB /* RingBuffer.mm in Sources */,
+				AF66EC661851584C002F899E /* LooperView.m in Sources */,
 				AFB1EC0E184EE95B00F6841F /* MainWindow.m in Sources */,
 				AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */,
 				92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */,
 				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
 				AFC08988184F2FC60056162E /* TickerView.m in Sources */,
+				AF66EC6C18515902002F899E /* ActiveLoopsView.m in Sources */,
 				AF840120184C56A8000D98EB /* GridButton.m in Sources */,
 				92E45F0C184EF54B0023E2EA /* SineWave.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
@@ -466,9 +512,11 @@
 				AFB1EC14184EEAEA00F6841F /* SequencerHeaderView.m in Sources */,
 				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,
 				AF84011B184C2818000D98EB /* Novocaine.m in Sources */,
+				AF66EC6F18515911002F899E /* InactiveLoopsView.m in Sources */,
 				AF7037601831FD55005C7730 /* RSVerticallyCenteredTextFieldCell.m in Sources */,
 				926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */,
 				926A964B1831F6610029BDA4 /* main.m in Sources */,
+				AF66EC7218515930002F899E /* LooperHeaderView.m in Sources */,
 				92E45F09184EED020023E2EA /* BeatBrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

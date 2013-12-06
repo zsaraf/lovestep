@@ -10,7 +10,7 @@
 
 @implementation BeatBrain
 
--(id)initWithBPM:(NSInteger)bpm sampleRate:(NSInteger)sampleRate noteLength:(CGFloat)noteLength numNotes:(NSInteger)numNotes;
+- (id)initWithBPM:(NSInteger)bpm sampleRate:(NSInteger)sampleRate noteLength:(CGFloat)noteLength numNotes:(NSInteger)numNotes;
 {
     if (self = [super init]) {
         self.bpm = bpm;
@@ -21,7 +21,7 @@
     return self;
 }
 
--(BeatBrainNote)noteForFrame:(NSInteger)frame
+- (BeatBrainNote)noteForFrame:(NSInteger)frame
 {
     BeatBrainNote note;
     NSInteger totalFrames = (int)(self.numNotes * self.noteLength * ((float)1/self.bpm) * 60 * self.sampleRate);
@@ -32,7 +32,7 @@
     return note;
 }
 
--(NSInteger)numFramesPerNote
+- (NSInteger)numFramesPerNote
 {
     return self.noteLength * 1./self.bpm * 60 * self.sampleRate;
 }

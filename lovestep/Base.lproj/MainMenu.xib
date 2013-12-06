@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
@@ -662,7 +662,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="585" height="272"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rc2-MO-KY4">
+                    <textField verticalHuggingPriority="750" id="Rc2-MO-KY4">
                         <rect key="frame" x="136" y="30" width="312" height="39"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" drawsBackground="YES" id="zo7-Ez-1jh" customClass="RSVerticallyCenteredTextFieldCell">
@@ -674,12 +674,12 @@
                             <outlet property="delegate" destination="371" id="e1U-Lx-WUi"/>
                         </connections>
                     </textField>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HFB-C0-CXU">
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="HFB-C0-CXU">
                         <rect key="frame" x="46" y="123" width="492" height="129"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="lovestepLogo" id="5OA-pE-2Ev"/>
                     </imageView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ule-vY-QT1">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ule-vY-QT1">
                         <rect key="frame" x="32" y="77" width="521" height="38"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="enter your nickname:" id="qeS-ZL-YKn">
@@ -697,32 +697,29 @@
         </window>
         <window title="lovestep" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="ZLK-t5-wcF" customClass="MainWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="160" y="78" width="1280" height="800"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
+            <rect key="contentRect" x="0.0" y="0.0" width="1440" height="800"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
-            <value key="minSize" type="size" width="1280" height="800"/>
-            <value key="maxSize" type="size" width="1280" height="800"/>
+            <value key="minSize" type="size" width="1440" height="800"/>
+            <value key="maxSize" type="size" width="1440" height="800"/>
             <view key="contentView" id="kwY-xz-IhL">
-                <rect key="frame" x="0.0" y="0.0" width="1280" height="800"/>
+                <rect key="frame" x="0.0" y="0.0" width="1440" height="800"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hdw-Br-gHM">
-                        <rect key="frame" x="414" y="715" width="452" height="65"/>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hdw-Br-gHM">
+                        <rect key="frame" x="479" y="715" width="452" height="65"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="452" id="Njv-pn-RNx"/>
-                            <constraint firstAttribute="height" constant="65" id="Vch-zM-CxU"/>
-                        </constraints>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="lovestepLogo" id="m88-7c-HK9"/>
                     </imageView>
-                    <customView identifier="SequencerView" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PM6-ZB-DE3" customClass="SequencerView">
-                        <rect key="frame" x="20" y="20" width="850" height="687"/>
+                    <customView identifier="SequencerView" id="PM6-ZB-DE3" customClass="SequencerView">
+                        <rect key="frame" x="20" y="20" width="850" height="688"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foy-vK-4Db" customClass="SequencerHeaderView">
-                                <rect key="frame" x="0.0" y="625" width="850" height="62"/>
+                            <customView id="foy-vK-4Db" customClass="SequencerHeaderView">
+                                <rect key="frame" x="0.0" y="626" width="850" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FaX-sX-9MN">
+                                    <textField focusRingType="none" verticalHuggingPriority="750" id="FaX-sX-9MN">
                                         <rect key="frame" x="13" y="6" width="267" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" focusRingType="none" title="Untitled" id="3fs-YQ-ZEr">
@@ -731,7 +728,7 @@
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiC-XK-VTd">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="OiC-XK-VTd">
                                         <rect key="frame" x="692" y="35" width="72" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="resolution:" id="ASg-VJ-0k4">
@@ -740,7 +737,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OCa-Dd-aDK">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="OCa-Dd-aDK">
                                         <rect key="frame" x="715" y="12" width="49" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="length:" id="Mwy-KY-uaQ">
@@ -749,7 +746,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YJd-J3-gKT">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="YJd-J3-gKT">
                                         <rect key="frame" x="762" y="35" width="43" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1/4" id="iti-KQ-T9v">
@@ -758,7 +755,7 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dZb-5O-g87">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dZb-5O-g87">
                                         <rect key="frame" x="764" y="12" width="30" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="32" id="Gas-jX-w9b">
@@ -779,11 +776,11 @@
                             <outlet property="sequenceHeaderView" destination="foy-vK-4Db" id="4xd-lB-QM8"/>
                         </connections>
                     </customView>
+                    <customView id="wSP-ec-aoG" customClass="LooperView">
+                        <rect key="frame" x="891" y="20" width="529" height="688"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="hdw-Br-gHM" firstAttribute="top" secondItem="kwY-xz-IhL" secondAttribute="top" constant="20" symbolic="YES" id="rme-Ba-7AF"/>
-                    <constraint firstItem="hdw-Br-gHM" firstAttribute="centerX" secondItem="kwY-xz-IhL" secondAttribute="centerX" id="sUo-9J-PnS"/>
-                </constraints>
             </view>
             <connections>
                 <outlet property="sequencerView" destination="PM6-ZB-DE3" id="WIl-Yx-f2u"/>
