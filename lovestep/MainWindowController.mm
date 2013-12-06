@@ -51,20 +51,18 @@
     fluid_settings_t* settings = new_fluid_settings();
     fluid_settings_setint(settings, "synth.polyphony", 128);
     /* ... */
-    delete_fluid_settings(settings);
-    
-    fluid_synth_t* synth;
-    settings = new_fluid_settings();
-    
-    
-    
-    
-    synth = new_fluid_synth(settings);
-    
+    fluid_synth_t *synth = new_fluid_synth(settings);
+    int success = fluid_synth_sfload(synth, "/Users/zach/Developer/lovestep/lovestep/SoundFont1.sf2", 1);
+    fluid_synth_set_sample_rate(synth, 44100);
+    fluid_synth_noteon(synth, 2, 40, 100);
+    fluid_synth_noteon(synth, 2, 44, 100);
+    fluid_synth_noteon(synth, 2, 47, 100);
+    float *lBuff = (float *)malloc(512 * sizeof(float));
+    float *rBuff = (float *)malloc(512 * sizeof(float));
     /* Do useful things here */
     
-    delete_fluid_synth(synth);
-    delete_fluid_settings(settings);
+//    delete_fluid_synth(synth);
+//    delete_fluid_settings(settings);
     
     self.audioManager = [Novocaine audioManager];
     
@@ -85,10 +83,18 @@
          
          BeatBrainNote note = [wself.bb noteForFrame:wself.counter];
          NSInteger noteLength = [wself.bb numFramesPerNote];
+        
+         
+         fluid_synth_write_float(synth, 512, lBuff, 0, 1, rBuff, 0, 1);
+         
+         for (int i = 0; i < numFrames; i++) {
+             data[i *numChannels] = lBuff[i];
+         }
          
          CGFloat currentNoteLength;// = MIN(noteLength - note.frameInNote, numFrames);
          CGFloat nextNoteLength;
          NSInteger gButtonIndex;
+         
          if (noteLength - note.frameInNote < numFrames) {
              currentNoteLength = noteLength - note.frameInNote;
              nextNoteLength = numFrames - currentNoteLength;

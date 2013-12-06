@@ -23,6 +23,7 @@
 		926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A967E1831FFAD0029BDA4 /* GCDAsyncSocket.m */; };
 		926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */; };
 		926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A96831831FFBF0029BDA4 /* Security.framework */; };
+		928DD01818519CE30088FD7A /* SoundFont1.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 928DD01718519CDB0088FD7A /* SoundFont1.sf2 */; };
 		92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E33FF418349CE5002CB131 /* NetworkManager.m */; };
 		92E45F06184EE0CB0023E2EA /* Instrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F05184EE0CB0023E2EA /* Instrument.m */; };
 		92E45F09184EED020023E2EA /* BeatBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F08184EED020023E2EA /* BeatBrain.m */; };
@@ -90,6 +91,7 @@
 		926A967F1831FFAD0029BDA4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = CocoaAsyncSocket/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = CocoaAsyncSocket/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		926A96831831FFBF0029BDA4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		928DD01718519CDB0088FD7A /* SoundFont1.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundFont1.sf2; sourceTree = "<group>"; };
 		92E33FF318349CE5002CB131 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		92E33FF418349CE5002CB131 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		92E45F04184EE0CB0023E2EA /* Instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Instrument.h; path = ../Instrument.h; sourceTree = "<group>"; };
@@ -282,9 +284,18 @@
 			name = GCDAsyncSocket;
 			sourceTree = "<group>";
 		};
+		928DD01918519CE70088FD7A /* Sound Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				928DD01718519CDB0088FD7A /* SoundFont1.sf2 */,
+			);
+			name = "Sound Fonts";
+			sourceTree = "<group>";
+		};
 		92DBF4E2184F1D1C00C1E4B4 /* Instruments */ = {
 			isa = PBXGroup;
 			children = (
+				928DD01918519CE70088FD7A /* Sound Fonts */,
 				92E45F0A184EF54B0023E2EA /* SineWave.h */,
 				92E45F0B184EF54B0023E2EA /* SineWave.m */,
 				92E45F04184EE0CB0023E2EA /* Instrument.h */,
@@ -475,6 +486,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				926A96491831F6610029BDA4 /* InfoPlist.strings in Resources */,
+				928DD01818519CE30088FD7A /* SoundFont1.sf2 in Resources */,
 				926A96571831F6610029BDA4 /* Images.xcassets in Resources */,
 				926A964F1831F6610029BDA4 /* Credits.rtf in Resources */,
 				926A96551831F6610029BDA4 /* MainMenu.xib in Resources */,
