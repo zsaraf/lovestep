@@ -87,13 +87,12 @@ void (^handleMouseDrag)(NSEvent *);
 {
     [super awakeFromNib];
     
-    self.resolutionValues = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:1],
-                                                        [NSNumber numberWithInt:2],
+    self.resolutionValues = [[NSArray alloc] initWithObjects:
                                                         [NSNumber numberWithInt:4],
                                                         [NSNumber numberWithInt:8],
                                                         [NSNumber numberWithInt:16],
                                                         [NSNumber numberWithInt:32], nil];
-    self.currentResolutionIndex = 2;
+    self.currentResolutionIndex = 0;
     self.currentLengthValue = 32;
 }
 

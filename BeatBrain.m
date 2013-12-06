@@ -24,7 +24,7 @@
 - (BeatBrainNote)noteForFrame:(NSInteger)frame
 {
     BeatBrainNote note;
-    NSInteger totalFrames = (int)(self.numNotes * self.noteLength * ((float)1/self.bpm) * 60 * self.sampleRate);
+    NSInteger totalFrames = (int)(self.numNotes * (self.noteLength * 4) * ((float)1/self.bpm) * 60 * self.sampleRate);
     NSInteger numFramesPerNote = totalFrames/self.numNotes;
     NSInteger currentRep = frame % totalFrames;
     note.frameInNote = currentRep % numFramesPerNote;
@@ -34,7 +34,7 @@
 
 - (NSInteger)numFramesPerNote
 {
-    return self.noteLength * 1./self.bpm * 60 * self.sampleRate;
+    return (self.noteLength * 4) * 1./self.bpm * 60 * self.sampleRate;
 }
 
 @end
