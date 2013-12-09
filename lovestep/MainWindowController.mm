@@ -53,10 +53,15 @@
     /* ... */
     fluid_synth_t *synth = new_fluid_synth(settings);
     int success = fluid_synth_sfload(synth, "/Users/zach/Developer/lovestep/lovestep/SoundFont1.sf2", 1);
+    if (!success) {
+        NSAssert(0, @"Fluid synth could not load");
+    }
+    fluid_synth_bank_select(synth, 2, 120);
+    fluid_synth_program_change(synth, 2, 24);
     fluid_synth_set_sample_rate(synth, 44100);
-    fluid_synth_noteon(synth, 2, 40, 100);
-    fluid_synth_noteon(synth, 2, 44, 100);
-    fluid_synth_noteon(synth, 2, 47, 100);
+//    fluid_synth_noteon(synth, 2, 40, 100);
+//    fluid_synth_noteon(synth, 2, 44, 100);
+//    fluid_synth_noteon(synth, 2, 47, 100);
     float *lBuff = (float *)malloc(512 * sizeof(float));
     float *rBuff = (float *)malloc(512 * sizeof(float));
     /* Do useful things here */
@@ -84,55 +89,54 @@
          BeatBrainNote note = [wself.bb noteForFrame:wself.counter];
          NSInteger noteLength = [wself.bb numFramesPerNote];
         
-         
-         fluid_synth_write_float(synth, 512, lBuff, 0, 1, rBuff, 0, 1);
-         
-         for (int i = 0; i < numFrames; i++) {
-             data[i *numChannels] = lBuff[i];
-         }
-         
-         CGFloat currentNoteLength;// = MIN(noteLength - note.frameInNote, numFrames);
-         CGFloat nextNoteLength;
+         CGFloat currentNoteLength;
+         CGFloat nextNoteLength = 0;
          NSInteger gButtonIndex;
          
-         if (noteLength - note.frameInNote < numFrames) {
-             currentNoteLength = noteLength - note.frameInNote;
+         if (noteLength - note.frameInNote < numFrames || note.frameInNote == 0)
+         {
+             if (note.frameInNote == 0) {
+                 currentNoteLength = 0;
+                 note.note = (note.note == 0) ? wself.bb.numNotes - 1 : note.note - 1;
+             } else {
+                 currentNoteLength = noteLength - note.frameInNote;
+             }
              nextNoteLength = numFrames - currentNoteLength;
              gButtonIndex = (note.note >= wself.bb.numNotes - 1) ? 0 : note.note + 1;
              [wself.noteChangeDelegate noteDidChangeToNoteNumber:gButtonIndex];
          } else {
              currentNoteLength = numFrames;
-             if (note.frameInNote == 0) [wself.noteChangeDelegate noteDidChangeToNoteNumber:note.note];
          }
+         
          wself.counter += numFrames;
-         for (int i = 0; i < wself.mWindow.sequencerView.grid.count; i++) {
-             NSMutableArray *arr = [wself.mWindow.sequencerView.grid objectAtIndex:i];
-             GridButton *gridButton = (GridButton *)[arr objectAtIndex:note.note];
-             if (gridButton.isOn) {
-                 
-                 for (int j = 0; j < currentNoteLength; j++) {
-                     data[j *numChannels] += [wself.currentInstrument valueForFrameIndex:note.frameInNote + j atFrequency:gridButton.midiButton.frequency];
+         
+         if (currentNoteLength != 0) {
+             fluid_synth_write_float(synth, currentNoteLength, lBuff, 0, 1, rBuff, 0, 1);
+         }
+         if (nextNoteLength != 0) {
+             for (int i = 0; i < wself.mWindow.sequencerView.grid.count; i++) {
+                 NSMutableArray *arr = [wself.mWindow.sequencerView.grid objectAtIndex:i];
+                 GridButton *gridButton = (GridButton *)[arr objectAtIndex:note.note];
+                 if (gridButton.isOn) {
+                     fluid_synth_noteoff(synth, 2, (int)gridButton.midiButton.keyNumber);
                  }
-             }
-             
-             if (nextNoteLength > 0) {
                  GridButton *nextGridButton = (GridButton *)[arr objectAtIndex:gButtonIndex];
                  if (nextGridButton.isOn) {
-                     for (int j = 0; j < nextNoteLength; j++) {
-                         NSInteger index = ((int)currentNoteLength + j) * numChannels;
-                         data[index] += [wself.currentInstrument valueForFrameIndex:j atFrequency:nextGridButton.midiButton.frequency];
-                     }
+                     fluid_synth_noteon(synth, 2, (int)nextGridButton.midiButton.keyNumber, 100);
                  }
              }
+             fluid_synth_write_float(synth, nextNoteLength, lBuff, currentNoteLength, 1, rBuff, currentNoteLength, 1);
          }
+         
          for (int i = 0; i < numFrames; i++) {
+             data[i * numChannels] = lBuff[i] * 2;
              for (int j = 1; j < numChannels; j++) {
                  data[i * numChannels + j] = data[i * numChannels];
              }
          }
          
-    }];
-    
+         
+     }];
     [self.audioManager play];
 }
 
