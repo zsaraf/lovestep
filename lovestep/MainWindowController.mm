@@ -50,6 +50,11 @@
 -(id)initWithWindow:(NSWindow *)window
 {
     if (self = [super initWithWindow:window]) {
+        
+        // Initialize the loops
+        self.loops = [[NSMutableArray alloc] init];
+        self.currentLoop = [[Loop alloc] init];
+        
         [self setupNovocaine];
     }
     
