@@ -77,6 +77,10 @@ void (^handleMouseDrag)(NSEvent *);
     }
 }
 
+- (IBAction)changeInstrumentButtonPressed:(id)sender
+{
+    NSLog(@"Called");
+}
 
 -(void)mouseDragged:(NSEvent *)theEvent
 {

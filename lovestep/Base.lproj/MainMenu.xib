@@ -729,7 +729,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="OiC-XK-VTd">
-                                        <rect key="frame" x="692" y="35" width="72" height="17"/>
+                                        <rect key="frame" x="669" y="35" width="72" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="resolution:" id="ASg-VJ-0k4">
                                             <font key="font" size="13" name="Helvetica-Bold"/>
@@ -738,7 +738,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="OCa-Dd-aDK">
-                                        <rect key="frame" x="715" y="12" width="49" height="17"/>
+                                        <rect key="frame" x="692" y="12" width="49" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="length:" id="Mwy-KY-uaQ">
                                             <font key="font" size="13" name="Helvetica-Bold"/>
@@ -747,7 +747,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="YJd-J3-gKT">
-                                        <rect key="frame" x="762" y="35" width="43" height="18"/>
+                                        <rect key="frame" x="739" y="35" width="43" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1/4" id="iti-KQ-T9v">
                                             <font key="font" size="14" name="Helvetica-Bold"/>
@@ -756,7 +756,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dZb-5O-g87">
-                                        <rect key="frame" x="764" y="12" width="30" height="17"/>
+                                        <rect key="frame" x="741" y="12" width="30" height="17"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="32" id="Gas-jX-w9b">
                                             <font key="font" size="14" name="Helvetica-Bold"/>
@@ -764,6 +764,17 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <button id="JG7-xb-imJ">
+                                        <rect key="frame" x="788" y="6" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="musicNote" imagePosition="only" alignment="center" alternateImage="musicNotePressed" state="on" imageScaling="proportionallyDown" inset="2" id="rxH-Kc-Mu8">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="changeInstrumentButtonPressed:" target="foy-vK-4Db" id="Rmm-Bq-jWh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <connections>
                                     <outlet property="lengthField" destination="dZb-5O-g87" id="0Yg-xL-8xW"/>
@@ -798,5 +809,7 @@
     </objects>
     <resources>
         <image name="lovestepLogo" width="500" height="125"/>
+        <image name="musicNote" width="50" height="50"/>
+        <image name="musicNotePressed" width="50" height="50"/>
     </resources>
 </document>

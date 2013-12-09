@@ -82,7 +82,6 @@
     fluid_synth_t *synth = new_fluid_synth(settings);
     
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SoundFont1" ofType:@"sf2"];
-    NSLog(@"Bundle path: %@", bundlePath);
     
     int success = fluid_synth_sfload(synth, [bundlePath cStringUsingEncoding:NSUTF8StringEncoding], 1);
     if (!success) {
@@ -106,8 +105,6 @@
     __weak MainWindowController * wself = self;
 
     self.counter = 0;
-    
-    self.currentInstrument = [[SineWave alloc] initWithSamplingRate:self.audioManager.samplingRate];
     
     self.bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:.25 numNotes:32];
     self.noteChangeDelegate = self.mWindow.sequencerView;
