@@ -13,6 +13,10 @@
 
 // Instrument used
 @property (nonatomic) fluid_synth_t *fluidSynth;
+// bank used for fluid synth
+@property (nonatomic) NSInteger bank;
+// program used for fluid synth
+@property (nonatomic) NSInteger program;
 
 // Length of the total loop
 @property (nonatomic) NSInteger length;
