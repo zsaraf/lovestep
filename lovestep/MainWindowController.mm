@@ -52,7 +52,11 @@
     fluid_settings_setint(settings, "synth.polyphony", 128);
     /* ... */
     fluid_synth_t *synth = new_fluid_synth(settings);
-    int success = fluid_synth_sfload(synth, "/Users/zach/Developer/lovestep/lovestep/SoundFont1.sf2", 1);
+    
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SoundFont1" ofType:@"sf2"];
+    NSLog(@"Bundle path: %@", bundlePath);
+    
+    int success = fluid_synth_sfload(synth, [bundlePath cStringUsingEncoding:NSUTF8StringEncoding], 1);
     if (!success) {
         NSAssert(0, @"Fluid synth could not load");
     }
