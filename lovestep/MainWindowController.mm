@@ -132,7 +132,11 @@
              }
              nextNoteLength = numFrames - currentNoteLength;
              gButtonIndex = (note.note >= wself.bb.numNotes - 1) ? 0 : note.note + 1;
-             [wself.noteChangeDelegate noteDidChangeToNoteNumber:gButtonIndex];
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [wself.noteChangeDelegate noteDidChangeToNoteNumber:gButtonIndex];
+             });
+             
          } else {
              currentNoteLength = numFrames;
          }
