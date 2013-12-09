@@ -8,6 +8,7 @@
 
 #import "SequencerHeaderView.h"
 #import "SequencerView.h"
+#import "ChangeInstrumentView.h"
 
 @interface SequencerHeaderView ()
 
@@ -15,6 +16,8 @@
 @property (nonatomic) NSInteger currentLengthValue;
 @property (nonatomic) NSInteger currentResolutionIndex;
 @property (nonatomic) NSPoint previousLocationChange;
+@property (nonatomic, weak) IBOutlet NSButton *changeInstrumentButton;
+@property (nonatomic, strong) ChangeInstrumentView *civ;
 
 @end
 
@@ -98,6 +101,15 @@ void (^handleMouseDrag)(NSEvent *);
                                                         [NSNumber numberWithInt:32], nil];
     self.currentResolutionIndex = 0;
     self.currentLengthValue = 32;
+    
+    // Remove the highlights
+    [self.changeInstrumentButton.cell setHighlightsBy:NSImageCellType];
+    
+    // Setup the change instrument view
+    self.civ = [[ChangeInstrumentView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, 100, 5 * 50))];
+    
+    // Add it to subview
+    [self addSubview:self.civ];
 }
 
 @end

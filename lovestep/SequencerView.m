@@ -164,7 +164,6 @@ typedef struct Resolution {
     int row = [self rowForTouch:loc];
     int col = [self colForTouch:loc];
     
-    // Get the grid button at the row and col
     GridButton *gb = [[self.grid objectAtIndex:row] objectAtIndex:col];
     
     // Do the appropriate thing to it
@@ -191,6 +190,8 @@ typedef struct Resolution {
         
         int row = [self rowForTouch:loc];
         int col = [self colForTouch:loc];
+        
+        if (row > NUM_KEYS - 1 || col > MAX_LENGTH - 1 || row < 0 || col < 0) return;
         
         // Get the grid button at the row and col
         GridButton *gb = [[self.grid objectAtIndex:row] objectAtIndex:col];

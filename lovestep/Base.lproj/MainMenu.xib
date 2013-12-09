@@ -777,6 +777,7 @@
                                     </button>
                                 </subviews>
                                 <connections>
+                                    <outlet property="changeInstrumentButton" destination="JG7-xb-imJ" id="xWl-3u-zKT"/>
                                     <outlet property="lengthField" destination="dZb-5O-g87" id="0Yg-xL-8xW"/>
                                     <outlet property="nameField" destination="FaX-sX-9MN" id="Fgn-B3-RJ9"/>
                                     <outlet property="resolutionField" destination="YJd-J3-gKT" id="DIw-ZU-YzC"/>
