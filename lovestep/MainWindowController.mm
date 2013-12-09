@@ -14,22 +14,39 @@
 #import "BeatBrain.h"
 #import "SineWave.h"
 #import "GridButton.h"
+#import "Loop.h"
+
 #import <FluidSynth/FluidSynth.h>
 
 @interface MainWindowController()
 
+// The main window
 @property (nonatomic, weak) MainWindow *mWindow;
+
+// Novacaine variables
 @property (nonatomic, strong) Novocaine *audioManager;
 @property (nonatomic, strong) AudioFileReader *fileReader;
 @property (nonatomic, strong) AudioFileWriter *fileWriter;
+
+// The number of frames happened
 @property (nonatomic) NSInteger counter;
-@property (nonatomic, strong) Instrument *currentInstrument;
+
+// The beat BRAIN yo
 @property (nonatomic, strong) BeatBrain *bb;
+
+// The loop currently in the sequencer view
+@property (nonatomic, strong) Loop *currentLoop;
+
+// All the other loops from the looper
+@property (nonatomic, strong) NSMutableArray *loops;
 
 @end
 
 @implementation MainWindowController
 
+/*
+ * Set up novocaine for audio playback
+ */
 -(id)initWithWindow:(NSWindow *)window
 {
     if (self = [super initWithWindow:window]) {
@@ -39,11 +56,17 @@
     return self;
 }
 
+/*
+ * Returns the main window (actually)
+ */
 -(MainWindow *)mWindow
 {
     return (MainWindow *)self.window;
 }
 
+/*
+ * Sets up the audio playback
+ */
 -(void)setupNovocaine
 {
     [super windowDidLoad];
