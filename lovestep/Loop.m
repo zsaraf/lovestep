@@ -26,7 +26,6 @@
              enabled:(BOOL)enabled
 {
     if (self = [super init]) {
-        self.instrument = instrument;
         
         // inititalize fluid synth
         self.fluidSettings = new_fluid_settings();
@@ -38,8 +37,7 @@
         if (!success) {
             NSAssert(0, @"Fluid synth could not load");
         }
-        fluid_synth_bank_select(self.fluidSynth, 2, (int)instrument.bank);
-        fluid_synth_program_change(self.fluidSynth, 2, (int)instrument.program);
+        self.instrument = instrument;
         fluid_synth_set_sample_rate(self.fluidSynth, 44100);
         self.length = length;
         self.resolution = resolution;
