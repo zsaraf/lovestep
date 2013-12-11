@@ -313,14 +313,22 @@
 		92DBF4E5184F1D4400C1E4B4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AF399EAA1858401400B7B6F8 /* Delegates */,
 				92E45F07184EED020023E2EA /* BeatBrain.h */,
 				92E45F08184EED020023E2EA /* BeatBrain.m */,
 				AF48DA72185581120023F1CD /* Loop.h */,
 				AF48DA73185581120023F1CD /* Loop.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		AF399EAA1858401400B7B6F8 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
 				AF399EA8185823FC00B7B6F8 /* NoteChangeDelegate.h */,
 				AF399EA91858241A00B7B6F8 /* SequencerViewDelegate.h */,
 			);
-			name = Utils;
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 		AF66EC671851586E002F899E /* Sequencer */ = {
