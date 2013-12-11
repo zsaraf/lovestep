@@ -17,5 +17,6 @@
 
 @property (nonatomic, weak) id<NoteChangeDelegate> noteChangeDelegate;
 @property (nonatomic, strong) NSMutableArray *loops;
+@property (nonatomic, strong) NSMutableArray *pendingLoops;
 
 @end

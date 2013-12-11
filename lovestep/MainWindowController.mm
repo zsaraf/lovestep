@@ -47,6 +47,7 @@
         
         // Initialize the loops
         self.loops = [[NSMutableArray alloc] init];
+        self.pendingLoops = [[NSMutableArray alloc] init];
         
         self.mWindow.sequencerView.delegate = self;
         
@@ -142,6 +143,20 @@
     }
 }
 
+-(void)checkPendingLoopsWithNumFrames:(NSInteger)numFrames
+{
+    NSMutableArray *discardedItems = [NSMutableArray array];
+    for (Loop *loop in self.pendingLoops) {
+        BeatBrainNote note = [BeatBrain noteForFrame:self.counter inLoop:loop];
+        NSInteger noteLength = [BeatBrain numFramesPerNoteInLoop:loop];
+        if (note.note == 0 || (note.note == loop.length - 1 && noteLength - note.frameInNote < numFrames)) {
+            [discardedItems addObject:loop];
+        }
+    }
+    [self.pendingLoops removeObjectsInArray:discardedItems];
+    [self.loops addObjectsFromArray:discardedItems];
+}
+
 /*
  * Sets up the audio playback
  */
@@ -176,6 +191,8 @@
      {
          // Clear out the buffer
          memset(data, 0, numFrames * numChannels * sizeof(float));
+         [wself checkPendingLoopsWithNumFrames:numFrames];
+         
          [wself soundDataForLoop:wself.mWindow.sequencerView.currentLoop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
          for (Loop *loop in wself.loops) {
              [wself soundDataForLoop:loop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
