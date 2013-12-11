@@ -35,7 +35,13 @@ static NetworkManager *myInstance;
     return(myInstance);
 }
 
--(void)publishNetwork
+-(void)createNetwork
+{
+    self.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    [self.asyncSocket connectToHost:@"192.168.182.137" onPort:80 error:nil];
+}
+
+/*-(void)publishNetwork
 {
     // Create our socket.
 	// We tell it to invoke our delegate methods on the main thread.
@@ -168,7 +174,7 @@ static NetworkManager *myInstance;
 -(void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
 {
     NSLog(@"%@", errorDict);
-}
+}*/
 
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
@@ -178,6 +184,11 @@ static NetworkManager *myInstance;
 -(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
 {
     NSLog(@"did connect to host %@", host);
+}
+
+-(void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
+{
+    NSLog(@"did acce[t new socket");
 }
 
 @end

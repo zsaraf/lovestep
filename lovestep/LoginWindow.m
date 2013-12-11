@@ -44,7 +44,8 @@
     } else {
         [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"partnerUsername"];
         [NetworkManager instance].delegate = self;
-        [[NetworkManager instance] searchForNetwork];
+        //[[NetworkManager instance] searchForNetwork];
+        [[NetworkManager instance] createNetwork];
         [self setSearchingUI];
     }
 }
