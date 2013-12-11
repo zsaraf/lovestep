@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Loop.h"
+
+#define BPM 120
+#define SAMPLE_RATE 44100
 
 typedef struct {
     NSInteger note;
@@ -15,13 +19,7 @@ typedef struct {
 
 @interface BeatBrain : NSObject
 
--(id)initWithBPM:(NSInteger)bpm sampleRate:(NSInteger)sampleRate noteLength:(CGFloat)noteLength numNotes:(NSInteger)numNotes;
--(BeatBrainNote)noteForFrame:(NSInteger)frame;
--(NSInteger)numFramesPerNote;
-
-@property (nonatomic) NSInteger bpm;
-@property (nonatomic) NSInteger sampleRate;
-@property (nonatomic) CGFloat noteLength;
-@property (nonatomic) NSInteger numNotes;
++(BeatBrainNote)noteForFrame:(NSInteger)frame inLoop:(Loop *)loop;
++ (NSInteger)numFramesPerNoteInLoop:(Loop *)loop;
 
 @end

@@ -749,7 +749,7 @@
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="YJd-J3-gKT">
                                         <rect key="frame" x="739" y="35" width="43" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1/4" id="iti-KQ-T9v">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="1/16" id="iti-KQ-T9v">
                                             <font key="font" size="14" name="Helvetica-Bold"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
