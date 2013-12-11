@@ -113,8 +113,7 @@
  */
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
-    int row = [self.tableView selectedRow];
-    [self.delegate didChangeToInstrument:[self.instruments objectAtIndex:row]];
+    [self.delegate instrumentDidChangeToInstrument:[self.instruments objectAtIndex:[self.tableView selectedRow]]];
 }
 
 /*
