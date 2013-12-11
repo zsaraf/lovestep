@@ -93,6 +93,11 @@ void (^handleMouseDrag)(NSEvent *);
 - (IBAction)changeInstrumentButtonPressed:(id)sender
 {
     NSLog(@"Called");
+    if ([self.civ isHidden]) {
+        [self.civ setHidden:NO];
+    } else {
+        [self.civ setHidden:YES];
+    }
 }
 
 /*
@@ -125,6 +130,8 @@ void (^handleMouseDrag)(NSEvent *);
     
     // Setup the change instrument view
     self.civ = [[ChangeInstrumentView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(self.superview.frame.size.width - CHANGE_INSTRUMENT_VIEW_WIDTH, self.superview.frame.size.height - self.frame.size.height - CHANGE_INSTRUMENT_VIEW_HEIGHT, CHANGE_INSTRUMENT_VIEW_WIDTH, CHANGE_INSTRUMENT_VIEW_HEIGHT))];
+    
+    [self.civ setHidden:YES];
     
     // Add it to subview
     [self.superview addSubview:self.civ];

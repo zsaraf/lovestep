@@ -14,6 +14,7 @@
 // instruments array
 @property (nonatomic, strong) NSMutableArray *instruments;
 @property (nonatomic, strong) NSTableView *tableView;
+@property (nonatomic, strong) NSScrollView *scrollView;
 
 @end
 
@@ -64,7 +65,8 @@
  */
 - (void)setupTableView
 {
-    self.tableView = [[NSTableView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))];
+    self.scrollView = [[NSScrollView alloc] initWithFrame:self.bounds];
+    self.tableView = [[NSTableView alloc] initWithFrame:self.bounds];
     
     NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"col"];
     [column setWidth:self.tableView.frame.size.width];
@@ -74,7 +76,9 @@
     [self.tableView setDataSource:self];
     [self.tableView setBackgroundColor:[NSColor blueColor]];
     
-    [self addSubview:self.tableView];
+    [self.scrollView setDocumentView:self.tableView];
+    
+    [self addSubview:self.scrollView];
 }
 
 /*
@@ -103,6 +107,15 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
     return [self.instruments count];
+}
+
+/*
+ * Called when the selection changes
+ */
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{
+    int row = [self.tableView selectedRow];
+    [self.delegate didChangeToInstrument:[self.instruments objectAtIndex:row]];
 }
 
 /*
