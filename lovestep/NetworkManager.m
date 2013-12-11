@@ -48,7 +48,6 @@ static NetworkManager *myInstance;
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:loop];
     if (data == nil) NSAssert(0, @"We are fucked couldnt archive this shit");
     [self.asyncSocket writeData:data withTimeout:4 tag:1];
-    [self.asyncSocket readDataWithTimeout:60 tag:RECEIVED_ARRAY];
 }
 
 #pragma delegate methods
@@ -69,6 +68,7 @@ static NetworkManager *myInstance;
         NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:newData]);
         [self.asyncSocket writeData:newData withTimeout:5 tag:10];
         [self.asyncSocket readDataWithTimeout:5 tag:RECEIVED_ARRAY];*/
+        [self.asyncSocket readDataWithTimeout:60 tag:RECEIVED_ARRAY];
     } else if (tag == RECEIVED_ARRAY) {
         NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:data]);
         Loop *loop = [NSKeyedUnarchiver unarchiveObjectWithData:data];
