@@ -7,7 +7,6 @@
 //
 
 #import "ChangeInstrumentView.h"
-#import "Instrument.h"
 
 @interface ChangeInstrumentView ()
 

@@ -249,6 +249,13 @@ typedef struct Resolution {
     [self highlightColumn:noteNumber];
 }
 
+-(void)keyDown:(NSEvent *)theEvent
+{
+    if (theEvent.keyCode == 36) {
+        
+    }
+}
+
 /*
  * Gets the key number at the given index
  */
@@ -292,6 +299,11 @@ typedef struct Resolution {
             [gb setDisabledState];
         }
     }
+}
+
+-(void)instrumentDidChangeToInstrument:(Instrument *)instrument
+{
+    
 }
 
 @end

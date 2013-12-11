@@ -7,12 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Instrument.h"
 
 @protocol ChangeInstrumentDelegate
 
 @required
 
-- (void)instrumentDidChangeToBank:(NSInteger)bank progNumber:(NSInteger)progNum;
+- (void)instrumentDidChangeToInstrument:(Instrument *)instrument;
 
 @end
 

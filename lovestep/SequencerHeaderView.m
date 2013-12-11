@@ -133,6 +133,8 @@ void (^handleMouseDrag)(NSEvent *);
     
     [self.civ setHidden:YES];
     
+    self.civ.delegate = (id<ChangeInstrumentDelegate>)self.superview;
+
     // Add it to subview
     [self.superview addSubview:self.civ];
 }
