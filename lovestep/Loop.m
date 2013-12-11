@@ -23,6 +23,7 @@
           resolution:(NSInteger)resolution
                 grid:(NSMutableArray *)grid
                 name:(NSString *)name
+             creator:(NSString *)creator
              enabled:(BOOL)enabled
 {
     if (self = [super init]) {
@@ -35,6 +36,7 @@
         self.resolution = resolution;
         self.grid = grid;
         self.name = name;
+        self.creator = creator;
         self.enabled = enabled;
     }
     return self;
@@ -75,6 +77,7 @@
     [encoder encodeObject:self.grid forKey:@"grid"];
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeBool:self.enabled forKey:@"enabled"];
+    [encoder encodeObject:self.creator forKey:@"creator"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -85,8 +88,9 @@
     NSMutableArray *grid = [decoder decodeObjectForKey:@"grid"];
     NSString *name = [decoder decodeObjectForKey:@"name"];
     BOOL enabled = [decoder decodeBoolForKey:@"enabled"];
+    NSString *creator = [decoder decodeObjectForKey:@"creator"];
     
-    return [self initWithInstrument:instrument length:length resolution:resolution grid:grid name:name enabled:enabled];
+    return [self initWithInstrument:instrument length:length resolution:resolution grid:grid name:name creator:creator enabled:enabled];
 }
 
 @end

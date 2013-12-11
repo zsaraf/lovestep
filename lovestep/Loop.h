@@ -17,6 +17,7 @@
           resolution:(NSInteger)resolution
                 grid:(NSMutableArray *)grid
                 name:(NSString *)name
+             creator:(NSString *)creator
              enabled:(BOOL)enabled;
 
 // Instrument used

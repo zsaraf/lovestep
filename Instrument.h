@@ -10,11 +10,15 @@
 
 @interface Instrument : NSObject <NSCoding>
 
--(id)initWithFluidSynthProgram:(NSInteger)program bank:(NSInteger)bank name:(NSString *)name;
+-(id)initWithFluidSynthBank:(NSInteger)bank
+                    program:(NSInteger)program
+                volumeRatio:(CGFloat)volumeRatio
+                       name:(NSString *)name;
 +(Instrument *)defaultInstrument;
 
 @property (nonatomic) NSInteger program;
 @property (nonatomic) NSInteger bank;
+@property (nonatomic) CGFloat volumeRatio;
 @property (nonatomic, strong) NSString *name;
 
 

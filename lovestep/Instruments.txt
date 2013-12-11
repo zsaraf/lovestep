@@ -1,10 +1,12 @@
-0 1 Grand Piano
-2 1 Steel Guitar
-1 38 Synth Bass
-8 80 Sin Groove
-0 58 Tuba
-8 14 Church Bells
-16 25 Mandolin
-8 19 Pipe Organ
-0 89 Warm Pad
-0 40 Violin
+# Format
+# {bank}:{program}:{volume-ratio}:{name}
+0:1:1:Grand Piano:
+2:1:2:Steel Guitar
+1:38:5:Synth Bass
+8:80:5:Sin Groove
+0:58:2:Tuba
+8:14:3:Church Bells
+16:25:2:Mandolin
+8:19:2:Pipe Organ
+0:89:4:Warm Pad
+0:40:3:Violin

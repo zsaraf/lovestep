@@ -139,7 +139,7 @@
     }
     
     for (int i = 0; i < numFrames; i++) {
-        mainData[i * numChannels] += lData[i];
+        mainData[i * numChannels] += lData[i] * loop.instrument.volumeRatio;
     }
 }
 

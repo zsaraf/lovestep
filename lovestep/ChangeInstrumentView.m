@@ -44,15 +44,13 @@
                                                      error:NULL];
     NSArray *instrumentLines = [content componentsSeparatedByString:@"\n"];
     for (NSString *instrumentLine in instrumentLines) {
-        NSArray *parsedLine = [instrumentLine componentsSeparatedByString:@" "];
+        if (instrumentLine.length > 0 && [instrumentLine characterAtIndex:0] == '#') continue;
+        NSArray *parsedLine = [instrumentLine componentsSeparatedByString:@":"];
         if (parsedLine.count >= 3) {
-            NSString *instrumentName = @"";
-            for (int i= 2; i < parsedLine.count; i++) {
-                instrumentName = [instrumentName stringByAppendingFormat:@"%@ ", parsedLine[i]];
-            }
-            Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:[parsedLine[1] integerValue]
-                                                                              bank:[parsedLine[0] integerValue]
-                                                                              name:instrumentName];
+            Instrument *instrument = [[Instrument alloc] initWithFluidSynthBank:[parsedLine[0] integerValue]
+                                                                        program:[parsedLine[1] integerValue]
+                                                                    volumeRatio:[parsedLine[2] floatValue]
+                                                                           name:parsedLine[3]];
             [self.instruments addObject:instrument];
         }
     }

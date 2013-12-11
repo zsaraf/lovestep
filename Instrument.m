@@ -10,11 +10,15 @@
 
 @implementation Instrument
 
--(id)initWithFluidSynthProgram:(NSInteger)program bank:(NSInteger)bank name:(NSString *)name
+-(id)initWithFluidSynthBank:(NSInteger)bank
+                    program:(NSInteger)program
+                volumeRatio:(CGFloat)volumeRatio
+                       name:(NSString *)name;
 {
     if (self = [super init]) {
         self.program = program;
         self.bank = bank;
+        self.volumeRatio = volumeRatio;
         self.name = name;
     }
     return self;
@@ -25,6 +29,7 @@
     if (self = [super init]) {
         self.program = [aDecoder decodeIntegerForKey:@"program"];
         self.bank = [aDecoder decodeIntegerForKey:@"bank"];
+        self.volumeRatio = [aDecoder decodeFloatForKey:@"volumeRatio"];
         self.name = [aDecoder decodeObjectForKey:@"name"];
     }
     return self;
@@ -32,7 +37,7 @@
 
 +(Instrument *)defaultInstrument
 {
-    return [[Instrument alloc] initWithFluidSynthProgram:1 bank:0 name:@"Grand Piano"];
+    return [[Instrument alloc] initWithFluidSynthBank:0 program:1 volumeRatio:1 name:@"Grand Piano"];
 }
 
 -(void)encodeWithCoder:(NSCoder *)aCoder
@@ -40,6 +45,7 @@
     [aCoder encodeObject:self.name forKey:@"name"];
     [aCoder encodeInteger:self.program forKey:@"program"];
     [aCoder encodeInteger:self.bank forKey:@"bank"];
+    [aCoder encodeFloat:self.volumeRatio forKey:@"volumeRatio"];
 }
 
 
