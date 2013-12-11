@@ -49,6 +49,7 @@ static NetworkManager *myInstance;
 
 -(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
 {
+    [
     [sock readDataWithTimeout:20 tag:WAITING_FOR_OTHER_USER];
 }
 

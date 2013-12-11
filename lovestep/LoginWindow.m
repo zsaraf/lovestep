@@ -47,7 +47,7 @@
 - (void)setSearchingUI
 {
     [self.usernameField setHidden:YES];
-    [self.promptField setStringValue:@"Searching for server..."];
+    [self.promptField setStringValue:@"Waiting for other players.."];
 }
 
 /*
@@ -56,13 +56,13 @@
 -(void)networkManagerDidFindNetworkService:(BOOL)found
 {
     if (!found) {
-        [self.promptField setStringValue:@"Found connection - waiting for others..."];
+        [self.promptField setStringValue:@"Weird ass error..."];
     } else {
         
         // We have the two services connected -- set them up
+        [(AppDelegate *)[[NSApplication sharedApplication] delegate] didLogIn];
     }
     
-    [(AppDelegate *)[[NSApplication sharedApplication] delegate] didLogIn];
 }
 
 @end
