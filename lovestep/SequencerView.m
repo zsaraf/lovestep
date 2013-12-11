@@ -249,6 +249,9 @@ typedef struct Resolution {
     [self highlightColumn:noteNumber];
 }
 
+/*
+ * Send the loop
+ */
 -(void)keyDown:(NSEvent *)theEvent
 {
     if (theEvent.keyCode == 36) {
