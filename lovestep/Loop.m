@@ -16,6 +16,7 @@
 
 
 @implementation Loop
+@synthesize instrument = _instrument;
 
 -(id)initWithInstrument:(Instrument *)instrument
               length:(NSInteger)length
@@ -47,6 +48,13 @@
         self.enabled = enabled;
     }
     return self;
+}
+
+-(void)setInstrument:(Instrument *)instrument
+{
+    _instrument = instrument;
+    fluid_synth_bank_select(self.fluidSynth, 2, (int)instrument.bank);
+    fluid_synth_program_change(self.fluidSynth, 2, (int)instrument.program);
 }
 
 -(void)dealloc

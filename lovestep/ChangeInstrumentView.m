@@ -50,10 +50,9 @@
             for (int i= 2; i < parsedLine.count; i++) {
                 instrumentName = [instrumentName stringByAppendingFormat:@"%@ ", parsedLine[i]];
             }
-            Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:[parsedLine[0] integerValue]
-                                                                              bank:[parsedLine[1] integerValue]
+            Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:[parsedLine[1] integerValue]
+                                                                              bank:[parsedLine[0] integerValue]
                                                                               name:instrumentName];
-            NSLog(@"%ld %ld %@", instrument.program, instrument.bank, instrument.name);
             [self.instruments addObject:instrument];
         }
     }

@@ -303,7 +303,7 @@ typedef struct Resolution {
 
 -(void)instrumentDidChangeToInstrument:(Instrument *)instrument
 {
-    
+    [self.currentLoop setInstrument:instrument];
 }
 
 @end
