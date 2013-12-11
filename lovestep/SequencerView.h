@@ -10,8 +10,9 @@
 
 #import "MainWindowController.h"
 #import "Loop.h"
+#import "ChangeInstrumentView.h"
 
-@interface SequencerView : NSView <NoteChangeDelegate, SequencerHeaderViewDelegate>
+@interface SequencerView : NSView <NoteChangeDelegate, SequencerHeaderViewDelegate, ChangeInstrumentDelegate>
 
 // Controls the sequenceHeaderView
 @property (nonatomic, weak) IBOutlet SequencerHeaderView *sequenceHeaderView;

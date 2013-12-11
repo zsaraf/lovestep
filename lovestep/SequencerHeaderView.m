@@ -125,7 +125,7 @@ void (^handleMouseDrag)(NSEvent *);
     
     // Setup the change instrument view
     self.civ = [[ChangeInstrumentView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(self.superview.frame.size.width - CHANGE_INSTRUMENT_VIEW_WIDTH, self.superview.frame.size.height - self.frame.size.height - CHANGE_INSTRUMENT_VIEW_HEIGHT, CHANGE_INSTRUMENT_VIEW_WIDTH, CHANGE_INSTRUMENT_VIEW_HEIGHT))];
-    
+    self.civ.delegate = (id<ChangeInstrumentDelegate>)self.superview;
     // Add it to subview
     [self.superview addSubview:self.civ];
 }

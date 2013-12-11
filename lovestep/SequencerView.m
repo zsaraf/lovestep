@@ -301,4 +301,9 @@ typedef struct Resolution {
     }
 }
 
+-(void)instrumentDidChangeToInstrument:(Instrument *)instrument
+{
+    
+}
+
 @end
