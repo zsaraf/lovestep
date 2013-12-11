@@ -154,15 +154,15 @@ static NetworkManager *myInstance;
 -(void)netServiceDidResolveAddress:(NSNetService *)sender
 {
     if (sender == self.serverService) {
-        NSLog(@"Resolved in serverservice");
+        NSLog(@"Resolved in serverService");
     } else if (sender == self.netService) {
-        NSLog(@"Resolved in netservice");
+        NSLog(@"Resolved in netService");
     }
 }
 
 -(void)netServiceDidStop:(NSNetService *)sender
 {
-    
+    NSLog(@"Net service did stop");
 }
 
 -(void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
