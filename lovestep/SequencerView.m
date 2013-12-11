@@ -263,6 +263,13 @@ typedef struct Resolution {
 }
 
 /*
+ * Allow for key down events
+ */
+- (BOOL)acceptsFirstResponder {
+    return YES;
+}
+
+/*
  * Clears all the information and resets the current loop
  */
 - (void)clearGrid
