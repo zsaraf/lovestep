@@ -14,6 +14,7 @@
 #import "BeatBrain.h"
 #import "GridButton.h"
 #import "Loop.h"
+#import "NetworkManager.h"
 
 #import <FluidSynth/FluidSynth.h>
 
@@ -61,6 +62,7 @@
 - (void)sequencerViewDidPushLoop:(Loop *)newLoop
 {
     [self.loops addObject:newLoop];
+    [[NetworkManager instance] sendLoop:newLoop];
 }
 
 /*

@@ -64,11 +64,11 @@ static NetworkManager *myInstance;
         [self.asyncSocket readDataWithTimeout:4 tag:USER_NAME_RECEIVE_TAG];
     } else if (tag == USER_NAME_RECEIVE_TAG) {
         [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithUTF8String:[data bytes]] forKey:@"partner"];
-        NSArray *arr = [NSArray arrayWithObjects:@"feknfeklfn", @"fkjebfejfbe", @"kefjefkjehfkewjfh", nil];
+        /*NSArray *arr = [NSArray arrayWithObjects:@"feknfeklfn", @"fkjebfejfbe", @"kefjefkjehfkewjfh", nil];
         NSData *newData = [NSKeyedArchiver archivedDataWithRootObject:arr];
         NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:newData]);
         [self.asyncSocket writeData:newData withTimeout:5 tag:10];
-        [self.asyncSocket readDataWithTimeout:5 tag:RECEIVED_ARRAY];
+        [self.asyncSocket readDataWithTimeout:5 tag:RECEIVED_ARRAY];*/
     } else if (tag == RECEIVED_ARRAY) {
         NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:data]);
     }
