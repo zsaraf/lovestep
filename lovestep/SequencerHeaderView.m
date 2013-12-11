@@ -50,7 +50,7 @@ void (^handleMouseDrag)(NSEvent *);
                 else if
                     (self.currentResolutionIndex >= self.resolutionValues.count) self.currentResolutionIndex = self.resolutionValues.count - 1;
                 [self.resolutionField setStringValue:[NSString stringWithFormat:@"1/%d", [[self.resolutionValues objectAtIndex:self.currentResolutionIndex] intValue]]];
-                [self.delegate sequenceResolutionDidChangeToResolution:(NSInteger)[self.resolutionValues objectAtIndex:self.currentResolutionIndex]];
+                [self.delegate sequenceResolutionDidChangeToResolution:[[self.resolutionValues objectAtIndex:self.currentResolutionIndex] integerValue]];
                 
                 self.previousLocationChange = newPoint;
             }
@@ -92,10 +92,10 @@ void (^handleMouseDrag)(NSEvent *);
     [super awakeFromNib];
     
     self.resolutionValues = [[NSArray alloc] initWithObjects:
-                                                        [NSNumber numberWithInt:4],
-                                                        [NSNumber numberWithInt:8],
-                                                        [NSNumber numberWithInt:16],
-                                                        [NSNumber numberWithInt:32], nil];
+                                                        [NSNumber numberWithInteger:4],
+                                                        [NSNumber numberWithInteger:8],
+                                                        [NSNumber numberWithInteger:16],
+                                                        [NSNumber numberWithInteger:32], nil];
     self.currentResolutionIndex = 0;
     self.currentLengthValue = 32;
     

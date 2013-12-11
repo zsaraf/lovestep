@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <FluidSynth/FluidSynth.h>
+#import "Instrument.h"
 
 @interface Loop : NSObject
 
--(id)initWithProgram:(NSInteger)program
-                bank:(NSInteger)bank
+-(id)initWithInstrument:(Instrument *)instrument
               length:(NSInteger)length
           resolution:(NSInteger)resolution
                 grid:(NSMutableArray *)grid
@@ -22,11 +22,7 @@
 // Instrument used
 @property (nonatomic) fluid_synth_t *fluidSynth;
 
-// bank used for fluid synth
-@property (nonatomic) NSInteger bank;
-
-// program used for fluid synth
-@property (nonatomic) NSInteger program;
+@property (nonatomic, strong) Instrument *instrument;
 
 // Length of the total loop
 @property (nonatomic) NSInteger length;
