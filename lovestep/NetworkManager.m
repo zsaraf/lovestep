@@ -8,6 +8,8 @@
 
 #import "NetworkManager.h"
 
+#define WAITING_FOR_OTHER_USER 20
+
 @interface NetworkManager ()
 
 @property (nonatomic, strong) GCDAsyncSocket *asyncSocket;
@@ -39,12 +41,15 @@ static NetworkManager *myInstance;
 
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
-    NSLog(@"did receive data %@", data);
+    if (tag == WAITING_FOR_OTHER_USER) {
+        NSLog(@"%@", [NSString stringWithUTF8String:[data bytes]]);
+        [self.delegate networkManagerDidFindNetworkService:YES];
+    }
 }
 
 -(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
 {
-    [self.delegate networkManagerDidFindNetworkService:YES];
+    [sock readDataWithTimeout:20 tag:WAITING_FOR_OTHER_USER];
 }
 
 -(void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
