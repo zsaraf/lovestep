@@ -12,9 +12,7 @@
 #import "Loop.h"
 #import "ChangeInstrumentView.h"
 
-@protocol SequencerViewDelegate <NSObject>
-
-@required
+@protocol SequencerViewDelegate
 
 - (void)sequencerViewDidPushLoop:(Loop *)newLoop;
 
