@@ -10,6 +10,11 @@
 #import "GCDAsyncSocket.h"
 #import "Loop.h"
 
+typedef struct {
+    NSUInteger type_id;
+    NSUInteger size;
+} header_t;
+
 @protocol NetworkManagerDelegate
 
 @optional
@@ -23,7 +28,6 @@
 -(void)createNetwork;
 -(void)sendLoop:(Loop *)loop;
 +(NetworkManager *)instance;
-
 
 @property (nonatomic, weak) id<NetworkManagerDelegate> delegate;
 

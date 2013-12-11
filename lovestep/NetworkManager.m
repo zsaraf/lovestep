@@ -13,6 +13,8 @@
 #define USER_NAME_RECEIVE_TAG 22
 #define RECEIVED_ARRAY 23
 
+#define LOOP_TYPE 1
+
 @interface NetworkManager ()
 
 @property (nonatomic, strong) GCDAsyncSocket *asyncSocket;
@@ -70,7 +72,8 @@ static NetworkManager *myInstance;
         NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:newData]);
         [self.asyncSocket writeData:newData withTimeout:5 tag:10];
         [self.asyncSocket readDataWithTimeout:5 tag:RECEIVED_ARRAY];*/
-        [self.asyncSocket readDataWithTimeout:60 tag:RECEIVED_ARRAY];
+        
+        [self.asyncSocket readDataToLength:6077 withTimeout:-1 tag:RECEIVED_ARRAY];
     } else if (tag == RECEIVED_ARRAY) {
         NSLog(@"%ld", data.length);
         NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:data]);
