@@ -11,6 +11,7 @@
 #define WAITING_FOR_OTHER_USER_TAG 20
 #define USER_NAME_SEND_TAG 21
 #define USER_NAME_RECEIVE_TAG 22
+#define RECEIVED_ARRAY 23
 
 @interface NetworkManager ()
 
@@ -56,7 +57,9 @@ static NetworkManager *myInstance;
         [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithUTF8String:[data bytes]] forKey:@"partner"];
         NSArray *arr = [NSArray arrayWithObjects:@"feknfeklfn", @"fkjebfejfbe", @"kefjefkjehfkewjfh", nil];
         [self.asyncSocket writeData:[NSKeyedArchiver archivedDataWithRootObject:arr] withTimeout:5 tag:10];
-        
+        [self.asyncSocket readDataWithTimeout:5 tag:RECEIVED_ARRAY];
+    } else if (tag == RECEIVED_ARRAY) {
+        NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:data]);
     }
 }
 
