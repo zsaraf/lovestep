@@ -15,11 +15,9 @@
 
 @end
 
-@interface NetworkManager : NSObject <NSNetServiceDelegate, NSNetServiceBrowserDelegate, GCDAsyncSocketDelegate>
+@interface NetworkManager : NSObject <GCDAsyncSocketDelegate>
 
 -(void)createNetwork;
--(void)publishNetwork;
--(void)searchForNetwork;
 +(NetworkManager *)instance;
 
 

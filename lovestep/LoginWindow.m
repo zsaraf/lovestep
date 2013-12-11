@@ -65,7 +65,6 @@
 -(void)networkManagerDidFindNetworkService:(BOOL)found
 {
     if (!found) {
-        [[NetworkManager instance] publishNetwork];
         [self.promptField setStringValue:@"Hosting connection - waiting for others..."];
     } else {
         
@@ -76,25 +75,3 @@
 }
 
 @end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
