@@ -101,6 +101,8 @@
 		92E45F05184EE0CB0023E2EA /* Instrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Instrument.m; path = ../Instrument.m; sourceTree = "<group>"; };
 		92E45F07184EED020023E2EA /* BeatBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeatBrain.h; path = ../BeatBrain.h; sourceTree = "<group>"; };
 		92E45F08184EED020023E2EA /* BeatBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeatBrain.m; path = ../BeatBrain.m; sourceTree = "<group>"; };
+		AF399EA8185823FC00B7B6F8 /* NoteChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteChangeDelegate.h; sourceTree = "<group>"; };
+		AF399EA91858241A00B7B6F8 /* SequencerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerViewDelegate.h; sourceTree = "<group>"; };
 		AF48DA72185581120023F1CD /* Loop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loop.h; sourceTree = "<group>"; };
 		AF48DA73185581120023F1CD /* Loop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loop.m; sourceTree = "<group>"; };
 		AF48DA7518558B820023F1CD /* ChangeInstrumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeInstrumentView.h; sourceTree = "<group>"; };
@@ -315,6 +317,8 @@
 				92E45F08184EED020023E2EA /* BeatBrain.m */,
 				AF48DA72185581120023F1CD /* Loop.h */,
 				AF48DA73185581120023F1CD /* Loop.m */,
+				AF399EA8185823FC00B7B6F8 /* NoteChangeDelegate.h */,
+				AF399EA91858241A00B7B6F8 /* SequencerViewDelegate.h */,
 			);
 			name = Utils;
 			sourceTree = "<group>";

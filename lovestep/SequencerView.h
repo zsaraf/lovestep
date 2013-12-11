@@ -8,15 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "MainWindowController.h"
+#import "SequencerViewDelegate.h"
+#import "NoteChangeDelegate.h"
 #import "Loop.h"
 #import "ChangeInstrumentView.h"
-
-@protocol SequencerViewDelegate
-
-- (void)sequencerViewDidPushLoop:(Loop *)newLoop;
-
-@end
+#import "SequencerHeaderView.h"
 
 @interface SequencerView : NSView <NoteChangeDelegate, SequencerHeaderViewDelegate, ChangeInstrumentDelegate>
 

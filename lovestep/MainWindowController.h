@@ -8,14 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "SequencerViewDelegate.h"
+#import "NoteChangeDelegate.h"
 #import "SequencerHeaderView.h"
-#import "SequencerView.h"
-
-@protocol NoteChangeDelegate
-
--(void)noteDidChangeToNoteNumber:(NSInteger)noteNumber;
-
-@end
 
 @interface MainWindowController : NSWindowController <SequencerViewDelegate>
 
