@@ -87,8 +87,7 @@ static NetworkManager *myInstance;
         
     } else if (tag == RECEIVED_ARRAY) {
         
-        NSLog(@"%ld", data.length);
-        NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:data]);
+        NSLog(@"Received loop with length: %ld", data.length);
         Loop *loop = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         if ([(NSObject *)self.delegate respondsToSelector:@selector(networkManagerReceivedNewLoop:)]) {
             [self.delegate networkManagerReceivedNewLoop:loop];
