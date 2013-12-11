@@ -23,8 +23,15 @@
 
 @implementation SequencerHeaderView
 
+// The width and the height of the change instrument view
+#define CHANGE_INSTRUMENT_VIEW_WIDTH 200
+#define CHANGE_INSTRUMENT_VIEW_HEIGHT 400
+
 void (^handleMouseDrag)(NSEvent *);
 
+/*
+ * Sets up the background for the view
+ */
 - (void)drawRect:(NSRect)dirtyRect {
     // set any NSColor for filling, say white:
     [[NSColor colorWithCalibratedRed:.8f green:.8f blue:.8f alpha:1.0f] setFill];
@@ -32,7 +39,10 @@ void (^handleMouseDrag)(NSEvent *);
     [super drawRect:dirtyRect];
 }
 
--(void)mouseDown:(NSEvent *)theEvent
+/*
+ * On mouse down event
+ */
+- (void)mouseDown:(NSEvent *)theEvent
 {
     NSPoint point = [self.superview convertPoint:[theEvent locationInWindow] fromView:nil];
             NSView *v = [self hitTest:point];
@@ -77,19 +87,30 @@ void (^handleMouseDrag)(NSEvent *);
     }
 }
 
+/*
+ * When the instrument is changed
+ */
 - (IBAction)changeInstrumentButtonPressed:(id)sender
 {
     NSLog(@"Called");
 }
 
--(void)mouseDragged:(NSEvent *)theEvent
+/*
+ * Called on mouse drag
+ */
+- (void)mouseDragged:(NSEvent *)theEvent
 {
     if (handleMouseDrag) handleMouseDrag(theEvent);
 }
 
--(void)awakeFromNib
+/*
+ * Initialize contents
+ */
+- (void)awakeFromNib
 {
     [super awakeFromNib];
+    
+    [self setWantsLayer:YES];
     
     self.resolutionValues = [[NSArray alloc] initWithObjects:
                                                         [NSNumber numberWithInt:4],
@@ -103,10 +124,10 @@ void (^handleMouseDrag)(NSEvent *);
     [self.changeInstrumentButton.cell setHighlightsBy:NSImageCellType];
     
     // Setup the change instrument view
-    self.civ = [[ChangeInstrumentView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, 100, 5 * 50))];
+    self.civ = [[ChangeInstrumentView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(self.superview.frame.size.width - CHANGE_INSTRUMENT_VIEW_WIDTH, self.superview.frame.size.height - self.frame.size.height - CHANGE_INSTRUMENT_VIEW_HEIGHT, CHANGE_INSTRUMENT_VIEW_WIDTH, CHANGE_INSTRUMENT_VIEW_HEIGHT))];
     
     // Add it to subview
-    [self addSubview:self.civ];
+    [self.superview addSubview:self.civ];
 }
 
 @end
