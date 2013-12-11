@@ -44,7 +44,7 @@ static NetworkManager *myInstance;
 
 -(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
 {
-    NSLog(@"did connect to host %@", host);
+    [self.delegate networkManagerDidFindNetworkService:YES];
 }
 
 -(void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
