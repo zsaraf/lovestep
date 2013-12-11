@@ -20,4 +20,9 @@
     return self;
 }
 
++(Instrument *)defaultInstrument
+{
+    return [[Instrument alloc] initWithFluidSynthProgram:1 bank:0 name:@"Grand Piano"];
+}
+
 @end

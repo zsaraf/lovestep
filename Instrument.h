@@ -11,6 +11,7 @@
 @interface Instrument : NSObject
 
 -(id)initWithFluidSynthProgram:(NSInteger)program bank:(NSInteger)bank name:(NSString *)name;
++(Instrument *)defaultInstrument;
 
 @property (nonatomic) NSInteger program;
 @property (nonatomic) NSInteger bank;
