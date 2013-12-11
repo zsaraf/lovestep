@@ -20,9 +20,28 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        self.program = [aDecoder decodeIntegerForKey:@"program"];
+        self.bank = [aDecoder decodeIntegerForKey:@"bank"];
+        self.name = [aDecoder decodeObjectForKey:@"name"];
+    }
+    return self;
+}
+
 +(Instrument *)defaultInstrument
 {
     return [[Instrument alloc] initWithFluidSynthProgram:1 bank:0 name:@"Grand Piano"];
 }
+
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeInteger:self.program forKey:@"program"];
+    [aCoder encodeInteger:self.bank forKey:@"bank"];
+}
+
+
 
 @end

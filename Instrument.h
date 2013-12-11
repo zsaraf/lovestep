@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Instrument : NSObject
+@interface Instrument : NSObject <NSCoding>
 
 -(id)initWithFluidSynthProgram:(NSInteger)program bank:(NSInteger)bank name:(NSString *)name;
 +(Instrument *)defaultInstrument;
