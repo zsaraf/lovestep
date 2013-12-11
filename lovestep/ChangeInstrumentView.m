@@ -64,7 +64,7 @@
  */
 - (void)setupTableView
 {
-    self.tableView = [[NSTableView alloc] initWithFrame:self.bounds];
+    self.tableView = [[NSTableView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, self.frame.size.width, self.frame.size.height))];
     
     NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"col"];
     [column setWidth:self.tableView.frame.size.width];
@@ -82,12 +82,18 @@
  */
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    NSView *newView = [[NSView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0, 0, self.frame.size.width, 50))];
-    NSTextField *textField = [[NSTextField alloc] initWithFrame:NSRectFromCGRect(CGRectMake(10, 25, self.frame.size.width, 30))];
-    [textField setStringValue:((Instrument *)([self.instruments objectAtIndex:row])).name];
-    [newView addSubview:textField];
+    NSTableCellView *view = [tableView makeViewWithIdentifier:[tableColumn identifier] owner:self];
+    if(view == nil){
+        view = [[NSTableCellView alloc]initWithFrame:[tableView frame]];
+        view.identifier = [tableColumn identifier];
+    }
     
-    return newView;
+    NSTextField *textfield = [[NSTextField alloc]initWithFrame:NSMakeRect(0, 0, 100, 30)];
+    [textfield setStringValue:((Instrument *)([self.instruments objectAtIndex:row])).name];
+
+    [view addSubview:textfield];
+
+    return view;
 }
 
 
@@ -96,7 +102,6 @@
  */
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
-    NSLog(@"Number of rows: %d", (int)self.instruments.count);
     return [self.instruments count];
 }
 
