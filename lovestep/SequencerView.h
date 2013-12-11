@@ -12,6 +12,14 @@
 #import "Loop.h"
 #import "ChangeInstrumentView.h"
 
+@protocol SequencerViewDelegate <NSObject>
+
+@required
+
+- (void)sequencerViewDidPushLoop:(Loop *)newLoop;
+
+@end
+
 @interface SequencerView : NSView <NoteChangeDelegate, SequencerHeaderViewDelegate, ChangeInstrumentDelegate>
 
 // Controls the sequenceHeaderView
@@ -19,6 +27,9 @@
 
 // The current loop
 @property (nonatomic, strong) Loop *currentLoop;
+
+// Delegate
+@property (nonatomic, strong) id <SequencerViewDelegate>delegate;
 
 // Called from the sequence header view when the length changes
 - (NSInteger)keyNumberForIndex:(NSInteger)index;

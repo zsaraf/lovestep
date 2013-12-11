@@ -56,8 +56,8 @@ typedef struct Resolution {
     if (self) {
         
         self.midiButtons = [[NSMutableArray alloc] init];
-        Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:1 bank:0 name:@"Grand Piano"];
-        self.currentLoop = [[Loop alloc] initWithInstrument:instrument length:DEFAULT_LENGTH resolution:DEFAULT_RESOLUTION grid:[[NSMutableArray alloc] init] name:@"Loop1" enabled:YES];
+
+        self.currentLoop = [self freshCurrentLoop];
         
         self.grid = [[NSMutableArray alloc] init];
         
@@ -255,8 +255,43 @@ typedef struct Resolution {
 -(void)keyDown:(NSEvent *)theEvent
 {
     if (theEvent.keyCode == 36) {
+        [self.delegate sequencerViewDidPushLoop:self.currentLoop];
         
+        // Clears the grid and resets information
+        [self clearGrid];
     }
+}
+
+/*
+ * Clears all the information and resets the current loop
+ */
+- (void)clearGrid
+{
+    self.currentLoop = [self freshCurrentLoop];
+    
+    // Clear the grid visually
+    for (int i = 0; i < NUM_KEYS; i++) {
+        for (int j = 0; j < MAX_LENGTH; j++) {
+            // Get the grid button at each place and set it to off
+            GridButton *gb = [[self.grid objectAtIndex:i] objectAtIndex:j];
+            [gb setIsOn:NO];
+            [gb setIsDisabled:NO];
+        }
+    }
+    
+    // Set the defualt lenght and resolutions
+    [self.sequenceHeaderView.lengthField setStringValue:[NSString stringWithFormat:@"%d", DEFAULT_LENGTH]];
+    [self.sequenceHeaderView.resolutionField setStringValue:[NSString stringWithFormat:@"1/%d", DEFAULT_RESOLUTION]];
+}
+
+/*
+ * Makes a fresh current loop
+ */
+- (Loop *)freshCurrentLoop
+{
+    Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:1 bank:0 name:@"Grand Piano"];
+    return [[Loop alloc] initWithInstrument:instrument length:DEFAULT_LENGTH resolution:DEFAULT_RESOLUTION grid:[[NSMutableArray alloc] init] name:@"Loop1" enabled:YES];
+    
 }
 
 /*

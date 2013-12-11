@@ -33,9 +33,6 @@
 // The beat BRAIN yo
 @property (nonatomic, strong) BeatBrain *bb;
 
-// All the other loops from the looper
-@property (nonatomic, strong) NSMutableArray *loops;
-
 @end
 
 @implementation MainWindowController
@@ -50,10 +47,20 @@
         // Initialize the loops
         self.loops = [[NSMutableArray alloc] init];
         
+        self.mWindow.sequencerView.delegate = self;
+        
         [self setupNovocaine];
     }
     
     return self;
+}
+
+/*
+ * Sequencer view delegate method
+ */
+- (void)sequencerViewDidPushLoop:(Loop *)newLoop
+{
+    [self.loops addObject:newLoop];
 }
 
 /*
