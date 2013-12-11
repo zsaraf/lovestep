@@ -11,6 +11,14 @@
 
 @interface Loop : NSObject
 
+-(id)initWithProgram:(NSInteger)program
+                bank:(NSInteger)bank
+              length:(NSInteger)length
+          resolution:(NSInteger)resolution
+                grid:(NSArray *)grid
+                name:(NSString *)name
+             enabled:(BOOL)enabled;
+
 // Instrument used
 @property (nonatomic) fluid_synth_t *fluidSynth;
 // bank used for fluid synth
