@@ -12,10 +12,9 @@
 #import "AudioFileWriter.h"
 #import "MainWindow.h"
 #import "BeatBrain.h"
-#import "SineWave.h"
 #import "GridButton.h"
 #import "Loop.h"
-
+#import "Instrument.h"
 #import <FluidSynth/FluidSynth.h>
 
 @interface MainWindowController()
@@ -37,6 +36,9 @@
 // All the other loops from the looper
 @property (nonatomic, strong) NSMutableArray *loops;
 
+// instruments array
+@property (nonatomic, strong) NSMutableArray *instruments;
+
 @end
 
 @implementation MainWindowController
@@ -52,9 +54,35 @@
         self.loops = [[NSMutableArray alloc] init];
         
         [self setupNovocaine];
+        [self parseInstruments];
     }
     
     return self;
+}
+
+-(void)parseInstruments
+{
+    self.instruments = [[NSMutableArray alloc] init];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Instruments" ofType:@"txt"];
+    NSString* content = [NSString stringWithContentsOfFile:path
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:NULL];
+    NSArray *instrumentLines = [content componentsSeparatedByString:@"\n"];
+    for (NSString *instrumentLine in instrumentLines) {
+        NSArray *parsedLine = [instrumentLine componentsSeparatedByString:@" "];
+        if (parsedLine.count >= 3) {
+            NSString *instrumentName = @"";
+            for (int i= 2; i < parsedLine.count; i++) {
+                instrumentName = [instrumentName stringByAppendingFormat:@"%@ ", parsedLine[i]];
+            }
+            Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:[parsedLine[0] integerValue]
+                                                                          bank:[parsedLine[1] integerValue]
+                                                                          name:instrumentName];
+            NSLog(@"%ld %ld %@", instrument.program, instrument.bank, instrument.name);
+            [self.instruments addObject:instrument];
+        }
+    }
 }
 
 /*
@@ -84,7 +112,7 @@
         NSAssert(0, @"Fluid synth could not load");
     }
     fluid_synth_bank_select(synth, 2, 120);
-    fluid_synth_program_change(synth, 2, 24);
+    fluid_synth_program_change(synth, 1, 1);
     fluid_synth_set_sample_rate(synth, 44100);
 //    fluid_synth_noteon(synth, 2, 40, 100);
 //    fluid_synth_noteon(synth, 2, 44, 100);

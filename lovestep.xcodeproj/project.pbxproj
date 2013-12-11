@@ -23,11 +23,10 @@
 		926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */; };
 		926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A96831831FFBF0029BDA4 /* Security.framework */; };
 		928DD01818519CE30088FD7A /* SoundFont1.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 928DD01718519CDB0088FD7A /* SoundFont1.sf2 */; };
+		92DD25281857F54B0059C362 /* Instruments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 92DD25271857F54B0059C362 /* Instruments.txt */; };
 		92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E33FF418349CE5002CB131 /* NetworkManager.m */; };
-		92E341AE18558F6500FA0927 /* Instruments.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 92E341AD18558F6500FA0927 /* Instruments.rtf */; };
 		92E45F06184EE0CB0023E2EA /* Instrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F05184EE0CB0023E2EA /* Instrument.m */; };
 		92E45F09184EED020023E2EA /* BeatBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F08184EED020023E2EA /* BeatBrain.m */; };
-		92E45F0C184EF54B0023E2EA /* SineWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F0B184EF54B0023E2EA /* SineWave.m */; };
 		AF48DA71185580990023F1CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926A96531831F6610029BDA4 /* MainMenu.xib */; };
 		AF48DA74185581120023F1CD /* Loop.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48DA73185581120023F1CD /* Loop.m */; };
 		AF48DA7718558B820023F1CD /* ChangeInstrumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48DA7618558B820023F1CD /* ChangeInstrumentView.m */; };
@@ -95,15 +94,13 @@
 		926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = CocoaAsyncSocket/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		926A96831831FFBF0029BDA4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		928DD01718519CDB0088FD7A /* SoundFont1.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundFont1.sf2; sourceTree = "<group>"; };
+		92DD25271857F54B0059C362 /* Instruments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Instruments.txt; sourceTree = "<group>"; };
 		92E33FF318349CE5002CB131 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		92E33FF418349CE5002CB131 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
-		92E341AD18558F6500FA0927 /* Instruments.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Instruments.rtf; path = lovestep/Instruments.rtf; sourceTree = "<group>"; };
 		92E45F04184EE0CB0023E2EA /* Instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Instrument.h; path = ../Instrument.h; sourceTree = "<group>"; };
 		92E45F05184EE0CB0023E2EA /* Instrument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Instrument.m; path = ../Instrument.m; sourceTree = "<group>"; };
 		92E45F07184EED020023E2EA /* BeatBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeatBrain.h; path = ../BeatBrain.h; sourceTree = "<group>"; };
 		92E45F08184EED020023E2EA /* BeatBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeatBrain.m; path = ../BeatBrain.m; sourceTree = "<group>"; };
-		92E45F0A184EF54B0023E2EA /* SineWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SineWave.h; path = ../SineWave.h; sourceTree = "<group>"; };
-		92E45F0B184EF54B0023E2EA /* SineWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SineWave.m; path = ../SineWave.m; sourceTree = "<group>"; };
 		AF48DA72185581120023F1CD /* Loop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loop.h; sourceTree = "<group>"; };
 		AF48DA73185581120023F1CD /* Loop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loop.m; sourceTree = "<group>"; };
 		AF48DA7518558B820023F1CD /* ChangeInstrumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeInstrumentView.h; sourceTree = "<group>"; };
@@ -184,7 +181,6 @@
 		926A96321831F6610029BDA4 = {
 			isa = PBXGroup;
 			children = (
-				92E341AD18558F6500FA0927 /* Instruments.rtf */,
 				926A9685183200B40029BDA4 /* GCDAsyncSocket */,
 				926A96441831F6610029BDA4 /* lovestep */,
 				926A96621831F6610029BDA4 /* lovestepTests */,
@@ -253,6 +249,7 @@
 		926A96451831F6610029BDA4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				92DD25271857F54B0059C362 /* Instruments.txt */,
 				926A96501831F6610029BDA4 /* AppDelegate.h */,
 				926A96511831F6610029BDA4 /* AppDelegate.m */,
 				926A96461831F6610029BDA4 /* lovestep-Info.plist */,
@@ -305,8 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				928DD01918519CE70088FD7A /* Sound Fonts */,
-				92E45F0A184EF54B0023E2EA /* SineWave.h */,
-				92E45F0B184EF54B0023E2EA /* SineWave.m */,
 				92E45F04184EE0CB0023E2EA /* Instrument.h */,
 				92E45F05184EE0CB0023E2EA /* Instrument.m */,
 			);
@@ -499,7 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF48DA71185580990023F1CD /* MainMenu.xib in Resources */,
-				92E341AE18558F6500FA0927 /* Instruments.rtf in Resources */,
+				92DD25281857F54B0059C362 /* Instruments.txt in Resources */,
 				926A96491831F6610029BDA4 /* InfoPlist.strings in Resources */,
 				928DD01818519CE30088FD7A /* SoundFont1.sf2 in Resources */,
 				926A96571831F6610029BDA4 /* Images.xcassets in Resources */,
@@ -532,7 +527,6 @@
 				AFC08988184F2FC60056162E /* TickerView.m in Sources */,
 				AF66EC6C18515902002F899E /* ActiveLoopsView.m in Sources */,
 				AF840120184C56A8000D98EB /* GridButton.m in Sources */,
-				92E45F0C184EF54B0023E2EA /* SineWave.m in Sources */,
 				926A96811831FFAD0029BDA4 /* GCDAsyncSocket.m in Sources */,
 				AF48DA74185581120023F1CD /* Loop.m in Sources */,
 				AF840119184C2818000D98EB /* AudioFileReader.mm in Sources */,

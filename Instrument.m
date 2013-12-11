@@ -8,27 +8,16 @@
 
 #import "Instrument.h"
 
-@interface Instrument ()
-
-
-
-@end
-
 @implementation Instrument
 
--(id)initWithSamplingRate:(CGFloat)samplingRate
+-(id)initWithFluidSynthProgram:(NSInteger)program bank:(NSInteger)bank name:(NSString *)name
 {
     if (self = [super init]) {
-        self.samplingRate = samplingRate;
+        self.program = program;
+        self.bank = bank;
+        self.name = name;
     }
     return self;
 }
-
--(CGFloat)valueForFrameIndex:(NSInteger)frameIndex atFrequency:(NSInteger)frequency
-{
-    return 1.0;
-}
-
-
 
 @end

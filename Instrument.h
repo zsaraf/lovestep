@@ -10,9 +10,11 @@
 
 @interface Instrument : NSObject
 
--(id)initWithSamplingRate:(CGFloat)samplingRate;
--(CGFloat)valueForFrameIndex:(NSInteger)frameIndex  atFrequency:(NSInteger)frequency;
+-(id)initWithFluidSynthProgram:(NSInteger)program bank:(NSInteger)bank name:(NSString *)name;
 
-@property (nonatomic) CGFloat samplingRate;
+@property (nonatomic) NSInteger program;
+@property (nonatomic) NSInteger bank;
+@property (nonatomic, assign) NSString *name;
+
 
 @end

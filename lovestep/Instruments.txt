@@ -1,0 +1,4 @@
+0 1 Grand Piano
+2 1 Steel Guitar
+1 38 Synth Bass
+8 80 Sin Groove
