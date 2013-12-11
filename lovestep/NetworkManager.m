@@ -42,7 +42,7 @@ static NetworkManager *myInstance;
     if (self.asyncSocket) return;
     self.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
     [self.asyncSocket connectToHost:@"10.31.78.119" onPort:80 error:nil];
-    [self.asyncSocket readDataWithTimeout:20 tag:WAITING_FOR_OTHER_USER_TAG];
+    [self.asyncSocket readDataWithTimeout:-1 tag:WAITING_FOR_OTHER_USER_TAG];
 }
 
 -(void)sendLoop:(Loop *)loop
@@ -51,7 +51,7 @@ static NetworkManager *myInstance;
     NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:data]);
     NSLog(@"%ld", [data length]);
     if (data == nil) NSAssert(0, @"We are fucked couldnt archive this shit");
-    [self.asyncSocket writeData:data withTimeout:4 tag:1];
+    [self.asyncSocket writeData:data withTimeout:20 tag:1];
 }
 
 #pragma delegate methods
@@ -61,18 +61,10 @@ static NetworkManager *myInstance;
         NSLog(@"%@", [NSString stringWithUTF8String:[data bytes]]);
         [self.delegate networkManagerDidFindNetworkService:YES];
         NSData *data = [[[NSUserDefaults standardUserDefaults] valueForKey:@"username"] dataUsingEncoding:NSUTF8StringEncoding];
-        [self.asyncSocket writeData:data
-                        withTimeout:3
-                                tag:USER_NAME_SEND_TAG];
-        [self.asyncSocket readDataWithTimeout:4 tag:USER_NAME_RECEIVE_TAG];
+        [self.asyncSocket writeData:data withTimeout:20 tag:USER_NAME_SEND_TAG];
+        [self.asyncSocket readDataWithTimeout:-1 tag:USER_NAME_RECEIVE_TAG];
     } else if (tag == USER_NAME_RECEIVE_TAG) {
         [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithUTF8String:[data bytes]] forKey:@"partner"];
-        /*NSArray *arr = [NSArray arrayWithObjects:@"feknfeklfn", @"fkjebfejfbe", @"kefjefkjehfkewjfh", nil];
-        NSData *newData = [NSKeyedArchiver archivedDataWithRootObject:arr];
-        NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:newData]);
-        [self.asyncSocket writeData:newData withTimeout:5 tag:10];
-        [self.asyncSocket readDataWithTimeout:5 tag:RECEIVED_ARRAY];*/
-        
         [self.asyncSocket readDataToLength:6077 withTimeout:-1 tag:RECEIVED_ARRAY];
     } else if (tag == RECEIVED_ARRAY) {
         NSLog(@"%ld", data.length);
@@ -81,6 +73,7 @@ static NetworkManager *myInstance;
         if ([(NSObject *)self.delegate respondsToSelector:@selector(networkManagerReceivedNewLoop:)]) {
             [self.delegate networkManagerReceivedNewLoop:loop];
         }
+        [self.asyncSocket readDataToLength:6077 withTimeout:-1 tag:RECEIVED_ARRAY];
     }
 }
 
