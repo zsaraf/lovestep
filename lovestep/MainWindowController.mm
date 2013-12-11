@@ -34,9 +34,6 @@
 // The beat BRAIN yo
 @property (nonatomic, strong) BeatBrain *bb;
 
-// The loop currently in the sequencer view
-@property (nonatomic, strong) Loop *currentLoop;
-
 // All the other loops from the looper
 @property (nonatomic, strong) NSMutableArray *loops;
 
@@ -53,7 +50,6 @@
         
         // Initialize the loops
         self.loops = [[NSMutableArray alloc] init];
-        self.currentLoop = [[Loop alloc] init];
         
         [self setupNovocaine];
     }
@@ -108,7 +104,6 @@
     
     self.bb = [[BeatBrain alloc] initWithBPM:120 sampleRate:self.audioManager.samplingRate noteLength:.25 numNotes:32];
     self.noteChangeDelegate = self.mWindow.sequencerView;
-    self.mWindow.sequencerView.sequenceHeaderView.delegate = self;
     
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {
@@ -147,15 +142,18 @@
              fluid_synth_write_float(synth, currentNoteLength, lBuff, 0, 1, rBuff, 0, 1);
          }
          if (nextNoteLength != 0) {
-             for (int i = 0; i < wself.mWindow.sequencerView.grid.count; i++) {
-                 NSMutableArray *arr = [wself.mWindow.sequencerView.grid objectAtIndex:i];
-                 GridButton *gridButton = (GridButton *)[arr objectAtIndex:note.note];
-                 if (gridButton.isOn) {
-                     fluid_synth_noteoff(synth, 2, (int)gridButton.midiButton.keyNumber);
+             for (int i = 0; i < wself.mWindow.sequencerView.currentLoop.grid.count; i++) {
+                 NSMutableArray *arr = [wself.mWindow.sequencerView.currentLoop.grid objectAtIndex:i];
+                 bool isOn = [[arr objectAtIndex:note.note] boolValue];
+                 
+                 if (isOn) {
+                     fluid_synth_noteoff(synth, 2, (int)[wself.mWindow.sequencerView keyNumberForIndex:i]);
                  }
-                 GridButton *nextGridButton = (GridButton *)[arr objectAtIndex:gButtonIndex];
-                 if (nextGridButton.isOn) {
-                     fluid_synth_noteon(synth, 2, (int)nextGridButton.midiButton.keyNumber, 100);
+                 
+                 bool nextIsOn = [[arr objectAtIndex:gButtonIndex] boolValue];
+
+                 if (nextIsOn) {
+                     fluid_synth_noteon(synth, 2, (int)[wself.mWindow.sequencerView keyNumberForIndex:i], 100);
                  }
              }
              fluid_synth_write_float(synth, nextNoteLength, lBuff, currentNoteLength, 1, rBuff, currentNoteLength, 1);
@@ -170,17 +168,8 @@
          
          
      }];
+    
     [self.audioManager play];
-}
-
--(void)sequenceResolutionDidChangeToResolution:(CGFloat)resolution
-{
-    [self.bb setNoteLength:resolution];
-}
-
--(void)sequenceResolutionDidChangeToLength:(NSInteger)length
-{
-    [self.bb setNumNotes:length];
 }
 
 @end

@@ -15,7 +15,7 @@
 
 @end
 
-@interface MainWindowController : NSWindowController <SequencerHeaderViewDelegate>
+@interface MainWindowController : NSWindowController
 
 @property (nonatomic, weak) id<NoteChangeDelegate> noteChangeDelegate;
 

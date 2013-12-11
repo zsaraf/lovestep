@@ -15,7 +15,7 @@
                 bank:(NSInteger)bank
               length:(NSInteger)length
           resolution:(NSInteger)resolution
-                grid:(NSArray *)grid
+                grid:(NSMutableArray *)grid
                 name:(NSString *)name
              enabled:(BOOL)enabled
 {

@@ -23,7 +23,9 @@ typedef struct Resolution {
 
 @property (nonatomic) int length;
 @property (nonatomic) Resolution resolution;
+
 @property (nonatomic, strong) NSMutableArray *midiButtons;
+@property (nonatomic, strong) NSMutableArray *grid;
 
 @property (nonatomic) BOOL addGrid;
 @property (nonatomic) BOOL subtractGrid;
@@ -41,6 +43,8 @@ typedef struct Resolution {
 #define HEADER_HEIGHT 62
 
 #define MAX_LENGTH 32
+#define DEFAULT_LENGTH 32
+#define DEFAULT_RESOLUTION 16
 
 /*
  * Draws the keys and the grid and inits the frame
@@ -52,7 +56,12 @@ typedef struct Resolution {
     if (self) {
         
         self.midiButtons = [[NSMutableArray alloc] init];
+        self.currentLoop = [[Loop alloc] initWithProgram:1 bank:1 length:DEFAULT_LENGTH resolution:DEFAULT_RESOLUTION grid:[[NSMutableArray alloc] init] name:@"Loop1" enabled:YES];
+        
         self.grid = [[NSMutableArray alloc] init];
+        
+        // Setup the delegate
+        self.sequenceHeaderView.delegate = self;
         
         // Initialization code here.
         // Draw the sequencer here
@@ -114,22 +123,25 @@ typedef struct Resolution {
         
         float currentX = KEY_WIDTTH;
         
-        NSMutableArray *newArray = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
-        
+        NSMutableArray *loopGrid = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
+        NSMutableArray *gridButtonGrid = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
+
         for (int j = 0; j < MAX_LENGTH; j++) {
             MidiButton *currentKey = [self.midiButtons objectAtIndex:i];
             GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey fromView:self];
             [newButton setFrame:NSRectFromCGRect(CGRectMake(currentX, currentY, CELL_LENGTH, CELL_LENGTH))];
             
             [currentKey.gridButtons addObject:newButton];
-            [newArray addObject:newButton];
+            [loopGrid addObject:[NSNumber numberWithBool:NO]];
+            [gridButtonGrid addObject:newButton];
             
             [self addSubview:newButton];
             
             currentX += xInc;
         }
         
-        [self.grid addObject:newArray];
+        [self.grid addObject:gridButtonGrid];
+        [self.currentLoop.grid addObject:loopGrid];
         
         currentY += yInc;
     }
@@ -169,9 +181,11 @@ typedef struct Resolution {
     // Do the appropriate thing to it
     if (gb.isOn) {
         [gb setOffState];
+        [[self.currentLoop.grid objectAtIndex:row] setObject:[NSNumber numberWithBool:NO] atIndex:col] ;
         self.subtractGrid = YES;
     } else {
         [gb setOnState];
+        [[self.currentLoop.grid objectAtIndex:row] setObject:[NSNumber numberWithBool:YES] atIndex:col] ;
         self.addGrid = YES;
     }
 }
@@ -197,8 +211,10 @@ typedef struct Resolution {
         GridButton *gb = [[self.grid objectAtIndex:row] objectAtIndex:col];
         
         if (self.subtractGrid) {
+            [[self.currentLoop.grid objectAtIndex:row] setObject:[NSNumber numberWithBool:NO] atIndex:col] ;
             [gb setOffState];
         } else {
+            [[self.currentLoop.grid objectAtIndex:row] setObject:[NSNumber numberWithBool:YES] atIndex:col] ;
             [gb setOnState];
         }
     }
@@ -230,13 +246,35 @@ typedef struct Resolution {
 }
 
 /*
+ * Gets the key number at the given index
+ */
+- (NSInteger)keyNumberForIndex:(NSInteger)index
+{
+    GridButton *gb = [[self.grid objectAtIndex:index] objectAtIndex:0];
+    return gb.midiButton.keyNumber;
+}
+
+/*
+ * The resolution was updated
+ */
+- (void)sequenceResolutionDidChangeToResolution:(NSInteger)resolution
+{
+    // Update the current loop's resolution
+    self.currentLoop.resolution = resolution;
+}
+
+
+/*
  * Length did cahnge to number
  */
-- (void)lengthDidChange:(NSInteger)newLength
+- (void)sequenceResolutionDidChangeToLength:(NSInteger)length
 {
+    // Update the current loop's length
+    [self.currentLoop setLength:length];
+    
     for (int i = 0; i < [self.grid count]; i++) {
         
-        for (NSInteger j = 0; j < newLength; j++) {
+        for (NSInteger j = 0; j < length; j++) {
             
             // Get the gb
             GridButton *gb = [[self.grid objectAtIndex:i] objectAtIndex:j];
@@ -244,7 +282,7 @@ typedef struct Resolution {
             
         }
         
-        for (NSInteger j = newLength; j < MAX_LENGTH; j++) {
+        for (NSInteger j = length; j < MAX_LENGTH; j++) {
             // Get the gb
             GridButton *gb = [[self.grid objectAtIndex:i] objectAtIndex:j];
             [gb setDisabledState];

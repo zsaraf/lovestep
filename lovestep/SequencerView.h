@@ -7,17 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
 #import "MainWindowController.h"
+#import "Loop.h"
 
-@interface SequencerView : NSView <NoteChangeDelegate>
-
-// Two dimensional grid of gridbuttons
-@property (nonatomic, strong) NSMutableArray *grid;
+@interface SequencerView : NSView <NoteChangeDelegate, SequencerHeaderViewDelegate>
 
 // Controls the sequenceHeaderView
 @property (nonatomic, weak) IBOutlet SequencerHeaderView *sequenceHeaderView;
 
+// The current loop
+@property (nonatomic, strong) Loop *currentLoop;
+
 // Called from the sequence header view when the length changes
-- (void)lengthDidChange:(NSInteger)newLength;
+- (NSInteger)keyNumberForIndex:(NSInteger)index;
 
 @end

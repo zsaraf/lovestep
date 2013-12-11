@@ -15,14 +15,16 @@
                 bank:(NSInteger)bank
               length:(NSInteger)length
           resolution:(NSInteger)resolution
-                grid:(NSArray *)grid
+                grid:(NSMutableArray *)grid
                 name:(NSString *)name
              enabled:(BOOL)enabled;
 
 // Instrument used
 @property (nonatomic) fluid_synth_t *fluidSynth;
+
 // bank used for fluid synth
 @property (nonatomic) NSInteger bank;
+
 // program used for fluid synth
 @property (nonatomic) NSInteger program;
 
@@ -33,7 +35,7 @@
 @property (nonatomic) NSInteger resolution;
 
 // Actual loop grid (most important)
-@property (nonatomic, strong) NSArray *grid;
+@property (nonatomic, strong) NSMutableArray *grid;
 
 // Name of the creator
 @property (nonatomic, strong) NSString *creator;

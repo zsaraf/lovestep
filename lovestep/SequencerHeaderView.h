@@ -10,7 +10,7 @@
 
 @protocol SequencerHeaderViewDelegate
 
--(void)sequenceResolutionDidChangeToResolution:(CGFloat)resolution;
+-(void)sequenceResolutionDidChangeToResolution:(NSInteger)resolution;
 -(void)sequenceResolutionDidChangeToLength:(NSInteger)length;
 
 @end
