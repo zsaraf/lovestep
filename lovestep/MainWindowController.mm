@@ -71,7 +71,7 @@
  */
 -(void)networkManagerReceivedNewLoop:(Loop *)loop
 {
-    [self.loops addObject:loop];
+    [self.pendingLoops addObject:loop];
 }
 
 /*
