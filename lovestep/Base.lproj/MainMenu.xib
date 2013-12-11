@@ -791,6 +791,78 @@
                     <customView id="wSP-ec-aoG" customClass="LooperView">
                         <rect key="frame" x="891" y="20" width="529" height="688"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <customView id="o1p-Et-8fC" customClass="LooperHeaderView">
+                                <rect key="frame" x="0.0" y="627" width="534" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cbe-H1-JgD">
+                                        <rect key="frame" x="18" y="8" width="133" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Looper" id="cZ3-Gy-dMs">
+                                            <font key="font" size="38" name="Helvetica-Bold"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                            </customView>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="0e4-Oi-5r6">
+                                <rect key="frame" x="0.0" y="313" width="529" height="313"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" id="y6t-uq-fjB">
+                                    <rect key="frame" x="1" y="1" width="527" height="311"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="b6v-oz-d92">
+                                            <rect key="frame" x="0.0" y="0.0" width="527" height="311"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="itemPrototype" destination="9it-bZ-fVk" id="lzs-sO-pff"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="2WG-xb-0yn">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" id="scw-5c-s9w">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Lch-DN-orm">
+                                <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" id="83f-HI-Tdy">
+                                    <rect key="frame" x="1" y="1" width="527" height="311"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView id="7U4-7c-AOC">
+                                            <rect key="frame" x="0.0" y="0.0" width="527" height="311"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <connections>
+                                                <outlet property="itemPrototype" destination="9it-bZ-fVk" id="YO8-wh-KcH"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="eqz-1B-lpK">
+                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" id="A5Q-ii-ssD">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <connections>
+                            <outlet property="looperHeaderView" destination="o1p-Et-8fC" id="UCn-17-zwk"/>
+                        </connections>
                     </customView>
                 </subviews>
             </view>
@@ -807,6 +879,15 @@
                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
             </textFieldCell>
         </textField>
+        <collectionViewItem id="9it-bZ-fVk">
+            <connections>
+                <outlet property="view" destination="eP0-yh-Imb" id="74X-Kx-CVn"/>
+            </connections>
+        </collectionViewItem>
+        <view id="eP0-yh-Imb">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+        </view>
     </objects>
     <resources>
         <image name="lovestepLogo" width="500" height="125"/>

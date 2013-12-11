@@ -7,6 +7,13 @@
 //
 
 #import "LooperView.h"
+#import "LooperHeaderView.h"
+
+@interface LooperView ()
+
+@property (nonatomic, weak) IBOutlet LooperHeaderView *looperHeaderView;
+
+@end
 
 @implementation LooperView
 

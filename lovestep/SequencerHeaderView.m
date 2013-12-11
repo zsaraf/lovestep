@@ -34,7 +34,7 @@ void (^handleMouseDrag)(NSEvent *);
  */
 - (void)drawRect:(NSRect)dirtyRect {
     // set any NSColor for filling, say white:
-    [[NSColor colorWithCalibratedRed:.8f green:.8f blue:.8f alpha:1.0f] setFill];
+    [[NSColor colorWithCalibratedRed:.75f green:.75f blue:.75f alpha:1.0f] setFill];
     NSRectFill(dirtyRect);
     [super drawRect:dirtyRect];
 }
