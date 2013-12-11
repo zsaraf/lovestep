@@ -93,7 +93,8 @@ static NetworkManager *myInstance;
         if ([(NSObject *)self.delegate respondsToSelector:@selector(networkManagerReceivedNewLoop:)]) {
             [self.delegate networkManagerReceivedNewLoop:loop];
         }
-        [self.asyncSocket readDataToLength:6077 withTimeout:-1 tag:RECEIVED_ARRAY];
+        
+        [self.asyncSocket writeData:headData withTimeout:-1 tag:HEADER_TAG];
         
     }
 }
