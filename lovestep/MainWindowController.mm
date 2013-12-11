@@ -66,8 +66,10 @@
 
 -(void)soundDataForLoop:(Loop *)loop
               numFrames:(NSInteger)numFrames
-                   lData:(float *)lData
-                   rData:(float *)rData
+            numChannels:(NSInteger)numChannels
+                  lData:(float *)lData
+                  rData:(float *)rData
+               mainData:(float *)mainData
 {
     BeatBrainNote note = [BeatBrain noteForFrame:self.counter inLoop:loop];
     NSInteger noteLength = [BeatBrain numFramesPerNoteInLoop:loop];
@@ -117,6 +119,10 @@
         }
         fluid_synth_write_float(loop.fluidSynth, nextNoteLength, lData, currentNoteLength, 1, rData, currentNoteLength, 1);
     }
+    
+    for (int i = 0; i < numFrames; i++) {
+        mainData[i * numChannels] += lData[i];
+    }
 }
 
 /*
@@ -159,12 +165,14 @@
      {
          // Clear out the buffer
          memset(data, 0, numFrames * numChannels * sizeof(float));
-         [wself soundDataForLoop:wself.mWindow.sequencerView.currentLoop numFrames:numFrames lData:lBuff rData:rBuff];
-         
+         [wself soundDataForLoop:wself.mWindow.sequencerView.currentLoop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
+         for (Loop *loop in wself.loops) {
+             [wself soundDataForLoop:loop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
+         }
+         // increment time counter
          wself.counter += numFrames;
          
          for (int i = 0; i < numFrames; i++) {
-             data[i * numChannels] = lBuff[i] * 2;
              for (int j = 1; j < numChannels; j++) {
                  data[i * numChannels + j] = data[i * numChannels];
              }
