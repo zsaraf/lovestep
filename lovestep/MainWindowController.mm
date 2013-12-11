@@ -150,15 +150,9 @@
     if (!success) {
         NSAssert(0, @"Fluid synth could not load");
     }
-    //fluid_synth_bank_select(synth, 2, 120);
-    //fluid_synth_program_change(synth, 1, 1);
-    //fluid_synth_set_sample_rate(synth, 44100);
+
     float *lBuff = (float *)malloc(512 * sizeof(float));
     float *rBuff = (float *)malloc(512 * sizeof(float));
-    /* Do useful things here */
-    
-//    delete_fluid_synth(synth);
-//    delete_fluid_settings(settings);
     
     self.audioManager = [Novocaine audioManager];
     
