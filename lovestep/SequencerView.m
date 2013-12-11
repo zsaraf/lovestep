@@ -56,6 +56,7 @@ typedef struct Resolution {
     if (self) {
         
         self.midiButtons = [[NSMutableArray alloc] init];
+        
         Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:1 bank:0 name:@"Grand Piano"];
         self.currentLoop = [[Loop alloc] initWithInstrument:instrument length:DEFAULT_LENGTH resolution:DEFAULT_RESOLUTION grid:[[NSMutableArray alloc] init] name:@"Loop1" enabled:YES];
         
@@ -274,19 +275,24 @@ typedef struct Resolution {
  */
 - (void)clearGrid
 {
-    self.currentLoop.length = DEFAULT_LENGTH;
-    self.currentLoop.resolution = DEFAULT_RESOLUTION;
+    self.currentLoop = [[Loop alloc] initWithInstrument:[Instrument defaultInstrument] length:DEFAULT_LENGTH resolution:DEFAULT_RESOLUTION grid:[[NSMutableArray alloc] init] name:@"Loop1" enabled:YES];
     
     // Clear the grid visually
     for (int i = 0; i < NUM_KEYS; i++) {
+        
+        NSMutableArray *loopGrid = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
+
         for (int j = 0; j < MAX_LENGTH; j++) {
             // Get the grid button at each place and set it to off
             GridButton *gb = [[self.grid objectAtIndex:i] objectAtIndex:j];
             [gb setOffState];
             [gb setEnabledState];
             
-            [[self.currentLoop.grid objectAtIndex:i] setObject:[NSNumber numberWithBool:NO] atIndex:j];
+            [loopGrid addObject:[NSNumber numberWithBool:NO]];
         }
+        
+        [self.currentLoop.grid addObject:loopGrid];
+
     }
     
     // Set the defualt length and resolutions
