@@ -114,9 +114,6 @@
     fluid_synth_bank_select(synth, 2, 120);
     fluid_synth_program_change(synth, 1, 1);
     fluid_synth_set_sample_rate(synth, 44100);
-//    fluid_synth_noteon(synth, 2, 40, 100);
-//    fluid_synth_noteon(synth, 2, 44, 100);
-//    fluid_synth_noteon(synth, 2, 47, 100);
     float *lBuff = (float *)malloc(512 * sizeof(float));
     float *rBuff = (float *)malloc(512 * sizeof(float));
     /* Do useful things here */
