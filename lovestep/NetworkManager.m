@@ -94,7 +94,7 @@ static NetworkManager *myInstance;
             [self.delegate networkManagerReceivedNewLoop:loop];
         }
         
-        [self.asyncSocket writeData:headData withTimeout:-1 tag:HEADER_TAG];
+        [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
         
     }
 }
