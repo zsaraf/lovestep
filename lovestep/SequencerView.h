@@ -14,7 +14,7 @@
 #import "ChangeInstrumentView.h"
 #import "SequencerHeaderView.h"
 
-@interface SequencerView : NSView <NoteChangeDelegate, SequencerHeaderViewDelegate, ChangeInstrumentDelegate>
+@interface SequencerView : NSView <SequencerHeaderViewDelegate, ChangeInstrumentDelegate, NoteChangeDelegate>
 
 // Controls the sequenceHeaderView
 @property (nonatomic, weak) IBOutlet SequencerHeaderView *sequenceHeaderView;
@@ -23,7 +23,7 @@
 @property (nonatomic, strong) Loop *currentLoop;
 
 // Delegate
-@property (nonatomic, strong) id <SequencerViewDelegate>delegate;
+@property (nonatomic, weak) id <SequencerViewDelegate>delegate;
 
 // Called from the sequence header view when the length changes
 - (NSInteger)keyNumberForIndex:(NSInteger)index;
