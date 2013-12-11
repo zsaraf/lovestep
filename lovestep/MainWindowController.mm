@@ -66,6 +66,14 @@
 }
 
 /*
+ * Network manager delegate method
+ */
+-(void)networkManagerReceivedNewLoop:(Loop *)loop
+{
+    [self.loops addObject:loop];
+}
+
+/*
  * Returns the main window (actually)
  */
 -(MainWindow *)mWindow

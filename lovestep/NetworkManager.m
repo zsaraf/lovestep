@@ -71,6 +71,10 @@ static NetworkManager *myInstance;
         [self.asyncSocket readDataWithTimeout:5 tag:RECEIVED_ARRAY];*/
     } else if (tag == RECEIVED_ARRAY) {
         NSLog(@"%@", [NSKeyedUnarchiver unarchiveObjectWithData:data]);
+        Loop *loop = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if ([(NSObject *)self.delegate respondsToSelector:@selector(networkManagerReceivedNewLoop:)]) {
+            [self.delegate networkManagerReceivedNewLoop:loop];
+        }
     }
 }
 

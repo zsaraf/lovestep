@@ -12,7 +12,9 @@
 
 @protocol NetworkManagerDelegate
 
+@optional
 -(void)networkManagerDidFindNetworkService:(BOOL)found;
+-(void)networkManagerReceivedNewLoop:(Loop *)loop;
 
 @end
 

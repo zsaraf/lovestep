@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "NetworkManager.h"
 
 @implementation AppDelegate
 
@@ -25,6 +26,7 @@
     [self.loginWindow orderOut:self];
     self.wc = [[MainWindowController alloc] initWithWindow:self.mainWindow];
     [self.mainWindow makeKeyAndOrderFront:nil];
+    [NetworkManager instance].delegate = self.wc;
 }
 
 @end
