@@ -53,7 +53,10 @@ static NetworkManager *myInstance;
                                 tag:USER_NAME_SEND_TAG];
         [self.asyncSocket readDataWithTimeout:4 tag:USER_NAME_RECEIVE_TAG];
     } else if (tag == USER_NAME_RECEIVE_TAG) {
-        NSLog(@"%@", [NSString stringWithUTF8String:[data bytes]]);
+        [[NSUserDefaults standardUserDefaults] setValue:[NSString stringWithUTF8String:[data bytes]] forKey:@"partner"];
+        NSArray *arr = [NSArray arrayWithObjects:@"feknfeklfn", @"fkjebfejfbe", @"kefjefkjehfkewjfh", nil];
+        [self.asyncSocket writeData:[NSKeyedArchiver archivedDataWithRootObject:arr] withTimeout:5 tag:10];
+        
     }
 }
 
