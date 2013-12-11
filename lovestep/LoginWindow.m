@@ -12,7 +12,6 @@
 
 @property (nonatomic, weak) IBOutlet NSTextField *usernameField;
 @property (nonatomic, weak) IBOutlet NSTextField *promptField;
-@property (nonatomic) BOOL hasFirstUsername;
 
 @end
 
@@ -36,18 +35,10 @@
  */
 - (void)saveUsername
 {
-    if (!self.hasFirstUsername) {
-        [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"username"];
-        [self.usernameField setStringValue:@""];
-        self.hasFirstUsername = YES;
-        [self.promptField setStringValue:@"Enter your partner's username:"];
-    } else {
-        [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"partnerUsername"];
-        [NetworkManager instance].delegate = self;
-        //[[NetworkManager instance] searchForNetwork];
-        [[NetworkManager instance] createNetwork];
-        [self setSearchingUI];
-    }
+    [[NSUserDefaults standardUserDefaults] setValue:[self.usernameField stringValue] forKey:@"username"];
+    [NetworkManager instance].delegate = self;
+    [[NetworkManager instance] createNetwork];
+    [self setSearchingUI];
 }
 
 /*
@@ -56,7 +47,7 @@
 - (void)setSearchingUI
 {
     [self.usernameField setHidden:YES];
-    [self.promptField setStringValue:@"Searching for connection..."];
+    [self.promptField setStringValue:@"Searching for server..."];
 }
 
 /*
@@ -65,7 +56,7 @@
 -(void)networkManagerDidFindNetworkService:(BOOL)found
 {
     if (!found) {
-        [self.promptField setStringValue:@"Hosting connection - waiting for others..."];
+        [self.promptField setStringValue:@"Found connection - waiting for others..."];
     } else {
         
         // We have the two services connected -- set them up
