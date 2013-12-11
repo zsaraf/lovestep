@@ -43,6 +43,15 @@ static NetworkManager *myInstance;
     [self.asyncSocket readDataWithTimeout:20 tag:WAITING_FOR_OTHER_USER_TAG];
 }
 
+-(void)sendLoop:(Loop *)loop
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:loop];
+    if (data == nil) NSAssert(0, @"We are fucked couldnt archive this shit");
+    [self.asyncSocket writeData:data withTimeout:4 tag:1];
+    [self.asyncSocket readDataWithTimeout:40 tag:RECEIVED_ARRAY];
+}
+
+#pragma delegate methods
 -(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
     if (tag == WAITING_FOR_OTHER_USER_TAG) {

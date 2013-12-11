@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GCDAsyncSocket.h"
+#import "Loop.h"
 
 @protocol NetworkManagerDelegate
 
@@ -18,6 +19,7 @@
 @interface NetworkManager : NSObject <GCDAsyncSocketDelegate>
 
 -(void)createNetwork;
+-(void)sendLoop:(Loop *)loop;
 +(NetworkManager *)instance;
 
 
