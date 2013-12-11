@@ -31,7 +31,7 @@ static NetworkManager *myInstance;
     
     return(myInstance);
 }
-
+    
 -(void)createNetwork
 {
     if (self.asyncSocket) return;
