@@ -56,7 +56,7 @@ typedef struct Resolution {
     if (self) {
         
         self.midiButtons = [[NSMutableArray alloc] init];
-        Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:1 bank:1 name:@"Grand Piano"];
+        Instrument *instrument = [[Instrument alloc] initWithFluidSynthProgram:1 bank:0 name:@"Grand Piano"];
         self.currentLoop = [[Loop alloc] initWithInstrument:instrument length:DEFAULT_LENGTH resolution:DEFAULT_RESOLUTION grid:[[NSMutableArray alloc] init] name:@"Loop1" enabled:YES];
         
         self.grid = [[NSMutableArray alloc] init];
