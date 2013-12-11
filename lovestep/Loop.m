@@ -78,20 +78,15 @@
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if((self = [super init])) {
-        //decode properties, other class vars
-        self.instrument = [decoder decodeObjectForKey:@"instrument"];
-        self.length = [decoder decodeIntegerForKey:@"length"];
-        self.resolution = [decoder decodeIntegerForKey:@"resolution"];
-        self.grid = [decoder decodeObjectForKey:@"grid"];
-        self.name = [decoder decodeObjectForKey:@"name"];
-        self.enabled = [decoder decodeBoolForKey:@"enabled"];
-        
-        // Init fluid synth
-        [self initFluidSynth];
-        
-    }
-    return self;
+    
+    Instrument *instrument = [decoder decodeObjectForKey:@"instrument"];
+    NSInteger length = [decoder decodeIntegerForKey:@"length"];
+    NSInteger resolution = [decoder decodeIntegerForKey:@"resolution"];
+    NSMutableArray *grid = [decoder decodeObjectForKey:@"grid"];
+    NSString *name = [decoder decodeObjectForKey:@"name"];
+    BOOL enabled = [decoder decodeBoolForKey:@"enabled"];
+    
+    return [self initWithInstrument:instrument length:length resolution:resolution grid:grid name:name enabled:enabled];
 }
 
 @end
