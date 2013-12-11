@@ -10,7 +10,7 @@
 #import <FluidSynth/FluidSynth.h>
 #import "Instrument.h"
 
-@interface Loop : NSObject
+@interface Loop : NSObject <NSCoding>
 
 -(id)initWithInstrument:(Instrument *)instrument
               length:(NSInteger)length

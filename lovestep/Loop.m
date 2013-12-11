@@ -28,17 +28,9 @@
     if (self = [super init]) {
         
         // inititalize fluid synth
-        self.fluidSettings = new_fluid_settings();
-        fluid_settings_setint(self.fluidSettings, "synth.polyphony", 128);
-        self.fluidSynth = new_fluid_synth(self.fluidSettings);
-        NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SoundFont1" ofType:@"sf2"];
+        [self initFluidSynth];
         
-        int success = fluid_synth_sfload(self.fluidSynth, [bundlePath cStringUsingEncoding:NSUTF8StringEncoding], 1);
-        if (!success) {
-            NSAssert(0, @"Fluid synth could not load");
-        }
         self.instrument = instrument;
-        fluid_synth_set_sample_rate(self.fluidSynth, 44100);
         self.length = length;
         self.resolution = resolution;
         self.grid = grid;
@@ -46,6 +38,21 @@
         self.enabled = enabled;
     }
     return self;
+}
+
+- (void)initFluidSynth
+{
+    self.fluidSettings = new_fluid_settings();
+    fluid_settings_setint(self.fluidSettings, "synth.polyphony", 128);
+    self.fluidSynth = new_fluid_synth(self.fluidSettings);
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SoundFont1" ofType:@"sf2"];
+    
+    int success = fluid_synth_sfload(self.fluidSynth, [bundlePath cStringUsingEncoding:NSUTF8StringEncoding], 1);
+    if (!success) {
+        NSAssert(0, @"Fluid synth could not load");
+    }
+    
+    fluid_synth_set_sample_rate(self.fluidSynth, 44100);
 }
 
 -(void)setInstrument:(Instrument *)instrument
@@ -59,6 +66,32 @@
 {
     delete_fluid_synth(self.fluidSynth);
     delete_fluid_settings(self.fluidSettings);
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.instrument forKey:@"instrument"];
+    [encoder encodeInteger:self.length forKey:@"length"];
+    [encoder encodeInteger:self.resolution forKey:@"resolution"];
+    [encoder encodeObject:self.grid forKey:@"grid"];
+    [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeBool:self.enabled forKey:@"enabled"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        self.instrument = [decoder decodeObjectForKey:@"instrument"];
+        self.length = [decoder decodeIntegerForKey:@"length"];
+        self.resolution = [decoder decodeIntegerForKey:@"resolution"];
+        self.grid = [decoder decodeObjectForKey:@"grid"];
+        self.name = [decoder decodeObjectForKey:@"name"];
+        self.enabled = [decoder decodeBoolForKey:@"enabled"];
+        
+        // Init fluid synth
+        [self initFluidSynth];
+        
+    }
+    return self;
 }
 
 @end
