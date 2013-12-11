@@ -7,7 +7,6 @@
 //
 
 #import "NetworkManager.h"
-#import "GCDAsyncSocket.h"
 
 @interface NetworkManager ()
 
@@ -169,6 +168,16 @@ static NetworkManager *myInstance;
 -(void)netService:(NSNetService *)sender didNotResolve:(NSDictionary *)errorDict
 {
     NSLog(@"%@", errorDict);
+}
+
+-(void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
+{
+    NSLog(@"did receive data %@", data);
+}
+
+-(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
+{
+    NSLog(@"did connect to host %@", host);
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GCDAsyncSocket.h"
 
 @protocol NetworkManagerDelegate
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface NetworkManager : NSObject <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
+@interface NetworkManager : NSObject <NSNetServiceDelegate, NSNetServiceBrowserDelegate, GCDAsyncSocketDelegate>
 
 -(void)publishNetwork;
 -(void)searchForNetwork;
