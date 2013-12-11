@@ -92,7 +92,6 @@ void (^handleMouseDrag)(NSEvent *);
  */
 - (IBAction)changeInstrumentButtonPressed:(id)sender
 {
-    NSLog(@"Called");
     if ([self.civ isHidden]) {
         [self.civ setHidden:NO];
     } else {
