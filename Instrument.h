@@ -14,7 +14,7 @@
 
 @property (nonatomic) NSInteger program;
 @property (nonatomic) NSInteger bank;
-@property (nonatomic, assign) NSString *name;
+@property (nonatomic, strong) NSString *name;
 
 
 @end
