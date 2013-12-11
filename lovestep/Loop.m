@@ -8,6 +8,13 @@
 
 #import "Loop.h"
 
+@interface Loop ()
+
+
+@property (nonatomic) fluid_settings_t *fluidSettings;
+@end
+
+
 @implementation Loop
 
 -(id)initWithInstrument:(Instrument *)instrument
@@ -21,9 +28,9 @@
         self.instrument = instrument;
         
         // inititalize fluid synth
-        fluid_settings_t* settings = new_fluid_settings();
-        fluid_settings_setint(settings, "synth.polyphony", 128);
-        self.fluidSynth = new_fluid_synth(settings);
+        self.fluidSettings = new_fluid_settings();
+        fluid_settings_setint(self.fluidSettings, "synth.polyphony", 128);
+        self.fluidSynth = new_fluid_synth(self.fluidSettings);
         NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SoundFont1" ofType:@"sf2"];
         
         int success = fluid_synth_sfload(self.fluidSynth, [bundlePath cStringUsingEncoding:NSUTF8StringEncoding], 1);
@@ -41,4 +48,11 @@
     }
     return self;
 }
+
+-(void)dealloc
+{
+    delete_fluid_synth(self.fluidSynth);
+    delete_fluid_settings(self.fluidSettings);
+}
+
 @end
