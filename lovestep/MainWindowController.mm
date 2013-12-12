@@ -78,7 +78,7 @@
 /*
  * Network manager disable loop with id
  */
-- (void)networkManagerDisableLoopWithId:(NSString *)loopId
+- (void)networkManagerEnableLoopWithId:(NSString *)loopId
 {
     [self.loopDelegate enableLoopWithId:loopId];
 }
