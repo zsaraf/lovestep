@@ -48,7 +48,7 @@ static NetworkManager *myInstance;
 {
     if (self.asyncSocket) return;
     self.asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
-    [self.asyncSocket connectToHost:@"10.31.78.119" onPort:80 error:nil];
+    [self.asyncSocket connectToHost:@"192.168.182.137" onPort:80 error:nil];
     [self.asyncSocket readDataWithTimeout:-1 tag:WAITING_FOR_OTHER_USER_TAG];
 }
 
