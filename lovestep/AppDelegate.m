@@ -20,7 +20,8 @@
     [self.mainWindow orderOut:self];
     
     // REMOVE for final version
-//    [self didLogIn];
+    [[NSUserDefaults standardUserDefaults] setValue:@"zach" forKey:@"username"];
+    [self didLogIn];
 }
 
 - (void)didLogIn
