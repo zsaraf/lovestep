@@ -51,6 +51,7 @@
  */
 - (void)makeLoopActive:(Loop *)loop
 {
+    [loop setEnabled:YES];
     [self.activeLoopsSrollView addLoop:loop];
     [self.inactiveLoopsScrollView removeLoop:loop];
 }
@@ -60,6 +61,7 @@
  */
 - (void)makeLoopInactive:(Loop *)loop
 {
+    [loop setEnabled:NO];
     [self.activeLoopsSrollView removeLoop:loop];
     [self.inactiveLoopsScrollView addLoop:loop];
 }
