@@ -33,11 +33,14 @@ typedef struct Resolution {
 @property (nonatomic, strong) TickerView *ticker;
 @property (nonatomic) NSInteger loopNo;
 
+@property (nonatomic, strong) NSScrollView *scrollView;
+@property (nonatomic, strong) NSView *docView;
+
 @end
 
 @implementation SequencerView
 
-#define NUM_KEYS 25
+#define NUM_KEYS 35
 
 #define KEY_WIDTTH 50
 #define CELL_LENGTH 25
@@ -69,6 +72,14 @@ typedef struct Resolution {
                                                     loopNo:self.loopNo];
         [self initializeKeyboardFluidSynths];
         self.grid = [[NSMutableArray alloc] init];
+        
+        // INitialize the document view and scroll view
+        self.docView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, NUM_KEYS * CELL_LENGTH)];
+        self.scrollView = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height - HEADER_HEIGHT)];
+        
+        [self addSubview:self.scrollView];
+        [self.scrollView setHasVerticalScroller:YES];
+        [self.scrollView setVerticalScrollElasticity:NSScrollElasticityNone];
         
         // Initialization code here.
         // Draw the sequencer here
@@ -128,7 +139,7 @@ typedef struct Resolution {
         MidiButton *newKey = [[MidiButton alloc] initWithKeyNumber:currentKeyNumber];
         [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, CELL_LENGTH))];
         
-        [self addSubview:newKey];
+        [self.docView addSubview:newKey];
         [self.midiButtons addObject:newKey];
         
         currentKeyNumber++;
@@ -164,10 +175,12 @@ typedef struct Resolution {
             [loopGrid addObject:[NSNumber numberWithBool:NO]];
             [gridButtonGrid addObject:newButton];
             
-            [self addSubview:newButton];
+            [self.docView addSubview:newButton];
             
             currentX += xInc;
         }
+        
+        [self.scrollView setDocumentView:self.docView];
         
         [self.grid addObject:gridButtonGrid];
         [self.currentLoop.grid addObject:loopGrid];
@@ -181,8 +194,9 @@ typedef struct Resolution {
  */
 - (int)rowForTouch:(NSPoint)touch
 {
-    
-    return touch.y/CELL_LENGTH;
+    NSLog(@"Scrollview y pos: %f", [self.scrollView documentVisibleRect].origin.y);
+    float yAdjust = self.scrollView.documentVisibleRect.origin.y;
+    return (touch.y + yAdjust)/CELL_LENGTH;
 }
 
 /*
