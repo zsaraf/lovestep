@@ -70,7 +70,15 @@
     [textField setEditable:NO];
     [textField setBezeled:NO];
     [textField setDrawsBackground:NO];
-    [textField setTextColor:[NSColor whiteColor]];
+    if (self.loop.enabled) {
+        [textField setTextColor:[NSColor whiteColor]];
+    } else {
+        if ([self.loop.creator isEqualToString:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]]) {
+            [textField setTextColor:[NSColor colorWithDeviceRed:134/255. green:202/255. blue:254/255. alpha:1]];
+        } else {
+            [textField setTextColor:[NSColor colorWithDeviceRed:162/255. green:134/255. blue:254/255. alpha:1]];
+        }
+    }
     [textField setAlignment:NSCenterTextAlignment];
     [[textField cell] setLineBreakMode:NSLineBreakByTruncatingTail];
     return textField;
@@ -84,19 +92,26 @@
     [path addClip];
     
     if (!self.loop.enabled) {
-        [[NSColor colorWithDeviceRed:.74 green:.74 blue:.74 alpha:1.] set];
+        [[NSColor colorWithDeviceRed:.0 green:.0 blue:.0 alpha:1.] set];
     } else if ([self.loop.creator isEqualToString:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]]) {
         [[NSColor colorWithDeviceRed:134/255. green:202/255. blue:254/255. alpha:1] set];
     } else {
         [[NSColor colorWithDeviceRed:162/255. green:134/255. blue:254/255. alpha:1] set];
     }
     
-    
-    
     NSRectFill(rect);
     [super drawRect:dirtyRect];
-    [[NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1.] set];
-    [path setLineWidth:5];
+    if (self.loop.enabled) {
+        [[NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1.] set];
+        [path setLineWidth:5];
+    } else {
+        if ([self.loop.creator isEqualToString:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]]) {
+            [[NSColor colorWithDeviceRed:134/255. green:202/255. blue:254/255. alpha:1] set];
+        } else {
+            [[NSColor colorWithDeviceRed:162/255. green:134/255. blue:254/255. alpha:1] set];
+        }
+        [path setLineWidth:7];
+    }
     [path stroke];
 }
 
