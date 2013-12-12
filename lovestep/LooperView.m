@@ -26,13 +26,13 @@
  */
 - (void)drawRect:(NSRect)dirtyRect {
     // set any NSColor for filling, say white:
+    [super drawRect:dirtyRect];
     [[NSColor colorWithCalibratedRed:.8f green:.8f blue:.8f alpha:1.0f] setFill];
     NSRectFill(dirtyRect);
-    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:self.bounds xRadius:2 yRadius:2];
+    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:NSInsetRect(self.bounds, -2.5, -2.5) xRadius:2 yRadius:2];
     [path setLineWidth:5];
     [[NSColor colorWithCalibratedRed:.5 green:.5 blue:.5 alpha:1.] set];
     [path stroke];
-    [super drawRect:dirtyRect];
 }
 
 -(BOOL)wantsDefaultClipping

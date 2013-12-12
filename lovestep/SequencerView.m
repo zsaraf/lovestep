@@ -57,8 +57,8 @@ typedef struct Resolution {
 
 -(void)drawRect:(NSRect)dirtyRect
 {
-    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:self.bounds xRadius:2 yRadius:2];
-    [path setLineWidth:10];
+    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:NSInsetRect(self.bounds, -2.5, -2.5) xRadius:2 yRadius:2];
+    [path setLineWidth:5];
     [[NSColor colorWithCalibratedRed:.5 green:.5 blue:.5 alpha:1.] set];
     [path stroke];
     
