@@ -57,7 +57,9 @@
     NSArray *loops = ((AppDelegate *)[[NSApplication sharedApplication] delegate]).wc.loops;
     for (Loop *loop in loops) {
         if ([loop.loopId isEqualToString:loopId]) {
-            [self makeLoopInactive:loop];
+            [loop setEnabled:NO];
+            [self.activeLoopsSrollView removeLoop:loop];
+            [self.inactiveLoopsScrollView addLoop:loop];
             return;
         }
     }
@@ -71,7 +73,9 @@
     NSArray *loops = ((AppDelegate *)[[NSApplication sharedApplication] delegate]).wc.loops;
     for (Loop *loop in loops) {
         if ([loop.loopId isEqualToString:loopId]) {
-            [self makeLoopActive:loop];
+            [loop setEnabled:YES];
+            [self.activeLoopsSrollView addLoop:loop];
+            [self.inactiveLoopsScrollView removeLoop:loop];
             return;
         }
     }
