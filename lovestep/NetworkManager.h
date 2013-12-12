@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GCDAsyncSocket.h"
 #import "Loop.h"
+#import "LooperView.h"
 
 typedef struct {
     NSUInteger type_id;
@@ -25,7 +26,7 @@ typedef struct {
 
 @end
 
-@interface NetworkManager : NSObject <GCDAsyncSocketDelegate>
+@interface NetworkManager : NSObject <GCDAsyncSocketDelegate, LooperViewDelegate>
 
 -(void)createNetwork;
 -(void)sendLoop:(Loop *)loop;

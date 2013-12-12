@@ -8,6 +8,7 @@
 
 #import "LooperView.h"
 #import "LooperHeaderView.h"
+#import "NetworkManager.h"
 
 @interface LooperView ()
 
@@ -36,6 +37,7 @@
 {
     self.activeLoopsSrollView.delegate = self;
     self.inactiveLoopsScrollView.delegate = self;
+    self.delegate = [NetworkManager instance];
 }
 
 /*
@@ -67,6 +69,7 @@
  */
 - (void)makeLoopActive:(Loop *)loop
 {
+    [self.delegate didEnableLoopWithIdentifier:loop.loopId];
     [loop setEnabled:YES];
     [self.activeLoopsSrollView addLoop:loop];
     [self.inactiveLoopsScrollView removeLoop:loop];
@@ -77,6 +80,7 @@
  */
 - (void)makeLoopInactive:(Loop *)loop
 {
+    [self.delegate didDisableLoopWithIdentifier:loop.loopId];
     [loop setEnabled:NO];
     [self.activeLoopsSrollView removeLoop:loop];
     [self.inactiveLoopsScrollView addLoop:loop];

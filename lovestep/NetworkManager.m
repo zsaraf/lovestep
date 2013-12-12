@@ -13,8 +13,13 @@
 #define USER_NAME_RECEIVE_TAG 22
 #define RECEIVED_ARRAY 23
 #define HEADER_TAG 24
+#define RECEIVED_DISABLE 25
+#define RECEIVED_ENABLE 26
+
 
 #define LOOP_TYPE 1
+#define ENABLE_TYPE 2
+#define DISABLE_TYPE 3
 
 @interface NetworkManager ()
 
@@ -83,7 +88,13 @@ static NetworkManager *myInstance;
         header_t header;
         [data getBytes:&header length:sizeof(header_t)];
         
-        [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ARRAY];
+        if (header.type_id == LOOP_TYPE) {
+            [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ARRAY];
+        } else if (header.type_id == DISABLE_TYPE) {
+            [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_DISABLE];
+        } else if (header.type_id == ENABLE_TYPE) {
+            [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ENABLE];
+        }
         
     } else if (tag == RECEIVED_ARRAY) {
         
@@ -95,7 +106,48 @@ static NetworkManager *myInstance;
         
         [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
         
+    } else if (tag == RECEIVED_DISABLE) {
+        
+        NSLog(@"Received loop with length: %ld", data.length);
+        NSString *loopId = [NSString stringWithUTF8String:[data bytes]];
+        [self.delegate networkManagerDisableLoopWithId:loopId];
+        
+        [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
+    } else if (tag == RECEIVED_ENABLE) {
+        
+        NSLog(@"Received loop with length: %ld", data.length);
+        NSString *loopId = [NSString stringWithUTF8String:[data bytes]];
+        [self.delegate networkManagerEnableLoopWithId:loopId];
+        [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
     }
+}
+
+- (void)didDisableLoopWithIdentifier:(NSString *)loopId
+{
+    NSData *data = [loopId dataUsingEncoding:NSUTF8StringEncoding];
+    
+    header_t header;
+    header.type_id = DISABLE_TYPE;
+    header.size = data.length;
+    
+    NSData *headData = [NSData dataWithBytes:&header length:sizeof(header)];
+    
+    [self.asyncSocket writeData:headData withTimeout:-1 tag:HEADER_TAG];
+    [self.asyncSocket writeData:data withTimeout:-1 tag:RECEIVED_DISABLE];
+}
+
+- (void)didEnableLoopWithIdentifier:(NSString *)loopId
+{
+    NSData *data = [loopId dataUsingEncoding:NSUTF8StringEncoding];
+    
+    header_t header;
+    header.type_id = ENABLE_TYPE;
+    header.size = data.length;
+    
+    NSData *headData = [NSData dataWithBytes:&header length:sizeof(header)];
+    
+    [self.asyncSocket writeData:headData withTimeout:-1 tag:HEADER_TAG];
+    [self.asyncSocket writeData:data withTimeout:-1 tag:RECEIVED_ENABLE];
 }
 
 -(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port

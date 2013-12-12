@@ -11,6 +11,15 @@
 #import "InactiveLoopsView.h"
 #import "ActiveLoopsView.h"
 
+@protocol LooperViewDelegate
+
+- (void)didDisableLoopWithIdentifier:(NSString *)loopId;
+- (void)didEnableLoopWithIdentifier:(NSString *)loopId;
+
+@end
+
 @interface LooperView : NSView <LoopDelegate, InactiveLoopDelegate, ActiveLoopDelegate>
+
+@property (nonatomic, weak) id <LooperViewDelegate>delegate;
 
 @end
