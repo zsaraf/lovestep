@@ -5,8 +5,8 @@ Rim 1
 Glitch 3
 Rim 2
 Bell 1
-Bass 1
-Bass 2
+Kick 1
+Kick 2
 Rim 3
 Snare 1
 Clap 1
