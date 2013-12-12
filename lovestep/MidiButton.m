@@ -91,7 +91,21 @@ static NSString *keyNames[12] = {
     return self;
 }
 
-- (void)changeKeyNames
+/*
+ * If drums
+ */
+- (void)changeKeyNameTo:(NSString *)keyName
+{
+    [self setTitle:keyName];
+}
+
+/*
+ * If ! drums
+ */
+- (void)changeKeyNameToDefault
+{
+    [self setTitle:[NSString stringWithFormat:@"%@%ld", self.keyName, ((self.keyNumber - 40)/12) + 4]];
+}
 
 -(void)mouseUp:(NSEvent *)theEvent
 {
