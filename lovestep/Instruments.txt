@@ -1,6 +1,6 @@
 # Format
 # {bank}:{program}:{volume-ratio}:{name}
-0:1:1:Grand Piano
+0:1:3:Grand Piano
 0:4:5:Electric Piano
 0:10:5:Music Box
 0:11:5:Vibraphone
