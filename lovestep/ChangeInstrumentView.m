@@ -25,7 +25,7 @@
         
         [self parseInstruments];
         [self setupTableView];
-        [self setAlphaValue:0.95f];
+        [self setAlphaValue:0.94f];
     }
     
     return self;
@@ -65,15 +65,20 @@
     self.tableView = [[NSTableView alloc] initWithFrame:self.bounds];
     
     NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"col"];
-    [column setWidth:self.tableView.frame.size.width];
+    [column setWidth:self.tableView.frame.size.width - 2];
     [self.tableView addTableColumn:column];
     
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    [self.tableView setBackgroundColor:[NSColor blueColor]];
+    [self.tableView setBackgroundColor:[NSColor colorWithCalibratedRed:.93f green:.94f blue:.95f alpha:.4f]];
+    [self.tableView setHeaderView:nil];
+    [self.tableView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleRegular];
+    [self.scrollView setDrawsBackground:NO];
     
     [self.scrollView setDocumentView:self.tableView];
-    
+    [self.scrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
+    [self.scrollView setHasVerticalScroller:YES];
+    [self.scrollView setHasHorizontalScroller:NO];
     [self addSubview:self.scrollView];
 }
 
@@ -88,9 +93,13 @@
         view.identifier = [tableColumn identifier];
     }
     
-    NSTextField *textfield = [[NSTextField alloc]initWithFrame:NSMakeRect(0, 0, 100, 30)];
+    NSTextField *textfield = [[NSTextField alloc]initWithFrame:NSMakeRect(10, 4, view.frame.size.width, 30)];
+    [textfield setFont:[NSFont fontWithName:@"Helvetica" size:15]];
+    [textfield setEditable:NO];
+    [textfield setBezeled:NO];
+    [textfield setDrawsBackground:NO];
     [textfield setStringValue:((Instrument *)([self.instruments objectAtIndex:row])).name];
-
+    
     [view addSubview:textfield];
 
     return view;
