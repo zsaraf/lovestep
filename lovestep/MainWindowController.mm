@@ -64,11 +64,24 @@
 {
     [self.loops addObject:newLoop];
     [self.loopDelegate didFindNewLoop:newLoop];
-//    [self.loopDelegate didSilenceLoopWithId:nil];
     [[NetworkManager instance] sendLoop:newLoop];
 }
 
+/*
+ * Network manager enable loop with id
+ */
+- (void)networkManagerDisableLoopWithId:(NSString *)loopId
+{
+    [self.loopDelegate disableLoopWithId:loopId];
+}
 
+/*
+ * Network manager disable loop with id
+ */
+- (void)networkManagerDisableLoopWithId:(NSString *)loopId
+{
+    [self.loopDelegate enableLoopWithId:loopId];
+}
 
 /*
  * Network manager delegate method

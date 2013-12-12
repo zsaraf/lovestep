@@ -18,8 +18,10 @@ typedef struct {
 @protocol NetworkManagerDelegate
 
 @optional
--(void)networkManagerDidFindNetworkService:(BOOL)found;
--(void)networkManagerReceivedNewLoop:(Loop *)loop;
+- (void)networkManagerDidFindNetworkService:(BOOL)found;
+- (void)networkManagerReceivedNewLoop:(Loop *)loop;
+- (void)networkManagerDisableLoopWithId:(NSString *)loopId;
+- (void)networkManagerEnableLoopWithId:(NSString *)loopId;
 
 @end
 

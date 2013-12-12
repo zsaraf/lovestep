@@ -14,7 +14,8 @@
 @protocol LoopDelegate
 
 - (void)didFindNewLoop:(Loop *)newLoop;
-- (void)didSilenceLoopWithId:(NSString *)loopId;
+- (void)disableLoopWithId:(NSString *)loopId;
+- (void)enableLoopWithId:(NSString *)loopId;
 
 @end
 

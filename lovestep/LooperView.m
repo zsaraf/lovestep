@@ -47,6 +47,22 @@
 }
 
 /*
+ * Make the loop inactive
+ */
+- (void)disableLoopWithId:(NSString *)loopId
+{
+    
+}
+
+/*
+ * Make the loop active
+ */
+- (void)enableLoopWithId:(NSString *)loopId
+{
+    
+}
+
+/*
  * Make the loop active
  */
 - (void)makeLoopActive:(Loop *)loop
