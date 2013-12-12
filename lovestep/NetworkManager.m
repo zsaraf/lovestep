@@ -7,6 +7,7 @@
 //
 
 #import "NetworkManager.h"
+#import "FuckApple.h"
 
 #define WAITING_FOR_OTHER_USER_TAG 20
 #define USER_NAME_SEND_TAG 21
@@ -89,12 +90,10 @@ static NetworkManager *myInstance;
             [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ARRAY];
         } else if (header.type_id == DISABLE_TYPE) {
             NSLog(@"Reading header of size %ld", header.size);
-            [self.asyncSocket readDataWithTimeout:-1 tag:RECEIVED_DISABLE];
-            //[self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_DISABLE];
+            [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_DISABLE];
         } else if (header.type_id == ENABLE_TYPE) {
             NSLog(@"Reading header of size %ld", header.size);
-            [self.asyncSocket readDataWithTimeout:-1 tag:RECEIVED_ENABLE];
-            //[self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ENABLE];
+            [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ENABLE];
         }
         
     } else if (tag == RECEIVED_ARRAY) {
@@ -107,15 +106,14 @@ static NetworkManager *myInstance;
         [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
         
     } else if (tag == RECEIVED_DISABLE) {
-        
-        NSString *loopId = [NSString stringWithUTF8String:[data bytes]];
+        NSString *loopId = ((FuckApple *)[NSKeyedUnarchiver unarchiveObjectWithData:data]).appleCanSuckADick;
         NSLog(@"Received disable for %@", loopId);
         [self.delegate networkManagerDisableLoopWithId:loopId];
         
         [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
     } else if (tag == RECEIVED_ENABLE) {
+        NSString *loopId = ((FuckApple *)[NSKeyedUnarchiver unarchiveObjectWithData:data]).appleCanSuckADick;
         
-        NSString *loopId = [NSString stringWithUTF8String:[data bytes]];
         NSLog(@"Received enable for %@", loopId);
         [self.delegate networkManagerEnableLoopWithId:loopId];
         [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
@@ -124,32 +122,32 @@ static NetworkManager *myInstance;
 
 - (void)didDisableLoopWithIdentifier:(NSString *)loopId
 {
-    NSData *data = [loopId dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *fuckApple = [NSKeyedArchiver archivedDataWithRootObject:[[FuckApple alloc] initWithAppleCanSuckADick:loopId]];
     
     header_t header;
     header.type_id = DISABLE_TYPE;
-    header.size = data.length;
+    header.size = fuckApple.length;
     NSLog(@"Sending disabled loop %@ with size %ld", loopId, header.size);
     
     NSData *headData = [NSData dataWithBytes:&header length:sizeof(header)];
     
     [self.asyncSocket writeData:headData withTimeout:-1 tag:HEADER_TAG];
-    [self.asyncSocket writeData:data withTimeout:-1 tag:RECEIVED_DISABLE];
+    [self.asyncSocket writeData:fuckApple withTimeout:-1 tag:RECEIVED_DISABLE];
 }
 
 - (void)didEnableLoopWithIdentifier:(NSString *)loopId
 {
-    NSData *data = [loopId dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *fuckApple = [NSKeyedArchiver archivedDataWithRootObject:[[FuckApple alloc] initWithAppleCanSuckADick:loopId]];
     
     header_t header;
     header.type_id = ENABLE_TYPE;
-    header.size = data.length;
+    header.size = fuckApple.length;
     NSLog(@"Sending enabled loop %@ with size %ld", loopId, header.size);
     
     NSData *headData = [NSData dataWithBytes:&header length:sizeof(header)];
     
     [self.asyncSocket writeData:headData withTimeout:-1 tag:HEADER_TAG];
-    [self.asyncSocket writeData:data withTimeout:-1 tag:RECEIVED_ENABLE];
+    [self.asyncSocket writeData:fuckApple withTimeout:-1 tag:RECEIVED_ENABLE];
 }
 
 @end

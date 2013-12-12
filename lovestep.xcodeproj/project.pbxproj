@@ -24,6 +24,7 @@
 		926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A96831831FFBF0029BDA4 /* Security.framework */; };
 		928DD01818519CE30088FD7A /* SoundFont1.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 928DD01718519CDB0088FD7A /* SoundFont1.sf2 */; };
 		92B0BE6D18599E48001F8CED /* DrumKit.txt in Resources */ = {isa = PBXBuildFile; fileRef = 92B0BE6C18599E48001F8CED /* DrumKit.txt */; };
+		92B0BE701859C6E6001F8CED /* FuckApple.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B0BE6F1859C6E6001F8CED /* FuckApple.m */; };
 		92DD25281857F54B0059C362 /* Instruments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 92DD25271857F54B0059C362 /* Instruments.txt */; };
 		92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E33FF418349CE5002CB131 /* NetworkManager.m */; };
 		92E45F06184EE0CB0023E2EA /* Instrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F05184EE0CB0023E2EA /* Instrument.m */; };
@@ -98,6 +99,8 @@
 		926A96831831FFBF0029BDA4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		928DD01718519CDB0088FD7A /* SoundFont1.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundFont1.sf2; sourceTree = "<group>"; };
 		92B0BE6C18599E48001F8CED /* DrumKit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DrumKit.txt; sourceTree = "<group>"; };
+		92B0BE6E1859C6E6001F8CED /* FuckApple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FuckApple.h; path = lovestep/FuckApple.h; sourceTree = "<group>"; };
+		92B0BE6F1859C6E6001F8CED /* FuckApple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FuckApple.m; path = lovestep/FuckApple.m; sourceTree = "<group>"; };
 		92DD25271857F54B0059C362 /* Instruments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Instruments.txt; sourceTree = "<group>"; };
 		92E33FF318349CE5002CB131 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		92E33FF418349CE5002CB131 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 		926A96321831F6610029BDA4 = {
 			isa = PBXGroup;
 			children = (
+				92B0BE6E1859C6E6001F8CED /* FuckApple.h */,
+				92B0BE6F1859C6E6001F8CED /* FuckApple.m */,
 				926A9685183200B40029BDA4 /* GCDAsyncSocket */,
 				926A96441831F6610029BDA4 /* lovestep */,
 				926A96621831F6610029BDA4 /* lovestepTests */,
@@ -564,6 +569,7 @@
 				AF48DA7718558B820023F1CD /* ChangeInstrumentView.m in Sources */,
 				AF64584818492C7C00E62669 /* SequencerView.m in Sources */,
 				AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */,
+				92B0BE701859C6E6001F8CED /* FuckApple.m in Sources */,
 				AF9122FB183C34160066AAB0 /* LoginView.m in Sources */,
 				AFB1EC14184EEAEA00F6841F /* SequencerHeaderView.m in Sources */,
 				AF7037571831F8D0005C7730 /* LoginWindow.m in Sources */,
