@@ -64,8 +64,11 @@
 {
     [self.loops addObject:newLoop];
     [self.loopDelegate didFindNewLoop:newLoop];
+//    [self.loopDelegate didSilenceLoopWithId:nil];
     [[NetworkManager instance] sendLoop:newLoop];
 }
+
+
 
 /*
  * Network manager delegate method
