@@ -808,14 +808,14 @@
                                 </subviews>
                             </customView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="0e4-Oi-5r6" customClass="ActiveLoopsView">
-                                <rect key="frame" x="0.0" y="313" width="529" height="313"/>
+                                <rect key="frame" x="0.0" y="313" width="529" height="283"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="y6t-uq-fjB">
-                                    <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="529" height="283"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="b6v-oz-d92">
-                                            <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="529" height="283"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -835,14 +835,14 @@
                                 </scroller>
                             </scrollView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Lch-DN-orm" customClass="InactiveLoopsView">
-                                <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
+                                <rect key="frame" x="0.0" y="0.0" width="529" height="283"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="83f-HI-Tdy">
-                                    <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="529" height="283"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="7U4-7c-AOC">
-                                            <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="529" height="283"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -861,6 +861,24 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bB8-kx-0IN">
+                                <rect key="frame" x="18" y="595" width="168" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Active Loops" id="yuO-Yb-iKZ" customClass="RSVerticallyCenteredTextFieldCellES">
+                                    <font key="font" size="20" name="Helvetica-Bold"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QbK-mL-M0o">
+                                <rect key="frame" x="18" y="281" width="168" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Inactive Loops" id="GQG-Mq-PtG" customClass="RSVerticallyCenteredTextFieldCellES">
+                                    <font key="font" size="20" name="Helvetica-Bold"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <connections>
                             <outlet property="activeLoopsSrollView" destination="0e4-Oi-5r6" id="S4P-Ay-mEv"/>
