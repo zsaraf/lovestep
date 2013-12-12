@@ -278,11 +278,22 @@ typedef struct Resolution {
 -(void)keyDown:(NSEvent *)theEvent
 {
     if (theEvent.keyCode == 36) {
-        [self.delegate sequencerViewDidPushLoop:self.currentLoop];
-        
-        // Clears the grid and resets information
-        [self clearGrid];
+        [self.sequenceHeaderView prepareForTakeoffWithTarget:self selector:@selector(sendLoopToMain:)];
     }
+}
+
+/*
+ * Called once the user has chosen a name for the loop
+ */
+- (void)sendLoopToMain:(id)sender
+{
+    [self.currentLoop setName:self.sequenceHeaderView.nameField.stringValue];
+    
+    // Send it to the main
+    [self.delegate sequencerViewDidPushLoop:self.currentLoop];
+    
+    // Clears the grid and resets information
+    [self clearGrid];
 }
 
 /*

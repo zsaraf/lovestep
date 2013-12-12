@@ -18,6 +18,8 @@
 @property (nonatomic) NSPoint previousLocationChange;
 @property (nonatomic, weak) IBOutlet NSButton *changeInstrumentButton;
 @property (nonatomic, strong) ChangeInstrumentView *civ;
+@property (nonatomic, weak) id target;
+@property (nonatomic) SEL selector;
 
 @end
 
@@ -136,6 +138,40 @@ void (^handleMouseDrag)(NSEvent *);
 
     // Add it to subview
     [self.superview addSubview:self.civ];
+    
+    // Setup shit for the name field
+    [self.nameField setEnabled:NO];
+    [self.nameField setDelegate:self];
+}
+
+/*
+ * Get the name of the loop
+ */
+- (void)prepareForTakeoffWithTarget:(id)target selector:(SEL)selector
+{
+    [self.nameField setEditable:YES];
+    [self.nameField setEnabled:YES];
+    [self.window makeFirstResponder:self.nameField];
+    
+    self.target = target;
+    self.selector = selector;
+}
+
+/*
+ * Called when the user hits enter in the text field
+ */
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
+{
+    if ([[self.nameField stringValue] isEqualToString:@""] || !self.nameField) {
+        [self.nameField setStringValue:@"forgot!"];
+    } else {
+        if (self.target) {
+            IMP imp = [self.target methodForSelector:self.selector];
+            void (*func)(id, SEL) = (void *)imp;
+            func(self.target, self.selector);
+        }
+    }
+    return YES;
 }
 
 @end

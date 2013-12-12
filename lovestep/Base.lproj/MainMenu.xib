@@ -722,7 +722,7 @@
                                     <textField focusRingType="none" verticalHuggingPriority="750" id="FaX-sX-9MN">
                                         <rect key="frame" x="13" y="6" width="267" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" focusRingType="none" title="Untitled" id="3fs-YQ-ZEr">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" focusRingType="none" title="Untitled" id="3fs-YQ-ZEr" customClass="RSVerticallyCenteredTextFieldCell">
                                             <font key="font" size="38" name="Helvetica-Bold"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>

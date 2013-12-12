@@ -15,11 +15,13 @@
 
 @end
 
-@interface SequencerHeaderView : NSView
+@interface SequencerHeaderView : NSView <NSControlTextEditingDelegate, NSTextFieldDelegate>
 
+@property (nonatomic, weak) id<SequencerHeaderViewDelegate> delegate;
 @property (nonatomic, weak) IBOutlet NSTextField *nameField;
 @property (nonatomic, weak) IBOutlet NSTextField *resolutionField;
 @property (nonatomic, weak) IBOutlet NSTextField *lengthField;
-@property (nonatomic, weak) id<SequencerHeaderViewDelegate> delegate;
+
+- (void)prepareForTakeoffWithTarget:(id)target selector:(SEL)selector;
 
 @end
