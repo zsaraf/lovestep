@@ -54,6 +54,22 @@ typedef struct Resolution {
 #define DEFAULT_LENGTH 32
 #define DEFAULT_RESOLUTION 16
 
+
+-(void)drawRect:(NSRect)dirtyRect
+{
+    NSBezierPath *path = [NSBezierPath bezierPathWithRoundedRect:self.bounds xRadius:2 yRadius:2];
+    [path setLineWidth:10];
+    [[NSColor colorWithCalibratedRed:.5 green:.5 blue:.5 alpha:1.] set];
+    [path stroke];
+    
+    [super drawRect:dirtyRect];
+}
+
+-(BOOL)wantsDefaultClipping
+{
+    return NO;
+}
+
 /*
  * Draws the keys and the grid and inits the frame
  */

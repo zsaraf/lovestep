@@ -1,3 +1,7 @@
+None
+None
+None
+COOL
 Cymbal 1
 Glitch 1
 Glitch 2
@@ -43,6 +47,9 @@ Shake
 Shake2
 Whistle
 Whistle2
+FIO
+FIO
+FIO
 FIO
 FIO
 FIO
