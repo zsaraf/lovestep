@@ -14,7 +14,6 @@
 @property (nonatomic, strong) NSMutableArray *instruments;
 @property (nonatomic, strong) NSTableView *tableView;
 @property (nonatomic, strong) NSScrollView *scrollView;
-@property (nonatomic, strong) NSArray *drumKits;
 
 @end
 
@@ -54,17 +53,6 @@
             [self.instruments addObject:instrument];
         }
     }
-    
-    [self parseDrumFile];
-}
-
--(void)parseDrumFile
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"DrumKit" ofType:@"txt"];
-    NSString* content = [NSString stringWithContentsOfFile:path
-                                                  encoding:NSUTF8StringEncoding
-                                                     error:NULL];
-    self.drumKits = [content componentsSeparatedByString:@"\n"];
 }
 
 /*

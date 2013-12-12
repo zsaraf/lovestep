@@ -37,6 +37,7 @@ typedef struct Resolution {
 @property (nonatomic, strong) NSView *docView;
 
 @property (nonatomic) NSInteger currentNote;
+@property (nonatomic, strong) NSArray *drumKits;
 
 @end
 
@@ -86,6 +87,8 @@ typedef struct Resolution {
         NSTimer *timer = [NSTimer timerWithTimeInterval:0.001f target:self selector:@selector(highlightColumn) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
         
+        [self parseDrumFile];
+        
         // Initialization code here.
         // Draw the sequencer here
         [self drawKeys];
@@ -93,6 +96,15 @@ typedef struct Resolution {
         [self setupTicker];
     }
     return self;
+}
+
+-(void)parseDrumFile
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"DrumKit" ofType:@"txt"];
+    NSString* content = [NSString stringWithContentsOfFile:path
+                                                  encoding:NSUTF8StringEncoding
+                                                     error:NULL];
+    self.drumKits = [content componentsSeparatedByString:@"\n"];
 }
 
 -(void)initializeKeyboardFluidSynths
