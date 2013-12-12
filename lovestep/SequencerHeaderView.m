@@ -47,7 +47,7 @@ void (^handleMouseDrag)(NSEvent *);
 - (void)mouseDown:(NSEvent *)theEvent
 {
     NSPoint point = [self.superview convertPoint:[theEvent locationInWindow] fromView:nil];
-            NSView *v = [self hitTest:point];
+    NSView *v = [self hitTest:point];
     
     self.previousLocationChange = point;
     if (v == self.resolutionField) {
@@ -119,10 +119,10 @@ void (^handleMouseDrag)(NSEvent *);
     [self setWantsLayer:YES];
     
     self.resolutionValues = [[NSArray alloc] initWithObjects:
-                                                        [NSNumber numberWithInteger:4],
-                                                        [NSNumber numberWithInteger:8],
-                                                        [NSNumber numberWithInteger:16],
-                                                        [NSNumber numberWithInteger:32], nil];
+                             [NSNumber numberWithInteger:4],
+                             [NSNumber numberWithInteger:8],
+                             [NSNumber numberWithInteger:16],
+                             [NSNumber numberWithInteger:32], nil];
     self.currentResolutionIndex = 0;
     self.currentLengthValue = 32;
     
@@ -135,13 +135,14 @@ void (^handleMouseDrag)(NSEvent *);
     [self.civ setHidden:YES];
     
     self.civ.delegate = (id<ChangeInstrumentDelegate>)self.superview;
-
+    
     // Add it to subview
     [self.superview addSubview:self.civ];
     
     // Setup shit for the name field
-    [self.nameField setEnabled:NO];
     [self.nameField setDelegate:self];
+    
+    [self resetName];
 }
 
 /*
@@ -151,10 +152,21 @@ void (^handleMouseDrag)(NSEvent *);
 {
     [self.nameField setEditable:YES];
     [self.nameField setEnabled:YES];
-    [self.window makeFirstResponder:self.nameField];
+    [self.nameField setStringValue:@"loop_name"];
+    [self.nameField becomeFirstResponder];
     
     self.target = target;
     self.selector = selector;
+}
+
+/*
+ * Reset the fuck
+ */
+- (void)resetName
+{
+    [self.nameField setEditable:NO];
+    [self.nameField setEnabled:NO];
+    [self.nameField setStringValue:@""];
 }
 
 /*
@@ -162,16 +174,24 @@ void (^handleMouseDrag)(NSEvent *);
  */
 - (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
 {
-    if ([[self.nameField stringValue] isEqualToString:@""] || !self.nameField) {
-        [self.nameField setStringValue:@"forgot!"];
-    } else {
-        if (self.target) {
-            IMP imp = [self.target methodForSelector:self.selector];
-            void (*func)(id, SEL) = (void *)imp;
-            func(self.target, self.selector);
-        }
+    if (self.target) {
+        IMP imp = [self.target methodForSelector:self.selector];
+        void (*func)(id, SEL) = (void *)imp;
+        func(self.target, self.selector);
+        [self resetName];
     }
+
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(changeFR) userInfo:nil repeats:NO];
     return YES;
+    
+}
+
+/*
+ * TIMER
+ */
+- (void)changeFR
+{
+    [self.window makeFirstResponder:self.superview];
 }
 
 @end
