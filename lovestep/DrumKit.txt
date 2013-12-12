@@ -1,0 +1,48 @@
+Cymbal 1
+Glitch 1
+Glitch 2
+Rim 1
+Glitch 3
+Rim 2
+Bell 1
+Bass 1
+Bass 2
+Rim 3
+Snare 1
+Clap 1
+Rim 4
+Cym 1
+Tom 1
+Cym 2
+Tom 2
+Op Cym
+Tom 3
+Tom 4
+Op Cym2
+Tom 5
+Cym 3
+Op Cym3
+Cym 4
+Trap
+Cym 5
+Block1
+Cym 6
+Roll
+Cym 7
+Block2
+Tom 6
+Tom 7
+Tom 8
+Tom 9
+RimTom
+FIO
+Bell
+Bell
+Shake
+Shake2
+Whistle
+Whistle2
+FIO
+FIO
+FIO
+FIO

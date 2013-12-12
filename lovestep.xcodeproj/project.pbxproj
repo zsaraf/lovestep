@@ -23,6 +23,7 @@
 		926A96821831FFAD0029BDA4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */; };
 		926A96841831FFBF0029BDA4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926A96831831FFBF0029BDA4 /* Security.framework */; };
 		928DD01818519CE30088FD7A /* SoundFont1.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = 928DD01718519CDB0088FD7A /* SoundFont1.sf2 */; };
+		92B0BE6D18599E48001F8CED /* DrumKit.txt in Resources */ = {isa = PBXBuildFile; fileRef = 92B0BE6C18599E48001F8CED /* DrumKit.txt */; };
 		92DD25281857F54B0059C362 /* Instruments.txt in Resources */ = {isa = PBXBuildFile; fileRef = 92DD25271857F54B0059C362 /* Instruments.txt */; };
 		92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E33FF418349CE5002CB131 /* NetworkManager.m */; };
 		92E45F06184EE0CB0023E2EA /* Instrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F05184EE0CB0023E2EA /* Instrument.m */; };
@@ -95,6 +96,7 @@
 		926A96801831FFAD0029BDA4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = CocoaAsyncSocket/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		926A96831831FFBF0029BDA4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		928DD01718519CDB0088FD7A /* SoundFont1.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoundFont1.sf2; sourceTree = "<group>"; };
+		92B0BE6C18599E48001F8CED /* DrumKit.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DrumKit.txt; sourceTree = "<group>"; };
 		92DD25271857F54B0059C362 /* Instruments.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Instruments.txt; sourceTree = "<group>"; };
 		92E33FF318349CE5002CB131 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		92E33FF418349CE5002CB131 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		926A96451831F6610029BDA4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				92B0BE6C18599E48001F8CED /* DrumKit.txt */,
 				92DD25271857F54B0059C362 /* Instruments.txt */,
 				926A96501831F6610029BDA4 /* AppDelegate.h */,
 				926A96511831F6610029BDA4 /* AppDelegate.m */,
@@ -513,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF48DA71185580990023F1CD /* MainMenu.xib in Resources */,
+				92B0BE6D18599E48001F8CED /* DrumKit.txt in Resources */,
 				92DD25281857F54B0059C362 /* Instruments.txt in Resources */,
 				926A96491831F6610029BDA4 /* InfoPlist.strings in Resources */,
 				928DD01818519CE30088FD7A /* SoundFont1.sf2 in Resources */,
