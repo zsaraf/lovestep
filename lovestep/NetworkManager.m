@@ -85,12 +85,13 @@ static NetworkManager *myInstance;
       
         header_t header;
         [data getBytes:&header length:sizeof(header_t)];
-        
         if (header.type_id == LOOP_TYPE) {
             [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ARRAY];
         } else if (header.type_id == DISABLE_TYPE) {
+            NSLog(@"Reading header of size %ld", header.size);
             [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_DISABLE];
         } else if (header.type_id == ENABLE_TYPE) {
+            NSLog(@"Reading header of size %ld", header.size);
             [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ENABLE];
         }
         
@@ -106,12 +107,14 @@ static NetworkManager *myInstance;
     } else if (tag == RECEIVED_DISABLE) {
         
         NSString *loopId = [NSString stringWithUTF8String:[data bytes]];
+        NSLog(@"Received disable for %@", loopId);
         [self.delegate networkManagerDisableLoopWithId:loopId];
         
         [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
     } else if (tag == RECEIVED_ENABLE) {
         
         NSString *loopId = [NSString stringWithUTF8String:[data bytes]];
+        NSLog(@"Received enable for %@", loopId);
         [self.delegate networkManagerEnableLoopWithId:loopId];
         [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
     }
@@ -124,6 +127,7 @@ static NetworkManager *myInstance;
     header_t header;
     header.type_id = DISABLE_TYPE;
     header.size = data.length;
+    NSLog(@"Sending disabled loop %@ with size %ld", loopId, header.size);
     
     NSData *headData = [NSData dataWithBytes:&header length:sizeof(header)];
     
@@ -138,6 +142,7 @@ static NetworkManager *myInstance;
     header_t header;
     header.type_id = ENABLE_TYPE;
     header.size = data.length;
+    NSLog(@"Sending enabled loop %@ with size %ld", loopId, header.size);
     
     NSData *headData = [NSData dataWithBytes:&header length:sizeof(header)];
     
