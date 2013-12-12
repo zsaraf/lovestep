@@ -78,6 +78,7 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeBool:self.enabled forKey:@"enabled"];
     [encoder encodeObject:self.creator forKey:@"creator"];
+    NSLog(@"%@", self.creator);
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -89,6 +90,7 @@
     NSString *name = [decoder decodeObjectForKey:@"name"];
     BOOL enabled = [decoder decodeBoolForKey:@"enabled"];
     NSString *creator = [decoder decodeObjectForKey:@"creator"];
+    NSLog(@"%@", creator);
     
     return [self initWithInstrument:instrument length:length resolution:resolution grid:grid name:name creator:creator enabled:enabled];
 }
