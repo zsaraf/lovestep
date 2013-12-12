@@ -16,6 +16,7 @@
 
 @implementation Loop
 @synthesize instrument = _instrument;
+@synthesize creator = _creator;
 
 -(id)initWithInstrument:(Instrument *)instrument
               length:(NSInteger)length
@@ -24,9 +25,9 @@
                 name:(NSString *)name
              creator:(NSString *)creator
              enabled:(BOOL)enabled
+              loopNo:(NSInteger)loopNo
 {
     if (self = [super init]) {
-        
         // inititalize fluid synth
         [self initFluidSynth];
         
@@ -35,7 +36,8 @@
         self.resolution = resolution;
         self.grid = grid;
         self.name = name;
-        self.creator = creator;
+        self.loopNo = loopNo;
+        self.creator = (creator) ? creator : @"";
         self.enabled = enabled;
     }
     return self;
@@ -77,6 +79,7 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeBool:self.enabled forKey:@"enabled"];
     [encoder encodeObject:self.creator forKey:@"creator"];
+    [encoder encodeInteger:self.loopNo forKey:@"loopNo"];
     NSLog(@"%@", self.creator);
 }
 
@@ -89,9 +92,17 @@
     NSString *name = [decoder decodeObjectForKey:@"name"];
     BOOL enabled = [decoder decodeBoolForKey:@"enabled"];
     NSString *creator = [decoder decodeObjectForKey:@"creator"];
+    NSInteger loopNo = [decoder decodeIntegerForKey:@"loopNo"];
     NSLog(@"%@", creator);
     
-    return [self initWithInstrument:instrument length:length resolution:resolution grid:grid name:name creator:creator enabled:enabled];
+    return [self initWithInstrument:instrument length:length resolution:resolution grid:grid name:name creator:creator enabled:enabled loopNo:loopNo];
+}
+
+-(void)setCreator:(NSString *)creator
+{
+    _creator = creator;
+    self.loopId = [NSString stringWithFormat:@"%@%ld", _creator, self.loopNo];
+    NSLog(@"%@", self.loopId);
 }
 
 @end

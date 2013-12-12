@@ -18,7 +18,8 @@
                 grid:(NSMutableArray *)grid
                 name:(NSString *)name
              creator:(NSString *)creator
-             enabled:(BOOL)enabled;
+             enabled:(BOOL)enabled
+              loopNo:(NSInteger)loopNo;
 
 // Instrument used
 @property (nonatomic) fluid_synth_t *fluidSynth;
@@ -43,5 +44,7 @@
 // Name of the loop
 @property (nonatomic, strong) NSString *name;
 
+@property (nonatomic) NSInteger loopNo;
+@property (nonatomic, strong) NSString *loopId;
 
 @end
