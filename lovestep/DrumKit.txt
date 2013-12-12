@@ -11,6 +11,7 @@ Rim 3
 Snare 1
 Clap 1
 Rim 4
+0xc0de
 Cym 1
 Tom 1
 Cym 2
