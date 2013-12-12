@@ -31,6 +31,7 @@ typedef struct Resolution {
 @property (nonatomic) BOOL subtractGrid;
 
 @property (nonatomic, strong) TickerView *ticker;
+@property (nonatomic) NSInteger loopNo;
 
 @end
 
@@ -64,7 +65,8 @@ typedef struct Resolution {
                                                        grid:[[NSMutableArray alloc] init]
                                                        name:@"Loop1"
                                                     creator:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
-                                                    enabled:YES];
+                                                    enabled:YES
+                                                    loopNo:self.loopNo];
         [self initializeKeyboardFluidSynths];
         self.grid = [[NSMutableArray alloc] init];
         
@@ -314,7 +316,8 @@ typedef struct Resolution {
                                                    grid:[[NSMutableArray alloc] init]
                                                    name:@"Loop1"
                                                 creator:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
-                                                enabled:YES];
+                                                enabled:YES
+                                                 loopNo:++self.loopNo];
     [self syncKeyboardFluidSynthWithCurrentLoop];
     
     // Clear the grid visually
