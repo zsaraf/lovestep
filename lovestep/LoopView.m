@@ -108,7 +108,7 @@
         } else {
             [[NSColor colorWithDeviceRed:162/255. green:134/255. blue:254/255. alpha:1] set];
         }
-        [path setLineWidth:7];
+        [path setLineWidth:5];
     }
     [path stroke];
 }
