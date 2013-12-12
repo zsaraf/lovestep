@@ -9,6 +9,7 @@
 #import "LooperView.h"
 #import "LooperHeaderView.h"
 #import "NetworkManager.h"
+#import "AppDelegate.h"
 
 @interface LooperView ()
 
@@ -53,7 +54,13 @@
  */
 - (void)disableLoopWithId:(NSString *)loopId
 {
-    
+    NSArray *loops = ((AppDelegate *)[[NSApplication sharedApplication] delegate]).wc.loops;
+    for (Loop *loop in loops) {
+        if ([loop.loopId isEqualToString:loopId]) {
+            [self makeLoopInactive:loop];
+            return;
+        }
+    }
 }
 
 /*
@@ -61,7 +68,13 @@
  */
 - (void)enableLoopWithId:(NSString *)loopId
 {
-    
+    NSArray *loops = ((AppDelegate *)[[NSApplication sharedApplication] delegate]).wc.loops;
+    for (Loop *loop in loops) {
+        if ([loop.loopId isEqualToString:loopId]) {
+            [self makeLoopActive:loop];
+            return;
+        }
+    }
 }
 
 /*
