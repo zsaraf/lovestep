@@ -89,10 +89,12 @@ static NetworkManager *myInstance;
             [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ARRAY];
         } else if (header.type_id == DISABLE_TYPE) {
             NSLog(@"Reading header of size %ld", header.size);
-            [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_DISABLE];
+            [self.asyncSocket readDataWithTimeout:-1 tag:RECEIVED_DISABLE];
+            //[self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_DISABLE];
         } else if (header.type_id == ENABLE_TYPE) {
             NSLog(@"Reading header of size %ld", header.size);
-            [self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ENABLE];
+            [self.asyncSocket readDataWithTimeout:-1 tag:RECEIVED_ENABLE];
+            //[self.asyncSocket readDataToLength:header.size withTimeout:-1 tag:RECEIVED_ENABLE];
         }
         
     } else if (tag == RECEIVED_ARRAY) {
