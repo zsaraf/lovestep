@@ -28,6 +28,7 @@
 		92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E33FF418349CE5002CB131 /* NetworkManager.m */; };
 		92E45F06184EE0CB0023E2EA /* Instrument.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F05184EE0CB0023E2EA /* Instrument.m */; };
 		92E45F09184EED020023E2EA /* BeatBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E45F08184EED020023E2EA /* BeatBrain.m */; };
+		AF3EFD221859AB210051AFD2 /* DividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3EFD211859AB210051AFD2 /* DividerView.m */; };
 		AF48DA71185580990023F1CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926A96531831F6610029BDA4 /* MainMenu.xib */; };
 		AF48DA74185581120023F1CD /* Loop.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48DA73185581120023F1CD /* Loop.m */; };
 		AF48DA7718558B820023F1CD /* ChangeInstrumentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF48DA7618558B820023F1CD /* ChangeInstrumentView.m */; };
@@ -106,6 +107,8 @@
 		92E45F08184EED020023E2EA /* BeatBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BeatBrain.m; path = ../BeatBrain.m; sourceTree = "<group>"; };
 		AF399EA8185823FC00B7B6F8 /* NoteChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteChangeDelegate.h; sourceTree = "<group>"; };
 		AF399EA91858241A00B7B6F8 /* SequencerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerViewDelegate.h; sourceTree = "<group>"; };
+		AF3EFD201859AB210051AFD2 /* DividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DividerView.h; sourceTree = "<group>"; };
+		AF3EFD211859AB210051AFD2 /* DividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DividerView.m; sourceTree = "<group>"; };
 		AF48DA72185581120023F1CD /* Loop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loop.h; sourceTree = "<group>"; };
 		AF48DA73185581120023F1CD /* Loop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loop.m; sourceTree = "<group>"; };
 		AF48DA7518558B820023F1CD /* ChangeInstrumentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeInstrumentView.h; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 				AFB1EC13184EEAEA00F6841F /* SequencerHeaderView.m */,
 				AF48DA7518558B820023F1CD /* ChangeInstrumentView.h */,
 				AF48DA7618558B820023F1CD /* ChangeInstrumentView.m */,
+				AF3EFD201859AB210051AFD2 /* DividerView.h */,
+				AF3EFD211859AB210051AFD2 /* DividerView.m */,
 			);
 			name = Sequencer;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				AF84011C184C2818000D98EB /* RingBuffer.mm in Sources */,
 				AF66EC661851584C002F899E /* LooperView.m in Sources */,
 				AFB1EC0E184EE95B00F6841F /* MainWindow.m in Sources */,
+				AF3EFD221859AB210051AFD2 /* DividerView.m in Sources */,
 				AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */,
 				92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */,
 				AFDD34441859346D00F2920F /* LoopView.m in Sources */,

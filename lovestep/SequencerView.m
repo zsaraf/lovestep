@@ -11,6 +11,7 @@
 #import "MidiButton.h"
 #import "GridButton.h"
 #import "TickerView.h"
+#import "DividerView.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -45,7 +46,7 @@ typedef struct Resolution {
 
 #define NUM_KEYS 49
 
-#define KEY_WIDTTH 50
+#define KEY_WIDTH 50
 #define CELL_LENGTH 25
 #define HEADER_HEIGHT 62
 
@@ -94,6 +95,7 @@ typedef struct Resolution {
         [self drawKeys];
         [self drawGrid];
         [self setupTicker];
+        [self drawDividers];
     }
     return self;
 }
@@ -123,10 +125,27 @@ typedef struct Resolution {
     [self syncKeyboardFluidSynthWithCurrentLoop];
 }
 
--(void)awakeFromNib
+/*
+ * Wake up the nib
+ */
+- (void)awakeFromNib
 {
     // Setup the delegate
     self.sequenceHeaderView.delegate = self;
+}
+
+/*
+ * Drawing some dividers
+ */
+- (void)drawDividers
+{
+    float currentX = KEY_WIDTH - 1;
+    for (int i = 4; i < MAX_LENGTH; i+=4) {
+        currentX += (4 * CELL_LENGTH);
+        DividerView *dv = [[DividerView alloc] initWithFrame:NSMakeRect(currentX, 0, 2, self.frame.size.height - HEADER_HEIGHT)];
+        [dv setAlphaValue:0.5f];
+        [self addSubview:dv];
+    }
 }
 
 /*
@@ -134,7 +153,7 @@ typedef struct Resolution {
  */
 - (void)setupTicker
 {
-    self.ticker = [[TickerView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(KEY_WIDTTH, 0, CELL_LENGTH, self.frame.size.height - HEADER_HEIGHT))];
+    self.ticker = [[TickerView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(KEY_WIDTH, 0, CELL_LENGTH, self.frame.size.height - HEADER_HEIGHT))];
     [self.ticker setAlphaValue:0.2f];
     
     // Set the background color just as a test
@@ -155,7 +174,7 @@ typedef struct Resolution {
         
         MidiButton *newKey = [[MidiButton alloc] initWithKeyNumber:currentKeyNumber target:self mouseDownSEL:@selector(midiButtonEnabled:) mouseUpSEL:@selector(midiButtonDisabled:)];
         
-        [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, CELL_LENGTH))];
+        [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTH, CELL_LENGTH))];
         
         [self.docView addSubview:newKey];
         [self.midiButtons addObject:newKey];
@@ -179,7 +198,7 @@ typedef struct Resolution {
     
     for (int i = 0; i < NUM_KEYS; i++) {
         
-        float currentX = KEY_WIDTTH;
+        float currentX = KEY_WIDTH;
         
         NSMutableArray *loopGrid = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
         NSMutableArray *gridButtonGrid = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
@@ -221,7 +240,7 @@ typedef struct Resolution {
  */
 - (int)colForTouch:(NSPoint)touch
 {
-    return (touch.x - KEY_WIDTTH)/ CELL_LENGTH;
+    return (touch.x - KEY_WIDTH)/ CELL_LENGTH;
 }
 
 /*
@@ -294,7 +313,7 @@ typedef struct Resolution {
  */
 - (void)highlightColumn
 {
-    [self.ticker setFrame:NSRectFromCGRect(CGRectMake(KEY_WIDTTH + self.currentNote * (CELL_LENGTH), self.ticker.frame.origin.y, self.ticker.frame.size.width, self.ticker.frame.size.height))];
+    [self.ticker setFrame:NSRectFromCGRect(CGRectMake(KEY_WIDTH + self.currentNote * (CELL_LENGTH), self.ticker.frame.origin.y, self.ticker.frame.size.width, self.ticker.frame.size.height))];
 }
 
 /*
