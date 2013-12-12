@@ -26,7 +26,6 @@
         
         [self parseInstruments];
         [self setupTableView];
-        [self setAlphaValue:0.94f];
     }
     
     return self;
@@ -82,7 +81,7 @@
     
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    [self.tableView setBackgroundColor:[NSColor colorWithCalibratedRed:.93f green:.94f blue:.95f alpha:.4f]];
+    [self.tableView setBackgroundColor:[NSColor colorWithCalibratedRed:.93f green:.94f blue:.95f alpha:1.f]];
     [self.tableView setHeaderView:nil];
     [self.tableView setSelectionHighlightStyle:NSTableViewSelectionHighlightStyleRegular];
     [self.scrollView setDrawsBackground:NO];
@@ -99,11 +98,9 @@
  */
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    NSTableCellView *view = [tableView makeViewWithIdentifier:[tableColumn identifier] owner:self];
-    if(view == nil){
-        view = [[NSTableCellView alloc]initWithFrame:[tableView frame]];
-        view.identifier = [tableColumn identifier];
-    }
+    
+    NSTableCellView *view = [[NSTableCellView alloc]initWithFrame:[tableView frame]];
+    view.identifier = [tableColumn identifier];
     
     NSTextField *textfield = [[NSTextField alloc]initWithFrame:NSMakeRect(10, 4, view.frame.size.width, 30)];
     [textfield setFont:[NSFont fontWithName:@"Helvetica" size:15]];
@@ -113,7 +110,7 @@
     [textfield setStringValue:((Instrument *)([self.instruments objectAtIndex:row])).name];
     
     [view addSubview:textfield];
-
+    
     return view;
 }
 

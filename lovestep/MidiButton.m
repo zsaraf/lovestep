@@ -93,9 +93,6 @@ static NSString *keyNames[12] = {
 
 -(void)mouseUp:(NSEvent *)theEvent
 {
-//    NSAssert([self.superview.superview isKindOfClass:[SequencerView class]], @"Midi buttons superview is not sequencer view.");
-//    [(SequencerView *)self.superview.superview midiButtonDisabled:self];
-//    
     if (self.target) {
         IMP imp = [self.target methodForSelector:self.mouseUpSEL];
         void (*func)(id, SEL) = (void *)imp;
@@ -105,8 +102,6 @@ static NSString *keyNames[12] = {
 
 -(void)mouseDown:(NSEvent *)theEvent
 {
-//    NSAssert([self.superview.superview isKindOfClass:[SequencerView class]], @"Midi buttons superview is not sequencer view.");
-//    [(SequencerView *)self.superview.superview midiButtonEnabled:self];
  
     if (self.target) {
         IMP imp = [self.target methodForSelector:self.mouseDownSEL];
