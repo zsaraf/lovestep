@@ -72,9 +72,6 @@
     
     [self.docView setFrame:NSMakeRect(0, 0, self.frame.size.width, MAX(self.frame.size.height, height))];
     
-    NSLog(@"self size: %@", NSStringFromRect(self.frame));
-    NSLog(@"Docview size: %@", NSStringFromRect(self.docView.frame));
-    
     float currentX = SPACING;
     float currentY = MAX(self.frame.size.height, height) - (LOOP_SIZE + SPACING);
     for (int i = 0; i < self.loops.count; i++) {

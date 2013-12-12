@@ -54,7 +54,6 @@ static NetworkManager *myInstance;
 -(void)sendLoop:(Loop *)loop
 {
     NSData *loopData = [NSKeyedArchiver archivedDataWithRootObject:loop];
-    NSLog(@"Sending loop with length: %ld", [loopData length]);
     if (loopData == nil) NSAssert(0, @"We are fucked couldnt archive this shit");
     
     header_t head;
@@ -72,7 +71,6 @@ static NetworkManager *myInstance;
 {
     if (tag == WAITING_FOR_OTHER_USER_TAG) {
         
-        NSLog(@"Found partner: %@", [NSString stringWithUTF8String:[data bytes]]);
         [self.delegate networkManagerDidFindNetworkService:YES];
         NSData *data = [[[NSUserDefaults standardUserDefaults] valueForKey:@"username"] dataUsingEncoding:NSUTF8StringEncoding];
         [self.asyncSocket writeData:data withTimeout:20 tag:USER_NAME_SEND_TAG];
@@ -98,7 +96,6 @@ static NetworkManager *myInstance;
         
     } else if (tag == RECEIVED_ARRAY) {
         
-        NSLog(@"Received loop with length: %ld", data.length);
         Loop *loop = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         if ([(NSObject *)self.delegate respondsToSelector:@selector(networkManagerReceivedNewLoop:)]) {
             [self.delegate networkManagerReceivedNewLoop:loop];
@@ -108,14 +105,12 @@ static NetworkManager *myInstance;
         
     } else if (tag == RECEIVED_DISABLE) {
         
-        NSLog(@"Received loop with length: %ld", data.length);
         NSString *loopId = [NSString stringWithUTF8String:[data bytes]];
         [self.delegate networkManagerDisableLoopWithId:loopId];
         
         [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
     } else if (tag == RECEIVED_ENABLE) {
         
-        NSLog(@"Received loop with length: %ld", data.length);
         NSString *loopId = [NSString stringWithUTF8String:[data bytes]];
         [self.delegate networkManagerEnableLoopWithId:loopId];
         [self.asyncSocket readDataToLength:sizeof(header_t) withTimeout:-1 tag:HEADER_TAG];
@@ -148,16 +143,6 @@ static NetworkManager *myInstance;
     
     [self.asyncSocket writeData:headData withTimeout:-1 tag:HEADER_TAG];
     [self.asyncSocket writeData:data withTimeout:-1 tag:RECEIVED_ENABLE];
-}
-
--(void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port
-{
-
-}
-
--(void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket
-{
-    NSLog(@"did acce[t new socket");
 }
 
 @end

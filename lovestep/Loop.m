@@ -80,7 +80,6 @@
     [encoder encodeBool:self.enabled forKey:@"enabled"];
     [encoder encodeObject:self.creator forKey:@"creator"];
     [encoder encodeInteger:self.loopNo forKey:@"loopNo"];
-    NSLog(@"%@", self.creator);
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -93,7 +92,6 @@
     BOOL enabled = [decoder decodeBoolForKey:@"enabled"];
     NSString *creator = [decoder decodeObjectForKey:@"creator"];
     NSInteger loopNo = [decoder decodeIntegerForKey:@"loopNo"];
-    NSLog(@"%@", creator);
     
     return [self initWithInstrument:instrument length:length resolution:resolution grid:grid name:name creator:creator enabled:enabled loopNo:loopNo];
 }
@@ -102,7 +100,6 @@
 {
     _creator = creator;
     self.loopId = [NSString stringWithFormat:@"%@%ld", _creator, self.loopNo];
-    NSLog(@"%@", self.loopId);
 }
 
 @end

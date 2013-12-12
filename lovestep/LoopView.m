@@ -26,8 +26,6 @@
         self.loop = loop;
         self.target = target;
         self.selector = selector;
-        NSFont *font = [NSFont fontWithName:@"Helvetica-Bold" size:20];
-        NSLog(@"%@", font);
         
         CGFloat textFieldHeight = (self.frame.size.height - 2*PADDING) / 4;
         
