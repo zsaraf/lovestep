@@ -862,18 +862,18 @@
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="bB8-kx-0IN">
-                                <rect key="frame" x="18" y="595" width="168" height="30"/>
+                                <rect key="frame" x="18" y="596" width="168" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Active Loops" id="yuO-Yb-iKZ" customClass="RSVerticallyCenteredTextFieldCellES">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Active Loops" id="yuO-Yb-iKZ" customClass="RSVerticallyCenteredTextFieldCell">
                                     <font key="font" size="20" name="Helvetica-Bold"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QbK-mL-M0o">
-                                <rect key="frame" x="18" y="281" width="168" height="30"/>
+                                <rect key="frame" x="18" y="283" width="168" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Inactive Loops" id="GQG-Mq-PtG" customClass="RSVerticallyCenteredTextFieldCellES">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Inactive Loops" id="GQG-Mq-PtG" customClass="RSVerticallyCenteredTextFieldCell">
                                     <font key="font" size="20" name="Helvetica-Bold"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
