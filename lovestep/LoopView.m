@@ -37,7 +37,7 @@
     [path addClip];
     
     if (!self.loop.enabled) {
-        [[NSColor colorWithDeviceRed:.5 green:.5 blue:.5 alpha:1.] set];
+        [[NSColor colorWithDeviceRed:.74 green:.74 blue:.74 alpha:1.] set];
     } else if ([self.loop.creator isEqualToString:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]]) {
         [[NSColor colorWithDeviceRed:134/255. green:202/255. blue:254/255. alpha:1] set];
     } else {
