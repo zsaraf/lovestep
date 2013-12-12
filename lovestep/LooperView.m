@@ -37,13 +37,20 @@
 {
     if (self = [super initWithFrame:frameRect]) {
         self.loops = [[NSMutableArray alloc] init];
-        
-        self.activeLoopsSrollView.delegate = self;
-        self.inactiveLoopsScrollView.delegate = self;
     }
     
     return self;
 }
+
+/*
+ * Awoke
+ */
+- (void)awakeFromNib
+{
+    self.activeLoopsSrollView.delegate = self;
+    self.inactiveLoopsScrollView.delegate = self;
+}
+
 /*
  * From the loop delegate
  */

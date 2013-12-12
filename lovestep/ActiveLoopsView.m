@@ -80,7 +80,7 @@
     for (int i = 0; i < self.loops.count; i++) {
         
         // Create a new loop view
-        LoopView *newLoopView = [[LoopView alloc] initWithFrame:NSMakeRect(currentX, currentY, LOOP_SIZE, LOOP_SIZE) andLoop:[self.loops objectAtIndex:i]];
+        LoopView *newLoopView = [[LoopView alloc] initWithFrame:NSMakeRect(currentX, currentY, LOOP_SIZE, LOOP_SIZE) andLoop:[self.loops objectAtIndex:i] target:self selector:@selector(loopHit:)];
 
         [self.loopViews addObject:newLoopView];
         [self.docView addSubview:newLoopView];
@@ -91,13 +91,17 @@
         } else {
             currentX += (LOOP_SIZE + SPACING);
         }
-        
-        
-        
     }
     
     [self setDocumentView:self.docView];
 }
 
+/*
+ * Called when one of the loops is hit
+ */
+- (void)loopHit:(id)sender
+{
+    [self.delegate makeLoopInactive:((LoopView *)sender).loop];
+}
 
 @end
