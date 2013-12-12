@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NetworkManager.h"
+#import "MainWindow.h"
 
 @implementation AppDelegate
 
@@ -27,6 +28,7 @@
     [self.loginWindow orderOut:self];
     self.wc = [[MainWindowController alloc] initWithWindow:self.mainWindow];
     [self.mainWindow makeKeyAndOrderFront:nil];
+    ((MainWindow *)self.mainWindow).sequencerView.currentLoop.creator = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
     [NetworkManager instance].delegate = self.wc;
 }
 

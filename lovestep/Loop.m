@@ -10,10 +10,9 @@
 
 @interface Loop ()
 
-
 @property (nonatomic) fluid_settings_t *fluidSettings;
-@end
 
+@end
 
 @implementation Loop
 @synthesize instrument = _instrument;
