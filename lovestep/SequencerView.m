@@ -141,7 +141,8 @@ typedef struct Resolution {
     
     for (int i = 0; i < NUM_KEYS; i++) {
         
-        MidiButton *newKey = [[MidiButton alloc] initWithKeyNumber:currentKeyNumber];
+        MidiButton *newKey = [[MidiButton alloc] initWithKeyNumber:currentKeyNumber target:self mouseDownSEL:@selector(midiButtonEnabled:) mouseUpSEL:@selector(midiButtonDisabled:)];
+                                                                                                                                                            
         [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, CELL_LENGTH))];
         
         [self.docView addSubview:newKey];

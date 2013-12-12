@@ -18,6 +18,5 @@
 @property (nonatomic) float frequency;
 @property (nonatomic) NSInteger keyNumber;
 
-- (id)initWithKeyNumber:(NSInteger)keyNumber;
-
+- (id)initWithKeyNumber:(NSInteger)keyNumber target:(id)target mouseDownSEL:(SEL)mouseDownSEL mouseUpSEL:(SEL)mouseUpSEL;
 @end

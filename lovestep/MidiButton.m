@@ -9,6 +9,14 @@
 #import "MidiButton.h"
 #import "SequencerView.h"
 
+@interface MidiButton ()
+
+@property (nonatomic, weak) id target;
+@property (nonatomic) SEL mouseDownSEL;
+@property (nonatomic) SEL mouseUpSEL;
+
+@end
+
 @implementation MidiButton
 
 #define BLACK_KEY 0
@@ -44,7 +52,7 @@ static NSString *keyNames[12] = {
     @"B"
 };
 
-- (id)initWithKeyNumber:(NSInteger)keyNumber
+- (id)initWithKeyNumber:(NSInteger)keyNumber target:(id)target mouseDownSEL:(SEL)mouseDownSEL mouseUpSEL:(SEL)mouseUpSEL
 {
     if (self = [super init]) {
         self.keyNumber = keyNumber;
@@ -74,6 +82,10 @@ static NSString *keyNames[12] = {
         
         // initialize the grid array
         self.gridButtons = [[NSMutableArray alloc] init];
+        
+        self.target = target;
+        self.mouseDownSEL = mouseDownSEL;
+        self.mouseUpSEL = mouseUpSEL;
     }
     
     return self;
@@ -81,15 +93,27 @@ static NSString *keyNames[12] = {
 
 -(void)mouseUp:(NSEvent *)theEvent
 {
-    NSAssert([self.superview isKindOfClass:[SequencerView class]], @"Midi buttons superview is not sequencer view.");
-    [(SequencerView *)self.superview midiButtonDisabled:self];
+//    NSAssert([self.superview.superview isKindOfClass:[SequencerView class]], @"Midi buttons superview is not sequencer view.");
+//    [(SequencerView *)self.superview.superview midiButtonDisabled:self];
+//    
+    if (self.target) {
+        IMP imp = [self.target methodForSelector:self.mouseUpSEL];
+        void (*func)(id, SEL) = (void *)imp;
+        func(self.target, self.mouseUpSEL);
+    }
 }
 
 -(void)mouseDown:(NSEvent *)theEvent
 {
-    NSAssert([self.superview isKindOfClass:[SequencerView class]], @"Midi buttons superview is not sequencer view.");
-    [(SequencerView *)self.superview midiButtonEnabled:self];
+//    NSAssert([self.superview.superview isKindOfClass:[SequencerView class]], @"Midi buttons superview is not sequencer view.");
+//    [(SequencerView *)self.superview.superview midiButtonEnabled:self];
  
+    if (self.target) {
+        IMP imp = [self.target methodForSelector:self.mouseDownSEL];
+        void (*func)(id, SEL) = (void *)imp;
+        func(self.target, self.mouseDownSEL);
+    }
+    
     // call super which handles ui on the main thread, and then returns when mouse up is called. so we call mouseUp manually
     [super mouseDown:theEvent];
     [self mouseUp:theEvent];
