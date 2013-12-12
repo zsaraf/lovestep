@@ -9,14 +9,21 @@
 #import "LoopView.h"
 #import "Loop.h"
 
+@interface LoopView ()
+
+@property (nonatomic, weak) id target;
+@property (nonatomic) SEL selector;
+
+@end
+
 @implementation LoopView
 
-- (id)initWithFrame:(NSRect)frame andLoop:(Loop *)loop
+- (id)initWithFrame:(NSRect)frame andLoop:(Loop *)loop target:(id)target selector:(SEL)selector
 {
     if (self = [super initWithFrame:frame]) {
-        self.layer.cornerRadius = 10;
         self.loop = loop;
-        
+        self.target = target;
+        self.selector = selector;
     }
     
     return self;
@@ -39,6 +46,16 @@
     [[NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1.] set];
     [path setLineWidth:5];
     [path stroke];
+}
+
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+    if (self.target) {
+        IMP imp = [self.target methodForSelector:self.selector];
+        void (*func)(id, SEL) = (void *)imp;
+        func(self.target, self.selector);
+    }
 }
 
 @end

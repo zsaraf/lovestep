@@ -11,7 +11,7 @@
 
 @interface LoopView : NSView
 
-- (id)initWithFrame:(NSRect)frame andLoop:(Loop *)loop;
+- (id)initWithFrame:(NSRect)frame andLoop:(Loop *)loop target:(id)target selector:(SEL)selector;
 
 @property (nonatomic, strong) Loop *loop;
 
