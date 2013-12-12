@@ -9,6 +9,8 @@
 #import "LoopView.h"
 #import "Loop.h"
 
+#define PADDING 15
+
 @interface LoopView ()
 
 @property (nonatomic, weak) id target;
@@ -24,9 +26,54 @@
         self.loop = loop;
         self.target = target;
         self.selector = selector;
-    }
+        NSFont *font = [NSFont fontWithName:@"Helvetica-Bold" size:20];
+        NSLog(@"%@", font);
+        
+        CGFloat textFieldHeight = (self.frame.size.height - 2*PADDING) / 4;
+        
+        // create name text field
+        self.nameTextField = [self initializeAndConfigureTextField];
+        [self.nameTextField setStringValue:loop.name];
+        [self addSubview:self.nameTextField];
+
+        // create creator text field
+        self.creatorTextField = [self initializeAndConfigureTextField];
+        // offset rect by one times textfield height
+        [self.creatorTextField setFrame:NSOffsetRect(self.creatorTextField.frame, 0, -1 *textFieldHeight)];
+        [self.creatorTextField setStringValue:loop.creator];
+        [self addSubview:self.creatorTextField];
     
+        // create resolution text field
+        self.resolutionTextField = [self initializeAndConfigureTextField];
+        // offset rect by two times textfield height
+        [self.resolutionTextField setFrame:NSOffsetRect(self.resolutionTextField.frame, 0, -2 * textFieldHeight)];
+        [self.resolutionTextField setStringValue:[NSString stringWithFormat:@"1/%ld", self.loop.resolution]];
+        [self addSubview:self.resolutionTextField];
+        
+        // create length text field
+        self.lengthTextField = [self initializeAndConfigureTextField];
+        // offset rect by three times textfield height
+        [self.lengthTextField setFrame:NSOffsetRect(self.lengthTextField.frame, 0, -3 * textFieldHeight)];
+        [self.lengthTextField setStringValue:[NSString stringWithFormat:@"%ld", self.loop.length]];
+        [self addSubview:self.lengthTextField];
+    }
     return self;
+}
+
+-(NSTextField *)initializeAndConfigureTextField
+{
+    CGFloat textFieldHeight = (self.frame.size.height - 2*PADDING) / 4;
+    NSFont *font = [NSFont fontWithName:@"HelveticaNeue-Light" size:20];
+    NSTextField *textField = [[NSTextField alloc] initWithFrame:NSMakeRect(PADDING, self.frame.size.height - PADDING - textFieldHeight, self.frame.size.width - 2 * PADDING, textFieldHeight)];
+    [textField setCell:[[RSVerticallyCenteredTextFieldCell alloc] initTextCell:@""]];
+    [textField setFont:font];
+    [textField setEditable:NO];
+    [textField setBezeled:NO];
+    [textField setDrawsBackground:NO];
+    [textField setTextColor:[NSColor whiteColor]];
+    [textField setAlignment:NSCenterTextAlignment];
+    [[textField cell] setLineBreakMode:NSLineBreakByTruncatingTail];
+    return textField;
 }
 
 - (void)drawRect:(NSRect)dirtyRect
@@ -43,6 +90,9 @@
     } else {
         [[NSColor colorWithDeviceRed:162/255. green:134/255. blue:254/255. alpha:1] set];
     }
+    
+    
+    
     NSRectFill(rect);
     [super drawRect:dirtyRect];
     [[NSColor colorWithDeviceRed:0 green:0 blue:0 alpha:1.] set];
