@@ -46,6 +46,7 @@
  */
 - (void)addLoop:(Loop *)loop
 {
+    if ([self.loops containsObject:loop]) return;
     [self.loops addObject:loop];
     [self updateUI];
 }

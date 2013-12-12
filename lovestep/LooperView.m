@@ -69,11 +69,7 @@
     NSArray *loops = ((AppDelegate *)[[NSApplication sharedApplication] delegate]).wc.loops;
     for (Loop *loop in loops) {
         if ([loop.loopId isEqualToString:loopId]) {
-            [loop setEnabled:NO];
-            [self.activeLoopsSrollView removeLoop:loop];
-            [self.inactiveLoopsScrollView addLoop:loop];
-            [self.inactiveLoopsLabel removeFromSuperview];
-            [self addSubview:self.inactiveLoopsLabel positioned:NSWindowAbove relativeTo:nil];
+            [self inactivate:loop];
             return;
         }
     }
@@ -87,11 +83,7 @@
     NSArray *loops = ((AppDelegate *)[[NSApplication sharedApplication] delegate]).wc.loops;
     for (Loop *loop in loops) {
         if ([loop.loopId isEqualToString:loopId]) {
-            [loop setEnabled:YES];
-            [self.activeLoopsSrollView addLoop:loop];
-            [self.inactiveLoopsScrollView removeLoop:loop];
-            [self.inactiveLoopsLabel removeFromSuperview];
-            [self addSubview:self.inactiveLoopsLabel positioned:NSWindowAbove relativeTo:nil];
+            [self activate:loop];
             return;
         }
     }
@@ -103,11 +95,7 @@
 - (void)makeLoopActive:(Loop *)loop
 {
     [self.delegate didEnableLoopWithIdentifier:loop.loopId];
-    [loop setEnabled:YES];
-    [self.activeLoopsSrollView addLoop:loop];
-    [self.inactiveLoopsScrollView removeLoop:loop];
-    [self.inactiveLoopsLabel removeFromSuperview];
-    [self addSubview:self.inactiveLoopsLabel positioned:NSWindowAbove relativeTo:nil];
+    [self activate:loop];
 }
 
 /*
@@ -116,6 +104,20 @@
 - (void)makeLoopInactive:(Loop *)loop
 {
     [self.delegate didDisableLoopWithIdentifier:loop.loopId];
+    [self inactivate:loop];
+}
+
+- (void)activate:(Loop *)loop
+{
+    [loop setEnabled:YES];
+    [self.activeLoopsSrollView addLoop:loop];
+    [self.inactiveLoopsScrollView removeLoop:loop];
+    [self.inactiveLoopsLabel removeFromSuperview];
+    [self addSubview:self.inactiveLoopsLabel positioned:NSWindowAbove relativeTo:nil];
+}
+
+- (void)inactivate:(Loop *)loop
+{
     [loop setEnabled:NO];
     [self.activeLoopsSrollView removeLoop:loop];
     [self.inactiveLoopsScrollView addLoop:loop];
