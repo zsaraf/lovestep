@@ -16,7 +16,7 @@
 @property (nonatomic, weak) IBOutlet LooperHeaderView *looperHeaderView;
 @property (nonatomic, weak) IBOutlet ActiveLoopsView *activeLoopsSrollView;
 @property (nonatomic, weak) IBOutlet InactiveLoopsView *inactiveLoopsScrollView;
-@property (nonatomic, strong) NSMutableArray *loops;
+
 @end
 
 @implementation LooperView
@@ -39,8 +39,6 @@
     self.activeLoopsSrollView.delegate = self;
     self.inactiveLoopsScrollView.delegate = self;
     self.delegate = [NetworkManager instance];
-    
-    self.loops = [[NSMutableArray alloc] init];
 }
 
 /*
