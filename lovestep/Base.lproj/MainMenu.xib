@@ -793,7 +793,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <customView id="o1p-Et-8fC" customClass="LooperHeaderView">
-                                <rect key="frame" x="0.0" y="627" width="534" height="62"/>
+                                <rect key="frame" x="0.0" y="626" width="534" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cbe-H1-JgD">
@@ -807,15 +807,15 @@
                                     </textField>
                                 </subviews>
                             </customView>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="0e4-Oi-5r6">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="0e4-Oi-5r6" customClass="ActiveLoopsView">
                                 <rect key="frame" x="0.0" y="313" width="529" height="313"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" id="y6t-uq-fjB">
-                                    <rect key="frame" x="1" y="1" width="527" height="311"/>
+                                <clipView key="contentView" copiesOnScroll="NO" id="y6t-uq-fjB">
+                                    <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="b6v-oz-d92">
-                                            <rect key="frame" x="0.0" y="0.0" width="527" height="311"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -823,9 +823,10 @@
                                             </connections>
                                         </collectionView>
                                     </subviews>
+                                    <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="2WG-xb-0yn">
-                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" id="scw-5c-s9w">
@@ -833,15 +834,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Lch-DN-orm">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Lch-DN-orm" customClass="InactiveLoopsView">
                                 <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <clipView key="contentView" id="83f-HI-Tdy">
-                                    <rect key="frame" x="1" y="1" width="527" height="311"/>
+                                <clipView key="contentView" copiesOnScroll="NO" id="83f-HI-Tdy">
+                                    <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView id="7U4-7c-AOC">
-                                            <rect key="frame" x="0.0" y="0.0" width="527" height="311"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="529" height="313"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <connections>
@@ -861,12 +862,15 @@
                             </scrollView>
                         </subviews>
                         <connections>
+                            <outlet property="activeLoopsSrollView" destination="0e4-Oi-5r6" id="S4P-Ay-mEv"/>
+                            <outlet property="inactiveLoopsScrollView" destination="Lch-DN-orm" id="Sbl-3p-mor"/>
                             <outlet property="looperHeaderView" destination="o1p-Et-8fC" id="UCn-17-zwk"/>
                         </connections>
                     </customView>
                 </subviews>
             </view>
             <connections>
+                <outlet property="looperView" destination="wSP-ec-aoG" id="emg-W9-05G"/>
                 <outlet property="sequencerView" destination="PM6-ZB-DE3" id="WIl-Yx-f2u"/>
             </connections>
         </window>

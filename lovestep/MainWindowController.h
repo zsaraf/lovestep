@@ -12,10 +12,12 @@
 #import "NoteChangeDelegate.h"
 #import "SequencerHeaderView.h"
 #import "NetworkManager.h"
+#import "LoopDelegate.h"
 
 @interface MainWindowController : NSWindowController <SequencerViewDelegate, NetworkManagerDelegate>
 
 @property (nonatomic, weak) id<NoteChangeDelegate> noteChangeDelegate;
+@property (nonatomic, weak) id<LoopDelegate> loopDelegate;
 @property (nonatomic, strong) NSMutableArray *loops;
 @property (nonatomic, strong) NSMutableArray *pendingLoops;
 

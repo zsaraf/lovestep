@@ -8,6 +8,24 @@
 
 #import "InactiveLoopsView.h"
 
+@interface InactiveLoopsView ()
+
+@property (nonatomic, strong) NSMutableArray *loops;
+
+@end
+
 @implementation InactiveLoopsView
+
+/*
+ * Init with frame
+ */
+- (id)initWithFrame:(NSRect)frameRect
+{
+    if (self = [super initWithFrame:frameRect]) {
+        self.loops = [[NSMutableArray alloc] init];
+        
+    }
+    return self;
+}
 
 @end

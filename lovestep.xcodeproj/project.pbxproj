@@ -53,6 +53,7 @@
 		AFB1EC14184EEAEA00F6841F /* SequencerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB1EC13184EEAEA00F6841F /* SequencerHeaderView.m */; };
 		AFC08988184F2FC60056162E /* TickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC08987184F2FC60056162E /* TickerView.m */; };
 		AFD4D617184BFFC700F2AFEF /* MidiButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD4D616184BFFC700F2AFEF /* MidiButton.m */; };
+		AFDD34441859346D00F2920F /* LoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFDD34431859346D00F2920F /* LoopView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,9 @@
 		AFD4D618184C103B00F2AFEF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		AFD4D61A184C104000F2AFEF /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		AFD4D61C184C104600F2AFEF /* libpthread.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpthread.dylib; path = usr/lib/libpthread.dylib; sourceTree = SDKROOT; };
+		AFDD344118592CF300F2920F /* LoopDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoopDelegate.h; sourceTree = "<group>"; };
+		AFDD34421859346D00F2920F /* LoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopView.h; sourceTree = "<group>"; };
+		AFDD34431859346D00F2920F /* LoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoopView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +331,7 @@
 			children = (
 				AF399EA8185823FC00B7B6F8 /* NoteChangeDelegate.h */,
 				AF399EA91858241A00B7B6F8 /* SequencerViewDelegate.h */,
+				AFDD344118592CF300F2920F /* LoopDelegate.h */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -361,6 +366,8 @@
 				AF66EC6E18515911002F899E /* InactiveLoopsView.m */,
 				AF66EC7018515930002F899E /* LooperHeaderView.h */,
 				AF66EC7118515930002F899E /* LooperHeaderView.m */,
+				AFDD34421859346D00F2920F /* LoopView.h */,
+				AFDD34431859346D00F2920F /* LoopView.m */,
 			);
 			name = Looper;
 			sourceTree = "<group>";
@@ -535,6 +542,7 @@
 				AFB1EC0E184EE95B00F6841F /* MainWindow.m in Sources */,
 				AF84011A184C2818000D98EB /* AudioFileWriter.m in Sources */,
 				92596356184C2DD4002FD516 /* MainWindowController.mm in Sources */,
+				AFDD34441859346D00F2920F /* LoopView.m in Sources */,
 				92E33FF518349CE5002CB131 /* NetworkManager.m in Sources */,
 				AFC08988184F2FC60056162E /* TickerView.m in Sources */,
 				AF66EC6C18515902002F899E /* ActiveLoopsView.m in Sources */,

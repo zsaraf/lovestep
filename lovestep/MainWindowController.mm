@@ -63,6 +63,7 @@
 - (void)sequencerViewDidPushLoop:(Loop *)newLoop
 {
     [self.loops addObject:newLoop];
+    [self.loopDelegate didFindNewLoop:newLoop];
     [[NetworkManager instance] sendLoop:newLoop];
 }
 
@@ -71,6 +72,7 @@
  */
 -(void)networkManagerReceivedNewLoop:(Loop *)loop
 {
+    [self.loopDelegate didFindNewLoop:loop];
     [self.pendingLoops addObject:loop];
 }
 
@@ -199,6 +201,7 @@
     self.counter = 0;
     
     self.noteChangeDelegate = self.mWindow.sequencerView;
+    self.loopDelegate = self.mWindow.looperView;
     
     [self.audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
      {

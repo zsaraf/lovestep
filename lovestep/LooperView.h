@@ -7,7 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "LoopDelegate.h"
+#import "InactiveLoopsView.h"
+#import "ActiveLoopsView.h"
 
-@interface LooperView : NSView
+@interface LooperView : NSView <LoopDelegate, InactiveLoopDelegate, ActiveLoopDelegate>
 
 @end
