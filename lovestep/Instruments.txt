@@ -1,7 +1,7 @@
 # Format
 # {bank}:{program}:{volume-ratio}:{name}
 0:1:1:Grand Piano:
-2:1:2:Steel Guitar
+0:25:2:Steel Guitar
 1:38:5:Synth Bass
 8:80:5:Sin Groove
 0:58:2:Tuba

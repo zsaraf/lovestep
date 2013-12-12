@@ -91,6 +91,7 @@
                   rData:(float *)rData
                mainData:(float *)mainData
 {
+    if (!loop.enabled) return;
     BeatBrainNote note = [BeatBrain noteForFrame:self.counter inLoop:loop];
     NSInteger noteLength = [BeatBrain numFramesPerNoteInLoop:loop];
     
