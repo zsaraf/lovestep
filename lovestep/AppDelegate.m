@@ -18,7 +18,7 @@
     [self.mainWindow orderOut:self];
     
     // REMOVE for final version
-    [self didLogIn];
+//    [self didLogIn];
 }
 
 - (void)didLogIn
