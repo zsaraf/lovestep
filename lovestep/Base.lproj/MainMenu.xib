@@ -834,7 +834,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Lch-DN-orm" customClass="InactiveLoopsView">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="Lch-DN-orm" customClass="InactiveLoopsView">
                                 <rect key="frame" x="0.0" y="0.0" width="529" height="283"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="83f-HI-Tdy">
@@ -853,7 +853,7 @@
                                     <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="eqz-1B-lpK">
-                                    <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                    <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" id="A5Q-ii-ssD">
@@ -882,6 +882,7 @@
                         </subviews>
                         <connections>
                             <outlet property="activeLoopsSrollView" destination="0e4-Oi-5r6" id="S4P-Ay-mEv"/>
+                            <outlet property="inactiveLoopsLabel" destination="QbK-mL-M0o" id="Rd5-GD-1is"/>
                             <outlet property="inactiveLoopsScrollView" destination="Lch-DN-orm" id="Sbl-3p-mor"/>
                             <outlet property="looperHeaderView" destination="o1p-Et-8fC" id="UCn-17-zwk"/>
                         </connections>

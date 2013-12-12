@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet LooperHeaderView *looperHeaderView;
 @property (nonatomic, weak) IBOutlet ActiveLoopsView *activeLoopsSrollView;
 @property (nonatomic, weak) IBOutlet InactiveLoopsView *inactiveLoopsScrollView;
+@property (nonatomic, strong) IBOutlet NSTextField *inactiveLoopsLabel;
 
 @end
 
@@ -48,6 +49,8 @@
     self.activeLoopsSrollView.delegate = self;
     self.inactiveLoopsScrollView.delegate = self;
     self.delegate = [NetworkManager instance];
+    
+    [self addSubview:self.inactiveLoopsLabel];
 }
 
 /*
@@ -99,6 +102,8 @@
     [loop setEnabled:YES];
     [self.activeLoopsSrollView addLoop:loop];
     [self.inactiveLoopsScrollView removeLoop:loop];
+    [self.inactiveLoopsLabel removeFromSuperview];
+    [self addSubview:self.inactiveLoopsLabel positioned:NSWindowAbove relativeTo:nil];
 }
 
 /*
@@ -110,6 +115,8 @@
     [loop setEnabled:NO];
     [self.activeLoopsSrollView removeLoop:loop];
     [self.inactiveLoopsScrollView addLoop:loop];
+    [self.inactiveLoopsLabel removeFromSuperview];
+    [self addSubview:self.inactiveLoopsLabel positioned:NSWindowAbove relativeTo:nil];
 }
 
 @end

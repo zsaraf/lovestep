@@ -33,6 +33,8 @@
         self.docView = [[NSView alloc] initWithFrame:self.bounds];
         self.loopViews = [[NSMutableArray alloc] init];
         
+        [self setHasVerticalScroller:YES];
+        
         [self setDocumentView:self.docView];
         
     }
@@ -78,7 +80,7 @@
         
         // Create a new loop view
         LoopView *newLoopView = [[LoopView alloc] initWithFrame:NSMakeRect(currentX, currentY, LOOP_SIZE, LOOP_SIZE) andLoop:[self.loops objectAtIndex:i] target:self selector:@selector(loopHit:)];
-
+        
         [self.loopViews addObject:newLoopView];
         [self.docView addSubview:newLoopView];
         

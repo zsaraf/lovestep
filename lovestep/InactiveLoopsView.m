@@ -33,8 +33,9 @@
         self.docView = [[NSView alloc] initWithFrame:self.bounds];
         self.loopViews = [[NSMutableArray alloc] init];
         
-        [self setDocumentView:self.docView];
+        [self setHasVerticalScroller:YES];
         
+        [self setDocumentView:self.docView];
     }
     return self;
 }
