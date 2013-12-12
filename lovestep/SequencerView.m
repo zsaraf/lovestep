@@ -72,7 +72,7 @@ typedef struct Resolution {
                                                        name:@"Loop1"
                                                     creator:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
                                                     enabled:YES
-                                                    loopNo:self.loopNo];
+                                                     loopNo:self.loopNo];
         [self initializeKeyboardFluidSynths];
         self.grid = [[NSMutableArray alloc] init];
         
@@ -154,7 +154,7 @@ typedef struct Resolution {
     for (int i = 0; i < NUM_KEYS; i++) {
         
         MidiButton *newKey = [[MidiButton alloc] initWithKeyNumber:currentKeyNumber target:self mouseDownSEL:@selector(midiButtonEnabled:) mouseUpSEL:@selector(midiButtonDisabled:)];
-                                                                                                                                                            
+        
         [newKey setFrame:NSRectFromCGRect(CGRectMake(0.0f, currentY, KEY_WIDTTH, CELL_LENGTH))];
         
         [self.docView addSubview:newKey];
@@ -183,7 +183,7 @@ typedef struct Resolution {
         
         NSMutableArray *loopGrid = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
         NSMutableArray *gridButtonGrid = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
-
+        
         for (int j = 0; j < MAX_LENGTH; j++) {
             MidiButton *currentKey = [self.midiButtons objectAtIndex:i];
             GridButton *newButton = [[GridButton alloc] initInPosition:j withMidiButton:currentKey fromView:self];
@@ -355,7 +355,7 @@ typedef struct Resolution {
     for (int i = 0; i < NUM_KEYS; i++) {
         
         NSMutableArray *loopGrid = [[NSMutableArray alloc] initWithCapacity:MAX_LENGTH];
-
+        
         for (int j = 0; j < MAX_LENGTH; j++) {
             // Get the grid button at each place and set it to off
             GridButton *gb = [[self.grid objectAtIndex:i] objectAtIndex:j];
@@ -366,7 +366,7 @@ typedef struct Resolution {
         }
         
         [self.currentLoop.grid addObject:loopGrid];
-
+        
     }
     
     // Set the defualt length and resolutions
@@ -431,11 +431,12 @@ typedef struct Resolution {
 {
     if ([instrument.name isEqualToString:@"Drums"]) {
         for (int i = 0; i < self.midiButtons.count; i++) {
-            [[self.midiButtons objectAtIndex:i] changeMidiKeyNamesTo:self.d];
+            [[self.midiButtons objectAtIndex:i] changeKeyNameTo:[self.drumKits objectAtIndex:i]];
         }
-        [self changeMidiKeyNamesToDrums];
     } else if ([self.currentLoop.instrument.name isEqualToString:@"Drums"]){
-        [self changeMidiKeyNamesToDefault];
+        for (int i = 0; i < self.midiButtons.count; i++) {
+            [[self.midiButtons objectAtIndex:i] changeKeyNameToDefault];
+        }
     }
     
     [self.currentLoop setInstrument:instrument];
