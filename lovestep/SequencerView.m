@@ -65,7 +65,7 @@ typedef struct Resolution {
                                                        name:@"Loop1"
                                                     creator:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
                                                     enabled:YES];
-        
+        [self initializeKeyboardFluidSynths];
         self.grid = [[NSMutableArray alloc] init];
         
         // Initialization code here.
@@ -75,6 +75,22 @@ typedef struct Resolution {
         [self setupTicker];
     }
     return self;
+}
+
+-(void)initializeKeyboardFluidSynths
+{
+    self.keyboardFluidSettings = new_fluid_settings();
+    fluid_settings_setint(self.keyboardFluidSettings, "synth.polyphony", 128);
+    self.keyboardFluidSynth = new_fluid_synth(self.keyboardFluidSettings);
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"SoundFont1" ofType:@"sf2"];
+    
+    int success = fluid_synth_sfload(self.keyboardFluidSynth, [bundlePath cStringUsingEncoding:NSUTF8StringEncoding], 1);
+    if (!success) {
+        NSAssert(0, @"Fluid synth could not load");
+    }
+    
+    fluid_synth_set_sample_rate(self.keyboardFluidSynth, 44100);
+    [self syncKeyboardFluidSynthWithCurrentLoop];
 }
 
 -(void)awakeFromNib
@@ -288,6 +304,7 @@ typedef struct Resolution {
                                                    name:@"Loop1"
                                                 creator:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
                                                 enabled:YES];
+    [self syncKeyboardFluidSynthWithCurrentLoop];
     
     // Clear the grid visually
     for (int i = 0; i < NUM_KEYS; i++) {
@@ -357,9 +374,28 @@ typedef struct Resolution {
     }
 }
 
+// sync the keyboard fluid synths instrument with that of the current loop.
+// must be called whenever the currentLoops instrument changes
+-(void)syncKeyboardFluidSynthWithCurrentLoop
+{
+    fluid_synth_bank_select(self.keyboardFluidSynth, 2, (int)self.currentLoop.instrument.bank);
+    fluid_synth_program_change(self.keyboardFluidSynth, 2, (int)self.currentLoop.instrument.program);
+}
+
 -(void)instrumentDidChangeToInstrument:(Instrument *)instrument
 {
     [self.currentLoop setInstrument:instrument];
+    [self syncKeyboardFluidSynthWithCurrentLoop];
+}
+
+-(void)midiButtonEnabled:(MidiButton *)midiButton
+{
+    fluid_synth_noteon(self.keyboardFluidSynth, 2, (int)midiButton.keyNumber, 100);
+}
+
+-(void)midiButtonDisabled:(MidiButton *)midiButton
+{
+    fluid_synth_noteoff(self.keyboardFluidSynth, 2, (int)midiButton.keyNumber);
 }
 
 @end

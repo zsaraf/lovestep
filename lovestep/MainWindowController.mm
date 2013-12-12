@@ -157,6 +157,19 @@
     [self.loops addObjectsFromArray:discardedItems];
 }
 
+// Adds data from keyboard Synth (located in sequencerView) to the mainData
+-(void)addKeyboardSynthWithlBuff:(float *)lBuff
+                           rBuff:(float *)rBuff
+                        mainData:(float *)mainData
+                       numFrames:(NSInteger)numFrames
+                     numChannels:(NSInteger)numChannels
+{
+    fluid_synth_write_float(self.mWindow.sequencerView.keyboardFluidSynth, (int)numFrames, lBuff, 0, 1, rBuff, 0, 1);
+    for (int i = 0; i < numFrames; i++) {
+        mainData[i * numChannels] += lBuff[i] * self.mWindow.sequencerView.currentLoop.instrument.volumeRatio;
+    }
+}
+
 /*
  * Sets up the audio playback
  */
@@ -197,6 +210,9 @@
          for (Loop *loop in wself.loops) {
              [wself soundDataForLoop:loop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
          }
+         
+         // add data from the synth controlled by keyboard buttons
+         [wself addKeyboardSynthWithlBuff:lBuff rBuff:rBuff mainData:data numFrames:numFrames numChannels:numChannels];
          // increment time counter
          wself.counter += numFrames;
          

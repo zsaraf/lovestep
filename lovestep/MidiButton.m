@@ -7,6 +7,7 @@
 //
 
 #import "MidiButton.h"
+#import "SequencerView.h"
 
 @implementation MidiButton
 
@@ -76,6 +77,22 @@ static NSString *keyNames[12] = {
     }
     
     return self;
+}
+
+-(void)mouseUp:(NSEvent *)theEvent
+{
+    NSAssert([self.superview isKindOfClass:[SequencerView class]], @"Midi buttons superview is not sequencer view.");
+    [(SequencerView *)self.superview midiButtonDisabled:self];
+}
+
+-(void)mouseDown:(NSEvent *)theEvent
+{
+    NSAssert([self.superview isKindOfClass:[SequencerView class]], @"Midi buttons superview is not sequencer view.");
+    [(SequencerView *)self.superview midiButtonEnabled:self];
+ 
+    // call super which handles ui on the main thread, and then returns when mouse up is called. so we call mouseUp manually
+    [super mouseDown:theEvent];
+    [self mouseUp:theEvent];
 }
 
 - (float)getFrequencyForKeyNumber:(NSInteger)keyNumber
