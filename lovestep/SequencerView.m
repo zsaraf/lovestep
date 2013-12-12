@@ -417,6 +417,14 @@ typedef struct Resolution {
 
 -(void)instrumentDidChangeToInstrument:(Instrument *)instrument
 {
+    if ([instrument.name isEqualToString:@"Drums"]) {
+        for (int i = 0; i < self.midiButtons.count; i++) {
+            [[self.midiButtons objectAtIndex:i] changeMidiKeyNames];
+        }
+        [self changeMidiKeyNamesToDrums];
+    } else if ([self.currentLoop.instrument.name isEqualToString:@"Drums"]){
+        [self changeMidiKeyNamesToDefault];
+    }
     [self.currentLoop setInstrument:instrument];
     [self syncKeyboardFluidSynthWithCurrentLoop];
 }

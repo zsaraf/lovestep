@@ -91,6 +91,8 @@ static NSString *keyNames[12] = {
     return self;
 }
 
+- (void)changeKeyNames
+
 -(void)mouseUp:(NSEvent *)theEvent
 {
     if (self.target) {
