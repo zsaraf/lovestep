@@ -62,7 +62,10 @@
  */
 - (void)sequencerViewDidPushLoop:(Loop *)newLoop
 {
-    [self.loops addObject:newLoop];
+    @synchronized(self.mWindow.sequencerView.currentLoop) {
+        [self.loops addObject:newLoop];
+        self.mWindow.sequencerView.currentLoop = nil;
+    }
     [self.loopDelegate didFindNewLoop:newLoop];
     [[NetworkManager instance] sendLoop:newLoop];
 }
@@ -226,9 +229,13 @@
          memset(data, 0, numFrames * numChannels * sizeof(float));
          [wself checkPendingLoopsWithNumFrames:numFrames];
          
-         [wself soundDataForLoop:wself.mWindow.sequencerView.currentLoop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
-         for (Loop *loop in wself.loops) {
-             [wself soundDataForLoop:loop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
+         @synchronized(wself.mWindow.sequencerView.currentLoop) {
+             if (wself.mWindow.sequencerView.currentLoop) {
+                 [wself soundDataForLoop:wself.mWindow.sequencerView.currentLoop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
+             }
+             for (Loop *loop in wself.loops) {
+                 [wself soundDataForLoop:loop numFrames:numFrames numChannels:numChannels lData:lBuff rData:rBuff mainData:data];
+             }
          }
          
          // add data from the synth controlled by keyboard buttons
