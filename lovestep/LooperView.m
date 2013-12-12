@@ -72,6 +72,8 @@
             [loop setEnabled:NO];
             [self.activeLoopsSrollView removeLoop:loop];
             [self.inactiveLoopsScrollView addLoop:loop];
+            [self.inactiveLoopsLabel removeFromSuperview];
+            [self addSubview:self.inactiveLoopsLabel positioned:NSWindowAbove relativeTo:nil];
             return;
         }
     }
@@ -88,6 +90,8 @@
             [loop setEnabled:YES];
             [self.activeLoopsSrollView addLoop:loop];
             [self.inactiveLoopsScrollView removeLoop:loop];
+            [self.inactiveLoopsLabel removeFromSuperview];
+            [self addSubview:self.inactiveLoopsLabel positioned:NSWindowAbove relativeTo:nil];
             return;
         }
     }
