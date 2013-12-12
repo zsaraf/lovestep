@@ -1,12 +1,24 @@
 # Format
 # {bank}:{program}:{volume-ratio}:{name}
-0:1:1:Grand Piano:
-0:25:2:Steel Guitar
-1:38:5:Synth Bass
-8:80:5:Sin Groove
-0:58:2:Tuba
-8:14:3:Church Bells
-16:25:2:Mandolin
-8:19:2:Pipe Organ
-0:89:4:Warm Pad
-0:40:3:Violin
+0:1:1:Grand Piano
+0:4:5:Electric Piano
+0:10:5:Music Box
+0:11:5:Vibraphone
+0:15:5:Dulcimer
+0:16:5:Tonewheel Organ
+0:20:5:Reed Organ
+0:21:5:Accordian
+0:24:5:Nylon Guitar
+0:28:5:Muted Guitar
+0:32:5:Acoustic Bass
+0:40:5:Violin
+0:42:5:Cello
+0:45:5:Pizzicato Strings
+0:46:5:Orchestral Harp
+0:52:5:Concert Choir
+0:53:5:Voice Oohs
+0:54:5:Synth Voice
+0:56:5:Trumpet
+0:63:5:Synth Brass
+0:85:5:Solo Vox
+0:87:5:Bass & Lead

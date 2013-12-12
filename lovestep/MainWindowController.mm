@@ -186,7 +186,7 @@
 {
     fluid_synth_write_float(self.mWindow.sequencerView.keyboardFluidSynth, (int)numFrames, lBuff, 0, 1, rBuff, 0, 1);
     for (int i = 0; i < numFrames; i++) {
-        mainData[i * numChannels] += lBuff[i] * self.mWindow.sequencerView.currentLoop.instrument.volumeRatio;
+        mainData[i * numChannels] += lBuff[i] * self.mWindow.sequencerView.currentLoop.instrument.volumeRatio * 5;
     }
 }
 
