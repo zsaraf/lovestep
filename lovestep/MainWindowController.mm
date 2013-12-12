@@ -130,9 +130,7 @@
         gButtonIndex = (note.note >= loop.length - 1) ? 0 : note.note + 1;
         
         if (loop == self.mWindow.sequencerView.currentLoop) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.noteChangeDelegate noteDidChangeToNoteNumber:gButtonIndex];
-            });
+            [self.noteChangeDelegate noteDidChangeToNoteNumber:gButtonIndex];
         }
         
     } else {
@@ -210,14 +208,14 @@
     if (!success) {
         NSAssert(0, @"Fluid synth could not load");
     }
-
+    
     float *lBuff = (float *)malloc(512 * sizeof(float));
     float *rBuff = (float *)malloc(512 * sizeof(float));
     
     self.audioManager = [Novocaine audioManager];
     
     __weak MainWindowController * wself = self;
-
+    
     self.counter = 0;
     
     self.noteChangeDelegate = self.mWindow.sequencerView;

@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#define BASE_KEY 40
+#define BASE_KEY 28
 
 @interface MidiButton : NSButton
 

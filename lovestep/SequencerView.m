@@ -36,11 +36,13 @@ typedef struct Resolution {
 @property (nonatomic, strong) NSScrollView *scrollView;
 @property (nonatomic, strong) NSView *docView;
 
+@property (nonatomic) NSInteger currentNote;
+
 @end
 
 @implementation SequencerView
 
-#define NUM_KEYS 35
+#define NUM_KEYS 49
 
 #define KEY_WIDTTH 50
 #define CELL_LENGTH 25
@@ -80,6 +82,9 @@ typedef struct Resolution {
         [self addSubview:self.scrollView];
         [self.scrollView setHasVerticalScroller:YES];
         [self.scrollView setVerticalScrollElasticity:NSScrollElasticityNone];
+        
+        NSTimer *timer = [NSTimer timerWithTimeInterval:0.001f target:self selector:@selector(highlightColumn) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
         
         // Initialization code here.
         // Draw the sequencer here
@@ -194,7 +199,6 @@ typedef struct Resolution {
  */
 - (int)rowForTouch:(NSPoint)touch
 {
-    NSLog(@"Scrollview y pos: %f", [self.scrollView documentVisibleRect].origin.y);
     float yAdjust = self.scrollView.documentVisibleRect.origin.y;
     return (touch.y + yAdjust)/CELL_LENGTH;
 }
@@ -275,9 +279,9 @@ typedef struct Resolution {
 /*
  * Highlights the column
  */
-- (void)highlightColumn:(NSInteger)columnNumber
+- (void)highlightColumn
 {
-    [self.ticker setFrame:NSRectFromCGRect(CGRectMake(KEY_WIDTTH + columnNumber * (CELL_LENGTH), self.ticker.frame.origin.y, self.ticker.frame.size.width, self.ticker.frame.size.height))];
+    [self.ticker setFrame:NSRectFromCGRect(CGRectMake(KEY_WIDTTH + self.currentNote * (CELL_LENGTH), self.ticker.frame.origin.y, self.ticker.frame.size.width, self.ticker.frame.size.height))];
 }
 
 /*
@@ -285,7 +289,7 @@ typedef struct Resolution {
  */
 - (void)noteDidChangeToNoteNumber:(NSInteger)noteNumber
 {
-    [self highlightColumn:noteNumber];
+    self.currentNote = noteNumber;
 }
 
 /*
