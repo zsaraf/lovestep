@@ -850,6 +850,7 @@
                                             </connections>
                                         </collectionView>
                                     </subviews>
+                                    <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="eqz-1B-lpK">
                                     <rect key="frame" x="1" y="144" width="233" height="15"/>

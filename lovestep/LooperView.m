@@ -14,7 +14,6 @@
 @property (nonatomic, weak) IBOutlet LooperHeaderView *looperHeaderView;
 @property (nonatomic, weak) IBOutlet ActiveLoopsView *activeLoopsSrollView;
 @property (nonatomic, weak) IBOutlet InactiveLoopsView *inactiveLoopsScrollView;
-@property (nonatomic, strong) NSMutableArray *loops;
 
 @end
 
@@ -31,18 +30,6 @@
 }
 
 /*
- * Init with frame
- */
-- (id)initWithFrame:(NSRect)frameRect
-{
-    if (self = [super initWithFrame:frameRect]) {
-        self.loops = [[NSMutableArray alloc] init];
-    }
-    
-    return self;
-}
-
-/*
  * Awoke
  */
 - (void)awakeFromNib
@@ -56,7 +43,6 @@
  */
 - (void)didFindNewLoop:(Loop *)newLoop
 {
-    [self.loops addObject:newLoop];
     [self.activeLoopsSrollView addLoop:newLoop];
 }
 
