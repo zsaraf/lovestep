@@ -13,10 +13,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
     // Insert code here to initialize your application
     [self.loginWindow makeKeyAndOrderFront:nil];
     [self.mainWindow orderOut:self];
-    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
     
     // REMOVE for final version
 //    [self didLogIn];
