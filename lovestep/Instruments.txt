@@ -22,3 +22,4 @@
 0:63:5:Synth Brass
 0:85:5:Solo Vox
 0:87:5:Bass & Lead
+120:16:5:Drums
