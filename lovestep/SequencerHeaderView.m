@@ -8,7 +8,6 @@
 
 #import "SequencerHeaderView.h"
 #import "SequencerView.h"
-#import "ChangeInstrumentView.h"
 
 @interface SequencerHeaderView ()
 
@@ -17,7 +16,6 @@
 @property (nonatomic) NSInteger currentResolutionIndex;
 @property (nonatomic) NSPoint previousLocationChange;
 @property (nonatomic, weak) IBOutlet NSButton *changeInstrumentButton;
-@property (nonatomic, strong) ChangeInstrumentView *civ;
 @property (nonatomic, weak) id target;
 @property (nonatomic) SEL selector;
 

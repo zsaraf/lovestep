@@ -384,6 +384,11 @@ typedef struct Resolution {
                                                 creator:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"]
                                                 enabled:YES
                                                  loopNo:++self.loopNo];
+    
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+    [self.sequenceHeaderView.civ.tableView selectRowIndexes:indexSet byExtendingSelection:NO];
+    [self instrumentDidChangeToInstrument:[Instrument defaultInstrument]];
+    
     [self syncKeyboardFluidSynthWithCurrentLoop];
     
     // Clear the grid visually
@@ -468,7 +473,7 @@ typedef struct Resolution {
         for (int i = 0; i < self.midiButtons.count; i++) {
             [[self.midiButtons objectAtIndex:i] changeKeyNameTo:[self.drumKits objectAtIndex:i]];
         }
-    } else if ([self.currentLoop.instrument.name isEqualToString:@"Drums"]){
+    } else {
         for (int i = 0; i < self.midiButtons.count; i++) {
             [[self.midiButtons objectAtIndex:i] changeKeyNameToDefault];
         }

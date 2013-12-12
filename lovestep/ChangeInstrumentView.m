@@ -12,7 +12,6 @@
 
 // instruments array
 @property (nonatomic, strong) NSMutableArray *instruments;
-@property (nonatomic, strong) NSTableView *tableView;
 @property (nonatomic, strong) NSScrollView *scrollView;
 
 @end

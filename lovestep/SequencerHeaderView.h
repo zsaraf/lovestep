@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ChangeInstrumentView.h"
 
 @protocol SequencerHeaderViewDelegate
 
@@ -21,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet NSTextField *nameField;
 @property (nonatomic, weak) IBOutlet NSTextField *resolutionField;
 @property (nonatomic, weak) IBOutlet NSTextField *lengthField;
+@property (nonatomic, strong) ChangeInstrumentView *civ;
 
 - (void)prepareForTakeoffWithTarget:(id)target selector:(SEL)selector;
 

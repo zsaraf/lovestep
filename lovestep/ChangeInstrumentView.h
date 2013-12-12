@@ -20,5 +20,6 @@
 @interface ChangeInstrumentView : NSView <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (nonatomic, weak) id <ChangeInstrumentDelegate>delegate;
+@property (nonatomic, strong) NSTableView *tableView;
 
 @end
